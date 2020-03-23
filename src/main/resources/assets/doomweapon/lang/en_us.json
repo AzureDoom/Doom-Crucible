@@ -1,0 +1,7 @@
+{
+    "item.doomweapon.doomcrucible_closed": "Doom Crucible (Expired)",
+	"item.doomweapon.doomcrucible_open": "Doom Crucible",
+	"doomweapon.config.crucible_attack": "Crucible Attack Damage",
+	"doomweapon.config.crucible_maxdamage": "Crucible Max Damage",
+	"doomweapon.affix.of_doom": "of Doom"
+}
