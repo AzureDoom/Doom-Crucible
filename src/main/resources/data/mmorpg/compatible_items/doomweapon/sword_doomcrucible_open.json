@@ -5,11 +5,11 @@
   "gear_type": {
     "normal_item_weight": 0,
     "runed_item_weight": 0,
-    "unique_item_weight": 100
+    "unique_item_weight": 9999
   },
   "rarity": {
-    "min_rarity": 3,
-    "max_rarity": 5
+    "min_rarity": 4,
+    "max_rarity": 4
   },
   "misc": {
     "only_add_stats_if_loot_drop": false,
@@ -24,6 +24,6 @@
   },
   "unique": {
     "if_unique_random_up_to_tier": 20,
-    "unique_id": "fire_ele_saber0"
+    "unique_id": "doom_crucible"
   }
 }

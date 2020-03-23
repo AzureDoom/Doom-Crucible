@@ -3,5 +3,7 @@
 	"item.doomweapon.doomcrucible_open": "Doom Crucible",
 	"doomweapon.config.crucible_attack": "Crucible Attack Damage",
 	"doomweapon.config.crucible_maxdamage": "Crucible Max Damage",
+	"item.doomweapon.uniques.sword.doom_crucible": "§eDoom Crucible",
+	"item.doomweapon.uniques.sword.doom_crucible.desc": "Rip and Tear. Until it is done.",
 	"doomweapon.affix.of_doom": "of Doom"
 }

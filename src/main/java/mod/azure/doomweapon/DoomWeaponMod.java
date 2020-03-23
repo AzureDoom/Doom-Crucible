@@ -14,7 +14,7 @@ public class DoomWeaponMod {
 	public DoomWeaponMod() {
 		instance = this;
 		ModLoadingContext modLoadingContext = ModLoadingContext.get();
-		modLoadingContext.registerConfig(ModConfig.Type.SERVER, Config.SERVER_SPEC, "doomweapon-config.toml");
+		modLoadingContext.registerConfig(ModConfig.Type.CLIENT, Config.SERVER_SPEC, "doomweapon-config.toml");
 		Config.loadConfig(Config.SERVER_SPEC, FMLPaths.CONFIGDIR.get().resolve("doomweapon-config.toml").toString());
 	}
 }
