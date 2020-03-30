@@ -1,7 +1,7 @@
 {
     "parent": "forge:item/default",
 	"loader": "forge:obj",
-	"model": "doomweapon:models/item/doom_sword_runed.obj",
+	"model": "doomweapon:models/item/open_sword.obj",
 	"display" : {
     	"thirdperson_righthand": {
             	"rotation": [ 0, 188, 0 ],

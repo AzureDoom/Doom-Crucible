@@ -8,7 +8,6 @@ import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 
 public class Config {
@@ -25,7 +24,6 @@ public class Config {
 	public static class ServerConfig {
 		public ConfigValue<Integer> CRUCIBLE_ATTACK;
 		public ConfigValue<Integer> CRUCIBLE_MAXDAMAGE;
-		public BooleanValue USE_LIGHTNING_CRUCIBLE;
 
 		ServerConfig(ForgeConfigSpec.Builder builder) {
 			builder.push("general");
@@ -34,9 +32,6 @@ public class Config {
 					.translation(DoomWeaponMod.MODID + ".config.crucible_attack").define("CRUCIBLE_ATTACK", 4);
 			CRUCIBLE_MAXDAMAGE = builder.comment("Max damage of Crucible.")
 					.translation(DoomWeaponMod.MODID + ".config.crucible_maxdamage").define("CRUCIBLE_MAXDAMAGE", 300);
-			USE_LIGHTNING_CRUCIBLE = builder.comment("Should the Crucible be able to summon lighting bolts?")
-					.translation(DoomWeaponMod.MODID + ".config.use_lightning_crucible")
-					.define("USE_LIGHTNING_CRUCIBLE", true);
 			builder.pop();
 		}
 	}

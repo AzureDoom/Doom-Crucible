@@ -18,7 +18,7 @@ apply plugin: "com.wynprice.cursemaven"
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
-version = "1.0.1"
+version = "1.2.0"
 group = "mod.azure.doomweapon"
 archivesBaseName = "Doom-Crucible-1.15.2"
 
@@ -79,6 +79,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.1.27'
     compile fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.2-2.0-beta2")
 	compile fg.deobf("curse.maven:MaS:2909711")
+	compile fg.deobf("curse.maven:ADI:2887432")
 	compile fg.deobf("curse.maven:JEI:2866141")
 }
 
