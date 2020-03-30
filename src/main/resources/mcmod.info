@@ -1,0 +1,16 @@
+[
+    {
+        "modid": "doomweapon",
+        "name": "Doom Weapons",
+        "description": "Doom based Minecaft mod.",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["AzureDoom"],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]

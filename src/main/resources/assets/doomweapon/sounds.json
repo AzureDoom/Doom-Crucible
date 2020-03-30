@@ -1,8 +1,0 @@
-{
-	"doom.open": {
-		"category": "music", "sounds": [{"name": "doomweapon:doom_open", "stream": true}]
-	},
-	"doom.close": {
-		"category": "music", "sounds": [{"name": "doomweapon:doom_close", "stream": true}]
-	}
-}

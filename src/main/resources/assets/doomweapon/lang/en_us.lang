@@ -1,0 +1,5 @@
+item.doomcrucible_open.name=Sword Crucible
+item.doomcrucible_closed.name=Sword Crucible (Expired)
+item.crucible_axe_open.name=Axe Crucible
+item.crucible_axe_closed.name=Axe Crucible (Expired)
+itemGroup.doomweapon=Doom Crucible

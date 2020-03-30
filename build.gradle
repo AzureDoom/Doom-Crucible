@@ -1,121 +1,53 @@
 buildscript {
     repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url  = 'https://plugins.gradle.org/m2/' }
         jcenter()
-        mavenCentral()
+        maven { url = "https://files.minecraftforge.net/maven" }
+		maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
 		classpath "com.wynprice.cursemaven:CurseMaven:2.1.1"
     }
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: "com.wynprice.cursemaven"
 
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
-version = "1.2.0"
+version = "1.0.0"
 group = "mod.azure.doomweapon"
-archivesBaseName = "Doom-Crucible-1.15.2"
+archivesBaseName = "Doom-Crucible-1.12.2"
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
-
-minecraft {
-    mappings channel: 'snapshot', version: '20200219-1.15.1'
-    //accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-    runs {
-        client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                wowweapons {
-                    source sourceSets.main
-                }
-            }
-        }
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            mods {
-                wowweapons {
-                    source sourceSets.main
-                }
-            }
-        }
-        data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', 'wowweapons', '--all', '--output', file('src/generated/resources/'),  '--existing', sourceSets.main.resources.srcDirs[0]
-            mods {
-                wowweapons {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
 }
 
-repositories {
-    jcenter()
-
-    maven {
-        name = "jitpack"
-        url "https://jitpack.io"
-    }
-
-	maven { url = "https://maven2.tterrag.com" }
-    maven { url = "https://maven.theillusivec4.top/" }
-
+minecraft {
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.27'
-    compile fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.2-2.0-beta2")
-	compile fg.deobf("curse.maven:MaS:2909711")
-	compile fg.deobf("curse.maven:ADI:2887432")
-	compile fg.deobf("curse.maven:JEI:2866141")
+	deobfCompile "curse.maven:mas:2887901"
+	deobfCompile "curse.maven:baubles:2518667"
+	deobfCompile "curse.maven:patchouli:2731963"
+	deobfCompile "curse.maven:biblo:2574880"
 }
 
-jar {
-    manifest {
-        attributes([
-            "Specification-Title": "dotHack Weapons",
-            "Specification-Vendor": "AzureDoomC",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-}
-
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact reobfArtifact
-        }
-    }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
 processResources {
-	doLast {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+	 doLast {
     
         def jsonMinifyStart = System.currentTimeMillis()
         def jsonMinified = 0
