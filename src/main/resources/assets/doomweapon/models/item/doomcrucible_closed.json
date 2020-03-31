@@ -1,7 +1,7 @@
 {
     "parent": "forge:item/default",
 	"loader": "forge:obj",
-	"model": "doomweapon:models/item/closed_sword.obj",
+	"model": "doomweapon:models/item/weapons/closed_sword.obj",
 	"display" : {
     	"thirdperson_righthand": {
             	"rotation": [ 0, 188, 0 ],
