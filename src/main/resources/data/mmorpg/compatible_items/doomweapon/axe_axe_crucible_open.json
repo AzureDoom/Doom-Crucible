@@ -1,7 +1,7 @@
 {
-  "item_type": "sword",
-  "item_id": "doomweapon:doomcrucible_open",
-  "id": "sword:doomweapon:doomcrucible_open",
+  "item_type": "axe",
+  "item_id": "doomweapon:axe_crucible_open",
+  "id": "axe:doomweapon:axe_crucible_open",
   "gear_type": {
     "normal_item_weight": 0,
     "runed_item_weight": 0,
@@ -23,7 +23,7 @@
     "level_variance": 0
   },
   "unique": {
-    "if_unique_random_up_to_tier": 20,
-    "unique_id": "doom_crucible"
+    "if_unique_random_up_to_tier": 10,
+    "unique_id": "axe_crucible"
   }
 }

@@ -22,16 +22,26 @@ public class Config {
 	}
 
 	public static class ServerConfig {
-		public ConfigValue<Integer> CRUCIBLE_ATTACK;
-		public ConfigValue<Integer> CRUCIBLE_MAXDAMAGE;
+		public ConfigValue<Integer> SWORD_CRUCIBLE_ATTACK;
+		public ConfigValue<Integer> SWORD_CRUCIBLE_MAXDAMAGE;
+		public ConfigValue<Integer> AXE_CRUCIBLE_ATTACK;
+		public ConfigValue<Integer> AXE_CRUCIBLE_MAXDAMAGE;
 
 		ServerConfig(ForgeConfigSpec.Builder builder) {
 			builder.push("general");
-			CRUCIBLE_ATTACK = builder.comment(
-					"Attack damage of Crucible. Minecraft adds 4 to this number so set it four lower then you want.")
-					.translation(DoomWeaponMod.MODID + ".config.crucible_attack").define("CRUCIBLE_ATTACK", 4);
-			CRUCIBLE_MAXDAMAGE = builder.comment("Max damage of Crucible.")
-					.translation(DoomWeaponMod.MODID + ".config.crucible_maxdamage").define("CRUCIBLE_MAXDAMAGE", 300);
+			SWORD_CRUCIBLE_ATTACK = builder.comment(
+					"Attack damage of Crucible Sword. Minecraft adds 4 to this number so set it four lower then you want.")
+					.translation(DoomWeaponMod.MODID + ".config.sword_crucible_attack")
+					.define("SWORD_CRUCIBLE_ATTACK", 4);
+			SWORD_CRUCIBLE_MAXDAMAGE = builder.comment("Max damage of Crucible Sword.")
+					.translation(DoomWeaponMod.MODID + ".config.sword_crucible_maxdamage")
+					.define("SWORD_CRUCIBLE_MAXDAMAGE", 300);
+			AXE_CRUCIBLE_ATTACK = builder.comment(
+					"Attack damage of Crucible Axe. Minecraft adds 4 to this number so set it four lower then you want.")
+					.translation(DoomWeaponMod.MODID + ".config.axe_crucible_attack").define("AXE_CRUCIBLE_ATTACK", 4);
+			AXE_CRUCIBLE_MAXDAMAGE = builder.comment("Max damage of Crucible Axe.")
+					.translation(DoomWeaponMod.MODID + ".config.axe_crucible_maxdamage")
+					.define("AXE_CRUCIBLE_MAXDAMAGE", 300);
 			builder.pop();
 		}
 	}

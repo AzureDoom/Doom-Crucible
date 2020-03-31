@@ -1,9 +1,11 @@
-package mod.azure.doomweapon.item;
+package mod.azure.doomweapon.item.weapons;
 
 import javax.annotation.Nullable;
 
 import mod.azure.doomweapon.Config;
+import mod.azure.doomweapon.DoomTab;
 import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.item.DoomTier;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.boss.WitherEntity;
@@ -17,9 +19,7 @@ import net.minecraft.entity.monster.ZombieVillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTier;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
@@ -31,11 +31,12 @@ import net.minecraftforge.event.entity.player.CriticalHitEvent;
 
 public class SwordCrucibleItem extends SwordItem {
 
-	public static final IItemPropertyGetter BLOCKING_GETTER = (stack, world, entity) -> entity != null && entity.isHandActive() && entity.getActiveItemStack() == stack ? 1.0F : 0.0F;
-	
+	public static final IItemPropertyGetter BLOCKING_GETTER = (stack, world,
+			entity) -> entity != null && entity.isHandActive() && entity.getActiveItemStack() == stack ? 1.0F : 0.0F;
+
 	public SwordCrucibleItem(String name) {
-		super(ItemTier.DIAMOND, Config.SERVER.CRUCIBLE_ATTACK.get(), -2.4F,
-				new Item.Properties().group(ItemGroup.COMBAT).maxDamage(Config.SERVER.CRUCIBLE_MAXDAMAGE.get()));
+		super(DoomTier.DOOM, Config.SERVER.SWORD_CRUCIBLE_ATTACK.get(), -2.4F, new Item.Properties()
+				.group(DoomTab.DoomItemGroup).maxDamage(Config.SERVER.SWORD_CRUCIBLE_MAXDAMAGE.get()));
 		this.setRegistryName(DoomWeaponMod.MODID, name);
 		addPropertyOverride(new ResourceLocation("blocking"), BLOCKING_GETTER);
 	}
