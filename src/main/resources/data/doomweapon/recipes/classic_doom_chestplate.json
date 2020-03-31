@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "doomweapon:classic_doom_chestplate"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "   ",
+        " @ ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:doom_chestplate"
+        },
+		"@": {
+			"item": "minecraft:green_dye"
+		}
+    }
+}

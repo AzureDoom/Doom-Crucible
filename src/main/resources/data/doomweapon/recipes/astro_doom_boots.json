@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "doomweapon:astro_doom_boots"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "   ",
+        " @ ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:doom_boots"
+        },
+		"@": {
+			"item": "minecraft:white_dye"
+		}
+    }
+}
