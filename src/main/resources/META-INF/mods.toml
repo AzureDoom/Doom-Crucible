@@ -5,10 +5,10 @@ logoFile="doomlogo.png"
 [[mods]] 
 modId="doomweapon"
 version="${file.jarVersion}" 
-displayName="Doom Crucible"
+displayName="Doom Mod"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/doom-crucible" 
 authors="AzureDoomC" 
 credits="Thanks to Narial/ulnight for the awesome model and textures!"
 description='''
-Adds Doom Crucible into Minecraft
+Adds Doom into Minecraft
 '''

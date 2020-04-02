@@ -1,5 +1,6 @@
 package mod.azure.doomweapon;
 
+import mod.azure.doomweapon.util.Config;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;

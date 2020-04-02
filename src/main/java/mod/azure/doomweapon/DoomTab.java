@@ -18,5 +18,4 @@ public class DoomTab {
 			return true;
 		}
 	}).setBackgroundImageName("item_search.png");
-
 }

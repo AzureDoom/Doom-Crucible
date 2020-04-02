@@ -1,5 +1,5 @@
 {
-	"item.doomweapon.doom_ingot": "Doom Ingot",
+	"item.doomweapon.argent_energy": "Argent Energy",
     "item.doomweapon.doomcrucible_closed": "Crucible Sword (Expired)",
 	"item.doomweapon.doomcrucible_open": "Crucible Sword",
 	"item.doomweapon.axe_crucible_closed": "Crucible Axe (Expired)",
@@ -49,10 +49,10 @@
 	"doomweapon.config.axe_crucible_attack": "Crucible Axe Attack Damage",
 	"doomweapon.config.axe_crucible_maxdamage": "Crucible Axe Max Damage",
 	"doomweapon.set.doom_set": "§eDoom Set",
-	"item.doomweapon.uniques.sword.doom_crucible": "§eCrucible Sword",
-	"item.doomweapon.uniques.sword.doom_crucible.desc": "§eRip and Tear. Until it is done.",
-	"item.doomweapon.uniques.axe.axe_crucible": "§eCrucible Axe",
-	"item.doomweapon.uniques.axe.axe_crucible.desc": "§eYou were never one of us. You were nothing but a usurper, a false idol. My eyes have been opened. Let me help you to see, Slayer.",
+	"item.doomweapon.uniques.sword.doom_crucible": "Crucible Sword",
+	"item.doomweapon.uniques.sword.doom_crucible.desc": "Rip and Tear. Until it is done.",
+	"item.doomweapon.uniques.axe.axe_crucible": "Crucible Axe",
+	"item.doomweapon.uniques.axe.axe_crucible.desc": "You were never one of us. You were nothing but a usurper, a false idol. My eyes have been opened. Let me help you to see, Slayer.",
 	"doomweapon.affix.of_doom": "of Doom",
 	"itemGroup.doomweapon" : "Doom Weapons"
 }

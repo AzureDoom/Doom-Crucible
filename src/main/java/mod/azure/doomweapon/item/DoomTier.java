@@ -9,7 +9,7 @@ import net.minecraft.util.LazyValue;
 
 public enum DoomTier implements IItemTier {
 	DOOM(3, 1561, 8.0F, 3.0F, 10, () -> {
-		return Ingredient.fromItems(DoomWeaponItems.DOOM_INGOT);
+		return Ingredient.fromItems(DoomWeaponItems.ARGENT_ENERGY);
 	});
 
 	private final int harvestLevel;

@@ -12,7 +12,9 @@
           "bootsdoom",
           "chestdoom",
 		  "helmetdoom",
-		  "pantsdoom"
+		  "pantsdoom",
+		  "axe_crucible",
+		  "doom_crucible"
         ]
       },
       {

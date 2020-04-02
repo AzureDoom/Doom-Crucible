@@ -1,4 +1,4 @@
-package mod.azure.doomweapon;
+package mod.azure.doomweapon.util;
 
 import java.io.File;
 
@@ -7,6 +7,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 
+import mod.azure.doomweapon.DoomWeaponMod;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 

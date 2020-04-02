@@ -5,12 +5,15 @@
   "type": "minecraft:crafting_shaped",
    "pattern": [
         "   ",
-        "# #",
+        "#$#",
         "# #"
     ],
     "key": {
         "#": {
-            "item": "minecraft:doom_ingot"
+            "item": "minecraft:iron_ingot"
+        },
+        "$": {
+            "item": "doomweapon:argent_energy"
         }
     }
 }
