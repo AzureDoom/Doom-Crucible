@@ -1,6 +1,10 @@
 {
 	"item.doomweapon.argent_energy": "Argent Energy",
-    "item.doomweapon.doomcrucible_closed": "Crucible Sword (Expired)",
+	"item.doomweapon.argent_hoe": "Argent Hoe",
+	"item.doomweapon.argent_axe": "Argent Axe",
+	"item.doomweapon.argent_pickaxe": "Argent Pickaxe",
+	"item.doomweapon.argent_shovel": "Argent Shovel",
+	"item.doomweapon.doomcrucible_closed": "Crucible Sword (Expired)",
 	"item.doomweapon.doomcrucible_open": "Crucible Sword",
 	"item.doomweapon.axe_crucible_closed": "Crucible Axe (Expired)",
 	"item.doomweapon.axe_crucible_open": "Crucible Axe",
@@ -8,6 +12,10 @@
 	"item.doomweapon.doom_chestplate": "Doom Chestplate",
 	"item.doomweapon.doom_leggings": "Doom Leggings",
 	"item.doomweapon.doom_boots": "Doom Boots",
+	"item.doomweapon.praetor_doom_helmet": "Praetor Doom Helmet",
+	"item.doomweapon.praetor_doom_chestplate": "Praetor Doom Chestplate",
+	"item.doomweapon.praetor_doom_leggings": "Praetor Doom Leggings",
+	"item.doomweapon.praetor_doom_boots": "Praetor Doom Boots",
 	"item.doomweapon.astro_doom_helmet": "Astro Doom Helmet",
 	"item.doomweapon.astro_doom_chestplate": "Astro Doom Chestplate",
 	"item.doomweapon.astro_doom_leggings": "Astro Doom Leggings",
@@ -54,5 +62,5 @@
 	"item.doomweapon.uniques.axe.axe_crucible": "Crucible Axe",
 	"item.doomweapon.uniques.axe.axe_crucible.desc": "You were never one of us. You were nothing but a usurper, a false idol. My eyes have been opened. Let me help you to see, Slayer.",
 	"doomweapon.affix.of_doom": "of Doom",
-	"itemGroup.doomweapon" : "Doom Weapons"
+	"itemGroup.doomweapon": "Doom Items"
 }

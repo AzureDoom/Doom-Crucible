@@ -49,6 +49,47 @@ public class DoomArmorMaterial {
 		}
 
 	};
+	
+	public static final IArmorMaterial PRAETOR_DOOM_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 1, 2, 3, 1 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomWeaponItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		public String getName() {
+			return "doomweapon:praetor_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
 
 	public static final IArmorMaterial CLASSIC_DOOM_ARMOR = new IArmorMaterial() {
 

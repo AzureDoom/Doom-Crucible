@@ -24,6 +24,6 @@
   },
   "unique": {
     "if_unique_random_up_to_tier": 10,
-    "unique_id": ""
+    "unique_id": "bootsdoom"
   }
 }

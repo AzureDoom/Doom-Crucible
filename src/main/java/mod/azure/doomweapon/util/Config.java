@@ -33,13 +33,13 @@ public class Config {
 			SWORD_CRUCIBLE_ATTACK = builder.comment(
 					"Attack damage of Crucible Sword. Minecraft adds 4 to this number so set it four lower then you want.")
 					.translation(DoomWeaponMod.MODID + ".config.sword_crucible_attack")
-					.define("SWORD_CRUCIBLE_ATTACK", 4);
+					.define("SWORD_CRUCIBLE_ATTACK", 8);
 			SWORD_CRUCIBLE_MAXDAMAGE = builder.comment("Max damage of Crucible Sword.")
 					.translation(DoomWeaponMod.MODID + ".config.sword_crucible_maxdamage")
 					.define("SWORD_CRUCIBLE_MAXDAMAGE", 300);
 			AXE_CRUCIBLE_ATTACK = builder.comment(
 					"Attack damage of Crucible Axe. Minecraft adds 4 to this number so set it four lower then you want.")
-					.translation(DoomWeaponMod.MODID + ".config.axe_crucible_attack").define("AXE_CRUCIBLE_ATTACK", 4);
+					.translation(DoomWeaponMod.MODID + ".config.axe_crucible_attack").define("AXE_CRUCIBLE_ATTACK", 8);
 			AXE_CRUCIBLE_MAXDAMAGE = builder.comment("Max damage of Crucible Axe.")
 					.translation(DoomWeaponMod.MODID + ".config.axe_crucible_maxdamage")
 					.define("AXE_CRUCIBLE_MAXDAMAGE", 300);

@@ -44,7 +44,11 @@ public class DoomArmor extends ArmorItem {
 	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
 		ItemStack stack = new ItemStack(this);
 		stack.hasTag();
-		stack.addEnchantment(Enchantments.SMITE, 10);
+		stack.addEnchantment(Enchantments.BLAST_PROTECTION, 4);
+		stack.addEnchantment(Enchantments.FEATHER_FALLING, 4);
+		stack.addEnchantment(Enchantments.FIRE_PROTECTION, 4);
+		stack.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 4);
+		stack.addEnchantment(Enchantments.THORNS, 3);
 		if (group == DoomTab.DoomItemGroup) {
 			items.add(stack);
 		}
