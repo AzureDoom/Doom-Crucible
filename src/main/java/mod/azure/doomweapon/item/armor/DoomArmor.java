@@ -39,7 +39,7 @@ public class DoomArmor extends ArmorItem {
 		}
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
-	
+
 	@Override
 	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
 		ItemStack stack = new ItemStack(this);
@@ -53,7 +53,7 @@ public class DoomArmor extends ArmorItem {
 			items.add(stack);
 		}
 	}
-	
+
 	@Override
 	public boolean hasEffect(ItemStack stack) {
 		return false;

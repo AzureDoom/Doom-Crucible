@@ -6,6 +6,8 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class DoomArmorMaterial {
 
@@ -39,6 +41,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:doom_armor";
 		}
@@ -49,7 +52,7 @@ public class DoomArmorMaterial {
 		}
 
 	};
-	
+
 	public static final IArmorMaterial PRAETOR_DOOM_ARMOR = new IArmorMaterial() {
 
 		private final int[] armors = new int[] { 1, 2, 3, 1 };
@@ -80,6 +83,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:praetor_armor";
 		}
@@ -121,6 +125,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:classic_armor";
 		}
@@ -162,6 +167,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:midnight_armor";
 		}
@@ -203,6 +209,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:astro_armor";
 		}
@@ -244,6 +251,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:crimson_armor";
 		}
@@ -285,6 +293,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:demonic_armor";
 		}
@@ -326,6 +335,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:sentinel_armor";
 		}
@@ -367,6 +377,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:ember_armor";
 		}
@@ -408,6 +419,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:zombie_armor";
 		}
@@ -449,6 +461,7 @@ public class DoomArmorMaterial {
 		}
 
 		@Override
+		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:doomicorn_armor";
 		}
