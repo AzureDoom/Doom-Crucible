@@ -1,0 +1,5 @@
+item.doomcrucible_open.name=火中淬炼之剑
+item.doomcrucible_closed.name=火中淬炼之剑 (失效的)
+item.crucible_axe_open.name=火中淬炼之斧
+item.crucible_axe_closed.name=火中淬炼之斧 (失效的)
+itemGroup.doomweapon=末日坩埚
