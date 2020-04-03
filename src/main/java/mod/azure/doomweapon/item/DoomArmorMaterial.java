@@ -13,7 +13,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -55,7 +55,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial PRAETOR_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -97,7 +97,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial CLASSIC_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -139,7 +139,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial MIDNIGHT_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -181,7 +181,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial ASTRO_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -223,7 +223,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial CRIMSON_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -265,7 +265,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial DEMONIC_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -307,7 +307,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial SENTINEL_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -349,7 +349,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial EMBER_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -391,7 +391,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial ZOMBIE_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
@@ -433,7 +433,7 @@ public class DoomArmorMaterial {
 
 	public static final IArmorMaterial DOOMICORN_DOOM_ARMOR = new IArmorMaterial() {
 
-		private final int[] armors = new int[] { 1, 2, 3, 1 };
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
 		@Override
 		public int getDurability(EquipmentSlotType slotIn) {
