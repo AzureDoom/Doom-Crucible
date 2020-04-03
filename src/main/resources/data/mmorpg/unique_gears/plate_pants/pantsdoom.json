@@ -2,7 +2,7 @@
 	"id": "doomleggings",
 	"weight": 10000,
 	"rarity": 1,
-	"tier": 15,
+	"tier": 5,
 	"registry": "unique_gear",
 	"lang_file_string": "item.doomweapon.uniques.pants.doomleggings",
 	"lang_file_desc_string": "item.doomweapon.uniques.pants.doomleggings.desc",
