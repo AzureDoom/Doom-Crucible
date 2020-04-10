@@ -2,8 +2,8 @@ package mod.azure.doomweapon.item;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomTab;
 import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.util.DoomTab;
 import mod.azure.doomweapon.util.KeyHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;

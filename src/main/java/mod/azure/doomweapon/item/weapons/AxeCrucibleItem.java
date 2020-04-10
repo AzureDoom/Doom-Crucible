@@ -2,10 +2,10 @@ package mod.azure.doomweapon.item.weapons;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomTab;
 import mod.azure.doomweapon.DoomWeaponMod;
 import mod.azure.doomweapon.item.DoomTier;
 import mod.azure.doomweapon.util.Config;
+import mod.azure.doomweapon.util.DoomTab;
 import mod.azure.doomweapon.util.KeyHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;

@@ -2,14 +2,14 @@ package mod.azure.doomweapon.item;
 
 import java.util.function.Supplier;
 
-import mod.azure.doomweapon.util.DoomWeaponItems;
+import mod.azure.doomweapon.util.DoomItems;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;
 
 public enum DoomTier implements IItemTier {
 	DOOM(6, 1561, 16.0F, 3.0F, 30, () -> {
-		return Ingredient.fromItems(DoomWeaponItems.ARGENT_ENERGY);
+		return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
 	});
 
 	private final int harvestLevel;

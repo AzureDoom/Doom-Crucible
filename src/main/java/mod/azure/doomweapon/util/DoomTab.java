@@ -1,6 +1,5 @@
-package mod.azure.doomweapon;
+package mod.azure.doomweapon.util;
 
-import mod.azure.doomweapon.util.DoomWeaponItems;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -11,7 +10,7 @@ public class DoomTab {
 	public static final ItemGroup DoomItemGroup = (new ItemGroup("doomweapon") {
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			return new ItemStack(DoomWeaponItems.CRUCIBLE);
+			return new ItemStack(DoomItems.CRUCIBLE);
 		}
 
 		public boolean hasSearchBar() {

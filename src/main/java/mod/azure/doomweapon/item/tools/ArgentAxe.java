@@ -2,9 +2,9 @@ package mod.azure.doomweapon.item.tools;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomTab;
 import mod.azure.doomweapon.DoomWeaponMod;
 import mod.azure.doomweapon.item.DoomTier;
+import mod.azure.doomweapon.util.DoomTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
