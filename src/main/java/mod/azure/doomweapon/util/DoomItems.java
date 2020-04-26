@@ -8,6 +8,7 @@ import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
 import mod.azure.doomweapon.item.tools.ArgentShovel;
+import mod.azure.doomweapon.item.tools.ArgentSword;
 import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -48,6 +49,7 @@ public class DoomItems {
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			event.getRegistry().registerAll(ARGENT_ENERGY = new ArgentEnergyItem("argent_energy"),
 					new ArgentAxe("argent_axe"), new ArgentHoe("argent_hoe"), new ArgentPickaxe("argent_pickaxe"),
+					new ArgentShovel("argent_shovel"), new ArgentSword("argent_sword"),
 					ICON = new SwordCrucibleItem("doomcrucible_open"), new UnopenedItem("doomcrucible_closed"),
 					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
 					new DoomArmor(doom_armor, helmet, "doom_helmet"),
