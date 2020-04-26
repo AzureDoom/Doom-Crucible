@@ -5,10 +5,10 @@
   "gear_type": {
     "normal_item_weight": 0,
     "runed_item_weight": 0,
-    "unique_item_weight": 9999
+    "unique_item_weight": 1000
   },
   "rarity": {
-    "min_rarity": 4,
+    "min_rarity": 0,
     "max_rarity": 4
   },
   "misc": {
@@ -19,11 +19,11 @@
   },
   "level": {
     "min_level": 20,
-    "max_level": 2147483647,
+    "max_level": 60,
     "level_variance": 0
   },
   "unique": {
-    "if_unique_random_up_to_tier": 20,
+    "if_unique_random_up_to_tier": 5,
     "unique_id": "doom_crucible"
   }
 }

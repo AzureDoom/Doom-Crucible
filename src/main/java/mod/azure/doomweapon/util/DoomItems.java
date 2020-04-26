@@ -8,7 +8,7 @@ import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
 import mod.azure.doomweapon.item.tools.ArgentShovel;
-import mod.azure.doomweapon.item.weapons.AxeCrucibleItem;
+import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.Mod;
 
 public class DoomItems {
 
-	public static Item CRUCIBLE;
+	public static Item ICON;
 	public static Item ARGENT_ENERGY;
 
 	public static IArmorMaterial doom_armor = DoomArmorMaterial.DOOM_ARMOR;
@@ -33,6 +33,9 @@ public class DoomItems {
 	public static IArmorMaterial zombie_armor = DoomArmorMaterial.ZOMBIE_DOOM_ARMOR;
 	public static IArmorMaterial doomicorn_armor = DoomArmorMaterial.DOOMICORN_DOOM_ARMOR;
 	public static IArmorMaterial classic_armor = DoomArmorMaterial.CLASSIC_DOOM_ARMOR;
+	public static IArmorMaterial phobos_armor = DoomArmorMaterial.PHOBOS_DOOM_ARMOR;
+	public static IArmorMaterial nightmare_armor = DoomArmorMaterial.NIGHTMARE_DOOM_ARMOR;
+	public static IArmorMaterial purplepony_armor = DoomArmorMaterial.PURPLEPONY_DOOM_ARMOR;
 
 	public static EquipmentSlotType helmet = EquipmentSlotType.HEAD;
 	public static EquipmentSlotType chest = EquipmentSlotType.CHEST;
@@ -45,11 +48,15 @@ public class DoomItems {
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			event.getRegistry().registerAll(ARGENT_ENERGY = new ArgentEnergyItem("argent_energy"),
 					new ArgentAxe("argent_axe"), new ArgentHoe("argent_hoe"), new ArgentPickaxe("argent_pickaxe"),
-					new ArgentShovel("argent_shovel"), CRUCIBLE = new SwordCrucibleItem("doomcrucible_open"),
-					new UnopenedItem("doomcrucible_closed"), new AxeCrucibleItem("axe_crucible_open"),
-					new UnopenedItem("axe_crucible_closed"), new DoomArmor(doom_armor, helmet, "doom_helmet"),
+					ICON = new SwordCrucibleItem("doomcrucible_open"), new UnopenedItem("doomcrucible_closed"),
+					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
+					new DoomArmor(doom_armor, helmet, "doom_helmet"),
 					new DoomArmor(doom_armor, chest, "doom_chestplate"),
 					new DoomArmor(doom_armor, pants, "doom_leggings"), new DoomArmor(doom_armor, boots, "doom_boots"),
+					new DoomArmor(classic_armor, helmet, "classic_doom_helmet"),
+					new DoomArmor(classic_armor, chest, "classic_doom_chestplate"),
+					new DoomArmor(classic_armor, pants, "classic_doom_leggings"),
+					new DoomArmor(classic_armor, boots, "classic_doom_boots"),
 					new DoomArmor(praetor_armor, helmet, "praetor_doom_helmet"),
 					new DoomArmor(praetor_armor, chest, "praetor_doom_chestplate"),
 					new DoomArmor(praetor_armor, pants, "praetor_doom_leggings"),
@@ -82,14 +89,22 @@ public class DoomItems {
 					new DoomArmor(zombie_armor, chest, "zombie_doom_chestplate"),
 					new DoomArmor(zombie_armor, pants, "zombie_doom_leggings"),
 					new DoomArmor(zombie_armor, boots, "zombie_doom_boots"),
+					new DoomArmor(phobos_armor, helmet, "phobos_doom_helmet"),
+					new DoomArmor(phobos_armor, chest, "phobos_doom_chestplate"),
+					new DoomArmor(phobos_armor, pants, "phobos_doom_leggings"),
+					new DoomArmor(phobos_armor, boots, "phobos_doom_boots"),
+					new DoomArmor(nightmare_armor, helmet, "nightmare_doom_helmet"),
+					new DoomArmor(nightmare_armor, chest, "nightmare_doom_chestplate"),
+					new DoomArmor(nightmare_armor, pants, "nightmare_doom_leggings"),
+					new DoomArmor(nightmare_armor, boots, "nightmare_doom_boots"),
+					new DoomArmor(purplepony_armor, helmet, "purplepony_doom_helmet"),
+					new DoomArmor(purplepony_armor, chest, "purplepony_doom_chestplate"),
+					new DoomArmor(purplepony_armor, pants, "purplepony_doom_leggings"),
+					new DoomArmor(purplepony_armor, boots, "purplepony_doom_boots"),
 					new DoomArmor(doomicorn_armor, helmet, "doomicorn_doom_helmet"),
 					new DoomArmor(doomicorn_armor, chest, "doomicorn_doom_chestplate"),
 					new DoomArmor(doomicorn_armor, pants, "doomicorn_doom_leggings"),
-					new DoomArmor(doomicorn_armor, boots, "doomicorn_doom_boots"),
-					new DoomArmor(classic_armor, helmet, "classic_doom_helmet"),
-					new DoomArmor(classic_armor, chest, "classic_doom_chestplate"),
-					new DoomArmor(classic_armor, pants, "classic_doom_leggings"),
-					new DoomArmor(classic_armor, boots, "classic_doom_boots"));
+					new DoomArmor(doomicorn_armor, boots, "doomicorn_doom_boots"));
 		}
 	}
 }

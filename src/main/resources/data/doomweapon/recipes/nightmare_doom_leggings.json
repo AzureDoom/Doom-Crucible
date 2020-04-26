@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "doomweapon:nightmare_doom_leggings"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "   ",
+        " @ ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:doom_leggings"
+        },
+		"@": {
+			"item": "minecraft:ink_sac"
+		}
+    }
+}

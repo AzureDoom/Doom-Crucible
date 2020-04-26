@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "doomweapon:nightmare_doom_chestplate"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "   ",
+        " @ ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:doom_chestplate"
+        },
+		"@": {
+			"item": "minecraft:ink_sac"
+		}
+    }
+}

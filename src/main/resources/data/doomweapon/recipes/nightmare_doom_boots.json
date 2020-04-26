@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "doomweapon:nightmare_doom_boots"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "   ",
+        " @ ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:doom_boots"
+        },
+		"@": {
+			"item": "minecraft:ink_sac"
+		}
+    }
+}

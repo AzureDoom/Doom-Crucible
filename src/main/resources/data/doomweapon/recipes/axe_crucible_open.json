@@ -1,6 +1,6 @@
 {
 	"result": {
-		"item": "doomweapon:axe_crucible_open"
+		"item": "doomweapon:axe_marauder_open"
 	},
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
@@ -19,7 +19,7 @@
 			"item": "doomweapon:argent_energy"
 		},
 		"I": {
-			"item": "doomweapon:axe_crucible_closed"
+			"item": "doomweapon:axe_marauder_closed"
 		}
 	}
 }

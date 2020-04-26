@@ -2,24 +2,23 @@ package mod.azure.doomweapon.item.tools;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.DoomTier;
-import mod.azure.doomweapon.util.DoomTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.ShovelItem;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class ArgentShovel extends SwordItem {
+public class ArgentShovel extends ShovelItem {
 
 	public ArgentShovel(String name) {
-		super(DoomTier.DOOM, 4, -2.4F, new Item.Properties().group(DoomTab.DoomItemGroup));
-		this.setRegistryName(DoomWeaponMod.MODID, name);
+		super(DoomTier.DOOM, 4, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup));
+		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

@@ -2,10 +2,9 @@ package mod.azure.doomweapon.item.weapons;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.DoomTier;
 import mod.azure.doomweapon.util.Config;
-import mod.azure.doomweapon.util.DoomTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,8 +27,8 @@ public class SwordCrucibleItem extends SwordItem {
 
 	public SwordCrucibleItem(String name) {
 		super(DoomTier.DOOM, Config.SERVER.SWORD_CRUCIBLE_ATTACK.get(), -2.4F, new Item.Properties()
-				.group(DoomTab.DoomItemGroup).maxDamage(Config.SERVER.SWORD_CRUCIBLE_MAXDAMAGE.get()));
-		this.setRegistryName(DoomWeaponMod.MODID, name);
+				.group(DoomMod.DoomItemGroup).maxDamage(Config.SERVER.SWORD_CRUCIBLE_MAXDAMAGE.get()));
+		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override
@@ -51,7 +50,7 @@ public class SwordCrucibleItem extends SwordItem {
 		ItemStack stack = new ItemStack(this);
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.SMITE, 10);
-		if (group == DoomTab.DoomItemGroup) {
+		if (group == DoomMod.DoomItemGroup) {
 			items.add(stack);
 		}
 	}

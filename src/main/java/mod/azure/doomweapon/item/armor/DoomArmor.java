@@ -2,8 +2,7 @@ package mod.azure.doomweapon.item.armor;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomWeaponMod;
-import mod.azure.doomweapon.util.DoomTab;
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.util.KeyHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;
@@ -25,8 +24,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class DoomArmor extends ArmorItem {
 
 	public DoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot, String name) {
-		super(materialIn, slot, new Item.Properties().group(DoomTab.DoomItemGroup));
-		this.setRegistryName(DoomWeaponMod.MODID, name);
+		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
+		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override
@@ -47,9 +46,7 @@ public class DoomArmor extends ArmorItem {
 		stack.addEnchantment(Enchantments.BLAST_PROTECTION, 4);
 		stack.addEnchantment(Enchantments.FEATHER_FALLING, 4);
 		stack.addEnchantment(Enchantments.FIRE_PROTECTION, 4);
-		stack.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 4);
-		stack.addEnchantment(Enchantments.THORNS, 3);
-		if (group == DoomTab.DoomItemGroup) {
+		if (group == DoomMod.DoomItemGroup) {
 			items.add(stack);
 		}
 	}
@@ -65,8 +62,6 @@ public class DoomArmor extends ArmorItem {
 		stack.addEnchantment(Enchantments.BLAST_PROTECTION, 4);
 		stack.addEnchantment(Enchantments.FEATHER_FALLING, 4);
 		stack.addEnchantment(Enchantments.FIRE_PROTECTION, 4);
-		stack.addEnchantment(Enchantments.PROJECTILE_PROTECTION, 4);
-		stack.addEnchantment(Enchantments.THORNS, 3);
 	}
 
 	@Override

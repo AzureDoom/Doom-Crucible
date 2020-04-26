@@ -2,9 +2,8 @@ package mod.azure.doomweapon.item.tools;
 
 import java.util.List;
 
-import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.DoomTier;
-import mod.azure.doomweapon.util.DoomTab;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
@@ -18,8 +17,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class ArgentHoe extends HoeItem {
 
 	public ArgentHoe(String name) {
-		super(DoomTier.DOOM, -2.4F, new Item.Properties().group(DoomTab.DoomItemGroup));
-		this.setRegistryName(DoomWeaponMod.MODID, name);
+		super(DoomTier.DOOM, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup));
+		this.setRegistryName(DoomMod.MODID, name);
 	}
 	
 	@Override

@@ -1,14 +1,14 @@
 modLoader="javafml"
 loaderVersion="[31,)"
-issueTrackerURL="https://www.curseforge.com/members/azuredoomc/followers"
+issueTrackerURL="https://github.com/AzureDoom/Doom-Crucible/issues"
 logoFile="doomlogo.png"
 [[mods]] 
 modId="doomweapon"
 version="${file.jarVersion}" 
-displayName="Doom Mod"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/doom-crucible" 
+displayName="Doom Items Mod"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/doom-items-mod" 
 authors="AzureDoomC" 
-credits="Thanks to Narial/ulnight for the awesome model and textures!"
+credits="Thanks to Narial/ulnight for the awesome Sword/Axe and textures! Also Credit to C-Legend for the tools and armor textures!"
 description='''
 Adds Doom into Minecraft
 '''

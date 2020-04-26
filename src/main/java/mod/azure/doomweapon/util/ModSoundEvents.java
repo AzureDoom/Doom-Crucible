@@ -1,13 +1,13 @@
 package mod.azure.doomweapon.util;
 
-import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.DoomMod;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.ObjectHolder;
 
-@ObjectHolder(DoomWeaponMod.MODID)
+@ObjectHolder(DoomMod.MODID)
 public class ModSoundEvents {
 
 	public static SoundEvent CRUCIBLE_OPEN = new SoundEvent(new ResourceLocation("doomweapon", "doom.open"));
