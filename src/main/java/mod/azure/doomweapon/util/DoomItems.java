@@ -8,7 +8,7 @@ import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
 import mod.azure.doomweapon.item.tools.ArgentShovel;
-import mod.azure.doomweapon.item.tools.ArgentSword;
+import mod.azure.doomweapon.item.weapons.ArgentSword;
 import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -17,6 +17,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 public class DoomItems {
 
@@ -43,13 +44,14 @@ public class DoomItems {
 	public static EquipmentSlotType pants = EquipmentSlotType.LEGS;
 	public static EquipmentSlotType boots = EquipmentSlotType.FEET;
 
-	@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+	@Mod.EventBusSubscriber(bus = Bus.MOD)
 	public static class RegistryEvents {
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
 			event.getRegistry().registerAll(ARGENT_ENERGY = new ArgentEnergyItem("argent_energy"),
 					new ArgentAxe("argent_axe"), new ArgentHoe("argent_hoe"), new ArgentPickaxe("argent_pickaxe"),
 					new ArgentShovel("argent_shovel"), new ArgentSword("argent_sword"),
+					// new Shotgun("shotgun"), new Shotgun("super_shotgun"),
 					ICON = new SwordCrucibleItem("doomcrucible_open"), new UnopenedItem("doomcrucible_closed"),
 					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
 					new DoomArmor(doom_armor, helmet, "doom_helmet"),

@@ -1,4 +1,4 @@
-package mod.azure.doomweapon.item.tools;
+package mod.azure.doomweapon.item.weapons;
 
 import java.util.List;
 
