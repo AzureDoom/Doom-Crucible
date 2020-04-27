@@ -13,20 +13,20 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = DoomWeaponMod.MODID, value = CLIENT)
-public class Client {
+public class Client extends IProxy {
 
 	@EventHandler
-	public static void preInit() {
+	public void preInit() {
 		OBJLoader.INSTANCE.addDomain(DoomWeaponMod.MODID);
 	}
 
 	@EventHandler
-	public static void init() {
+	public void init() {
 
 	}
 
 	@EventHandler
-	public static void postInit() {
+	public void postInit() {
 
 	}
 

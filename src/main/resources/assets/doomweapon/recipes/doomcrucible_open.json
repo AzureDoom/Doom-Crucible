@@ -1,8 +1,8 @@
 {
-  "result": {
-    "item": "doomweapon:doomcrucible_open"
-  },
-  "type": "minecraft:crafting_shaped",
+    "result": {
+        "item": "doomweapon:doomcrucible_open"
+    },
+    "type": "minecraft:crafting_shaped",
     "pattern": [
         "m#m",
         " / ",
@@ -16,7 +16,7 @@
             "item": "minecraft:ghast_tear"
         },
         "/": {
-            "item": "minecraft:blaze_rod"
+            "item": "doomweapon:argent_energy"
         },
         "I": {
             "item": "doomweapon:doomcrucible_closed"

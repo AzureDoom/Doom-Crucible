@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "doomweapon:classic_doom_boots"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "   ",
+        " @ ",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:doom_boots"
+        },
+		"@": {
+			"item": "minecraft:dye",
+            "data": 10
+		}
+    }
+}

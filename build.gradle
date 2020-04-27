@@ -15,9 +15,9 @@ apply plugin: "com.wynprice.cursemaven"
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
-version = "1.0.0"
+version = "1.0.3"
 group = "mod.azure.doomweapon"
-archivesBaseName = "Doom-Crucible-1.12.2"
+archivesBaseName = "Doom-Items-Mod-1.12.2"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
