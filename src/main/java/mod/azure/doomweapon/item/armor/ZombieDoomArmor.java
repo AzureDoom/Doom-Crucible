@@ -20,9 +20,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class DoomArmor extends ArmorItem {
+public class ZombieDoomArmor extends ArmorItem {
 
-	public DoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot, String name) {
+	public ZombieDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot, String name) {
 		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
 		this.setRegistryName(DoomMod.MODID, name);
 	}
@@ -30,7 +30,8 @@ public class DoomArmor extends ArmorItem {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7e" + "The armor fitting a Demon slayer."));
+		tooltip.add(new StringTextComponent(
+				"\u00A7o" + "\u00A7e" + "Even Death can not hold back the Slayer."));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
@@ -38,25 +39,23 @@ public class DoomArmor extends ArmorItem {
 	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
 		ItemStack stack = new ItemStack(this);
 		stack.hasTag();
-		stack.addEnchantment(Enchantments.BLAST_PROTECTION, 2);
 		stack.addEnchantment(Enchantments.FEATHER_FALLING, 1);
-		stack.addEnchantment(Enchantments.FIRE_PROTECTION, 2);
+		stack.addEnchantment(Enchantments.THORNS, 1);
 		if (group == DoomMod.DoomItemGroup) {
 			items.add(stack);
 		}
 	}
 
 	@Override
-	public boolean hasEffect(ItemStack stack) {
-		return false;
+	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
+		stack.hasTag();
+		stack.addEnchantment(Enchantments.FEATHER_FALLING, 1);
+		stack.addEnchantment(Enchantments.THORNS, 1);
 	}
 
 	@Override
-	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
-		stack.hasTag();
-		stack.addEnchantment(Enchantments.BLAST_PROTECTION, 2);
-		stack.addEnchantment(Enchantments.FEATHER_FALLING, 1);
-		stack.addEnchantment(Enchantments.FIRE_PROTECTION, 2);
+	public boolean hasEffect(ItemStack stack) {
+		return false;
 	}
 
 	@Override
@@ -73,4 +72,5 @@ public class DoomArmor extends ArmorItem {
 	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		return false;
 	}
+
 }

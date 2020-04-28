@@ -3,7 +3,6 @@ package mod.azure.doomweapon.item;
 import java.util.List;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.util.KeyHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -25,13 +24,9 @@ public class ArgentEnergyItem extends Item {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		if (KeyHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("\u00A7c" + "\u00A7o" + "Created by combining the tortured"));
-			tooltip.add(new StringTextComponent("\u00A7c" + "\u00A7o" + "souls of the Nether and the power"));
-			tooltip.add(new StringTextComponent("\u00A7c" + "\u00A7o" + "of the Aether."));
-		} else {
-			tooltip.add(new StringTextComponent("Hold" + "\u00A7e" + " Shift " + "\u00A77" + "for more information!"));
-		}
+		tooltip.add(new StringTextComponent("\u00A7c" + "\u00A7o" + "Created by combining the tortured"));
+		tooltip.add(new StringTextComponent("\u00A7c" + "\u00A7o" + "souls of the Nether and the power"));
+		tooltip.add(new StringTextComponent("\u00A7c" + "\u00A7o" + "of the Aether."));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 

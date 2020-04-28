@@ -5,7 +5,6 @@ import java.util.List;
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.DoomTier;
 import mod.azure.doomweapon.util.Config;
-import mod.azure.doomweapon.util.KeyHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -32,13 +31,9 @@ public class AxeMarauderItem extends AxeItem {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		if (KeyHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7c" + "You were never one of us. You were"));
-			tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7c" + "nothing but a usurper, a false"));
-			tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7c" + "idol. My eyes have been opened."));
-		} else {
-			tooltip.add(new StringTextComponent("Hold" + "\u00A7e" + " Shift " + "\u00A77" + "for more information!"));
-		}
+		tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7c" + "You were never one of us. You were"));
+		tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7c" + "nothing but a usurper, a false"));
+		tooltip.add(new StringTextComponent("\u00A7o" + "\u00A7c" + "idol. My eyes have been opened."));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 

@@ -3,7 +3,6 @@ package mod.azure.doomweapon.item;
 import java.util.List;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.util.KeyHelper;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,11 +22,7 @@ public class UnopenedItem extends Item {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		if (KeyHelper.isHoldingShift()) {
-			tooltip.add(new StringTextComponent("\u00A7o" + "Expired but holds tremendous potential."));
-		} else {
-			tooltip.add(new StringTextComponent("Hold" + "\u00A7e" + " Shift " + "\u00A77" + "for more information!"));
-		}
+		tooltip.add(new StringTextComponent("\u00A7o" + "Expired but holds tremendous potential."));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 }
