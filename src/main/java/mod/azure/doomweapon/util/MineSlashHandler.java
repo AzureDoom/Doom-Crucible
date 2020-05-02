@@ -16,14 +16,15 @@ public class MineSlashHandler {
 
 	public static final List<String> TYPE = ImmutableList.of("praetor_doom", "doom", "astro_doom", "crimson_doom",
 			"midnight_doom", "demonic_doom", "sentinel_doom", "ember_doom", "zombie_doom", "doomicorn_doom",
-			"classic_doom");
+			"classic_doom", "phobos_doom", "nightmare_doom", "purplepony_doom");
 
 	public String MODID = "doomweapon:";
 
 	public MineSlashHandler() {
 		MineAndSlashAPI.addCompatibleItem(MODID + "doomcrucible_open",
 				new ConfigItem().setType(new Sword()).setAlwaysUnique());
-		MineAndSlashAPI.addCompatibleItem(MODID + "axe_crucible_open",
+		MineAndSlashAPI.addCompatibleItem(MODID + "argent_sword", new ConfigItem().setType(new Sword()));
+		MineAndSlashAPI.addCompatibleItem(MODID + "axe_marauder_open",
 				new ConfigItem().setType(new Axe()).setAlwaysUnique());
 		for (String t : TYPE) {
 			MineAndSlashAPI.addCompatibleItem("doomweapon:" + t + "_helmet", new ConfigItem().setType(new Helmet()));

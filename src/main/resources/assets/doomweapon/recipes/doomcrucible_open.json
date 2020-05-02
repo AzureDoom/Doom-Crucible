@@ -1,8 +1,8 @@
 {
-    "result": {
-        "item": "doomweapon:doomcrucible_open"
-    },
-    "type": "minecraft:crafting_shaped",
+  "result": {
+    "item": "doomweapon:doomcrucible_open"
+  },
+  "type": "minecraft:crafting_shaped",
     "pattern": [
         "m#m",
         " / ",

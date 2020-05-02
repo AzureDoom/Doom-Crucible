@@ -1,5 +1,8 @@
 {
-   "type": "minecraft:crafting_shaped",
+  "result": {
+    "item": "doomweapon:doomcrucible_closed"
+  },
+  "type": "minecraft:crafting_shaped",
    "pattern": [
         " # ",
         "#I#",
@@ -12,8 +15,5 @@
         "I": {
             "item": "minecraft:ghast_tear"
         }
-    },
-	"result": {
-		"item": "doomweapon:doomcrucible_closed"
     }
 }

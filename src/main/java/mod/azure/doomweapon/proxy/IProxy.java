@@ -1,9 +1,9 @@
 package mod.azure.doomweapon.proxy;
 
-import mod.azure.doomweapon.DoomWeaponMod;
+import mod.azure.doomweapon.DoomMod;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = DoomWeaponMod.MODID)
+@Mod.EventBusSubscriber(modid = DoomMod.MODID)
 public class IProxy {
 	
 	public void preInit() {

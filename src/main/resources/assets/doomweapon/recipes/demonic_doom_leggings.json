@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "doomweapon:demonic_doom_leggings"
+  },
+  "type": "minecraft:crafting_shaped",
+   "pattern": [
+        "@@@",
+        "@ @",
+        "@#@"
+    ],
+    "key": {
+        "#": {
+            "item": "doomweapon:argent_energy"
+        },
+		"@": {
+			"item": "minecraft:skull",
+			"data": 1
+		}
+    }
+}
