@@ -1,4 +1,5 @@
 {
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
         "supershotgun_texture": "doomweapon:items/supershotgun"
     },
@@ -15,8 +16,8 @@
         },
         "fixed": {
             "rotation": [ 0, 270, 0 ],
-            "translation": [ 4, 8, -0.4 ],
-            "scale": [ 1.3, 1.3, 1.3 ]
+            "translation": [ 6, 11, 0 ],
+            "scale": [ 2, 2, 2 ]
         },
         "head": {
             "rotation": [ 0, 0, 0 ],
@@ -24,13 +25,13 @@
             "scale": [ 1, 1, 1 ]
         },
         "firstperson_righthand": {
-            "rotation": [ 340, 0, 0 ],
-            "translation": [ -9, 6, -3 ],
+            "rotation": [ 5, 350.5, 0 ],
+            "translation": [ 1.58, 9, -1 ],
             "scale": [ 1, 1, 0.8 ]
         },
         "thirdperson_righthand": {
-            "rotation": [ 0, 0, 0 ],
-            "translation": [ 0, 5.5, -6.5 ],
+            "rotation": [ 0, 347, 0 ],
+            "translation": [ 1.8, 5.5, -6.5 ],
             "scale": [ 1, 1, 1 ]
         }
     },
@@ -336,111 +337,6 @@
                 "west": { "texture": "#supershotgun_texture", "uv": [ 0, 11.5, 0.5, 12 ] },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 0, 11.5, 0.5, 12 ] }
             }
-        }
-    ],
-    "overrides": [
-        {
-            "predicate": {
-                "pulling": 1
-            },
-            "model": "doomweapon:item/supershotgun_loading1"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.2
-            },
-            "model": "doomweapon:item/supershotgun_loading2"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.23
-            },
-            "model": "doomweapon:item/supershotgun_loading3"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.26
-            },
-            "model": "doomweapon:item/supershotgun_loading4"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.29
-            },
-            "model": "doomweapon:item/supershotgun_loading5"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.32
-            },
-            "model": "doomweapon:item/supershotgun_loading6"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.4
-            },
-            "model": "doomweapon:item/supershotgun_loading7"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.5
-            },
-            "model": "doomweapon:item/supershotgun_loading8"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.6
-            },
-            "model": "doomweapon:item/supershotgun_loading9"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.7
-            },
-            "model": "doomweapon:item/supershotgun_loading10"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.8
-            },
-            "model": "doomweapon:item/supershotgun_loading11"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.9
-            },
-            "model": "doomweapon:item/supershotgun_loading12"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 1.0
-            },
-            "model": "doomweapon:item/supershotgun_loading13"
-        },
-    {
-            "predicate": {
-                "charged": 1
-            },
-            "model": "doomweapon:item/supershotgun_loaded"
-        },
-    {
-            "predicate": {
-                "charged": 1,
-                "firework": 1
-            },
-            "model": "doomweapon:item/supershotgun_loaded"
         }
     ]
 }

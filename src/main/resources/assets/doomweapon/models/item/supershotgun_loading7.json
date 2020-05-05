@@ -1,11 +1,12 @@
 {
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
     "textures": {
         "supershotgun_texture": "doomweapon:items/supershotgun"
     },
     "display": {
         "gui": {
-            "rotation": [ 90, 315, 90 ],
-            "translation": [ -2.5, 6.8, 0 ],
+            "rotation": [ 0, 90, 0 ],
+            "translation": [ -3.7, 5.5, 0 ],
             "scale": [ 1, 1, 1 ]
         },
         "ground": {
@@ -15,8 +16,8 @@
         },
         "fixed": {
             "rotation": [ 0, 270, 0 ],
-            "translation": [ 4, 8, -0.4 ],
-            "scale": [ 1.3, 1.3, 1.3 ]
+            "translation": [ 6, 11, 0 ],
+            "scale": [ 2, 2, 2 ]
         },
         "head": {
             "rotation": [ 0, 0, 0 ],
@@ -24,13 +25,13 @@
             "scale": [ 1, 1, 1 ]
         },
         "firstperson_righthand": {
-            "rotation": [ 340, 0, 0 ],
-            "translation": [ -9, 6, -3 ],
+            "rotation": [ 20, 5, 0 ],
+            "translation": [ -2, 10, 0 ],
             "scale": [ 1, 1, 0.8 ]
         },
         "thirdperson_righthand": {
-            "rotation": [ 0, 0, 0 ],
-            "translation": [ 0, 5.5, -6.5 ],
+            "rotation": [ 0, 347, 0 ],
+            "translation": [ 1.8, 5.5, -6.5 ],
             "scale": [ 1, 1, 1 ]
         }
     },
@@ -53,6 +54,7 @@
             "name": "Underbarrel Handle",
             "from": [ 7.25, 2, 7 ], 
             "to": [ 8.75, 3, 12 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 2.5, 14.5, 3.5, 15 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 0, 14.5, 2.5, 15 ] },
@@ -64,6 +66,7 @@
             "name": "Sight",
             "from": [ 7.9, 4.1, 3 ], 
             "to": [ 8.1, 4.4, 3.8 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 11, 11, 11.5, 11.5 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 11, 11.5, 11.5 ] },
@@ -80,6 +83,7 @@
                 "north": { "texture": "#supershotgun_texture", "uv": [ 8.5, 10.5, 9, 11.5 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 8.5, 10.5, 9, 11 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 8.5, 10.5, 9, 11 ] },
+                "up": { "texture": "#supershotgun_texture", "uv": [ 9.5, 10.5, 9, 11.5 ] },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 9.5, 10.5, 9, 11.5 ] }
             }
         },
@@ -100,9 +104,11 @@
             "name": "Right Barrel Bottom",
             "from": [ 8.1, 2.8, 3 ], 
             "to": [ 8.9, 3, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 6.5, 6, 10.5, 7 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 12.2, 16, 12.3 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 6.5, 6, 10.5, 7 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 12.5, 16, 12.6 ], "rotation": 180 },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 11, 12.5, 16, 13 ], "rotation": 90 }
             }
@@ -111,9 +117,11 @@
             "name": "Right Barrel Side",
             "from": [ 9, 3.1, 3 ], 
             "to": [ 9.2, 3.9, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 11, 1.5, 12, 5.5 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 12 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 11, 1.5, 12, 5.5 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 11, 11.7, 16, 11.8 ], "rotation": 90 },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 11, 11.7, 16, 11.8 ], "rotation": 90 }
             }
@@ -122,9 +130,11 @@
             "name": "Left Barrel Bottom",
             "from": [ 7.1, 2.8, 3 ], 
             "to": [ 7.9, 3, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 1.5, 6, 5.5, 7 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 12.5, 16, 12.7 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 1.5, 6, 5.5, 7 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 12, 16, 12.2 ] },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 11, 12, 16, 12.5 ], "rotation": 90 }
             }
@@ -133,8 +143,10 @@
             "name": "Left Barrel Side",
             "from": [ 6.8, 3.1, 3 ], 
             "to": [ 7, 3.9, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 0, 1.5, 1, 5.5 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 0, 1.5, 1, 5.5 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 12 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 11, 11.4, 16, 11.5 ], "rotation": 90 },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 11, 12, 16, 12.2 ], "rotation": 90 }
@@ -144,9 +156,11 @@
             "name": "Left Barrel Top",
             "from": [ 7.1, 4, 3 ], 
             "to": [ 7.9, 4.2, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 1.5, 0, 5.5, 1 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 11.7 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 1.5, 0, 5.5, 1 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 11.3, 16, 11.5 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 11, 11, 16, 11.5 ], "rotation": 90 }
             }
@@ -155,9 +169,11 @@
             "name": "Right Barrel Top",
             "from": [ 8.1, 4, 3 ], 
             "to": [ 8.9, 4.2, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
-                "north": { "texture": "#supershotgun_texture", "uv": [ 6.5, 1, 10.5, 0 ] },
+                "north": { "texture": "#supershotgun_texture", "uv": [ 6.5, 0, 10.5, 1 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 10.5, 16, 10.7 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 6.5, 0, 10.5, 1 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 11, 16, 10.8 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 11, 10.5, 16, 11 ], "rotation": 90 }
             }
@@ -242,9 +258,11 @@
             "name": "Top Right Barrel Edge",
             "from": [ 8.9, 3.9, 3 ], 
             "to": [ 9.1, 4.1, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 10.5, 0.5, 11.5, 1.5 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 11.7 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 10.5, 0.5, 11.5, 1.5 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 11, 10.5, 16, 10.7 ], "rotation": 90 }
             }
         },
@@ -252,9 +270,11 @@
             "name": "Bottom Right Barrel Edge",
             "from": [ 8.9, 2.9, 3 ], 
             "to": [ 9.1, 3.1, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 10.5, 5.5, 11.5, 6.5 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 11.8, 16, 12 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 10.5, 5.5, 11.5, 6.5 ] },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 11, 12, 16, 12.2 ], "rotation": 90 }
             }
         },
@@ -262,8 +282,10 @@
             "name": "Bottom Left Barrel Edge",
             "from": [ 6.9, 2.9, 3 ], 
             "to": [ 7.1, 3.1, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 0.5, 5.5, 1.5, 6.5 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 0.5, 5.5, 1.5, 6.5 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 12 ] },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 11, 12, 16, 12.2 ], "rotation": 90 }
             }
@@ -272,8 +294,10 @@
             "name": "Top Left Barrel Edge",
             "from": [ 6.9, 3.9, 3 ], 
             "to": [ 7.1, 4.1, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 0.5, 0.5, 1.5, 1.5 ] },
+                "south": { "texture": "#supershotgun_texture", "uv": [ 0.5, 0.5, 1.5, 1.5 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 11.7 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 11, 11.4, 16, 11.5 ], "rotation": 90 }
             }
@@ -282,6 +306,7 @@
             "name": "Barrel Middle",
             "from": [ 7, 2.9, 3 ], 
             "to": [ 9, 4.1, 13 ], 
+            "rotation": { "origin": [ 8, 3, 12 ], "axis": "x", "angle": -45.0 },
             "faces": {
                 "north": { "texture": "#supershotgun_texture", "uv": [ 1, 0.5, 11, 6.5 ], "rotation": 180 },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 11, 11.5, 16, 12 ], "rotation": 180 },
@@ -296,6 +321,7 @@
             "from": [ 6.9, 3.9, 13 ], 
             "to": [ 7.1, 4.1, 15 ], 
             "faces": {
+                "north": { "texture": "#supershotgun_texture", "uv": [ 9, 10.5, 9.2, 10.7 ] },
                 "south": { "texture": "#supershotgun_texture", "uv": [ 9.8, 10.5, 10, 10.7 ] },
                 "west": { "texture": "#supershotgun_texture", "uv": [ 9, 10.5, 10, 10.7 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 9, 10, 10, 10.3 ], "rotation": 90 }
@@ -306,6 +332,7 @@
             "from": [ 8.9, 3.9, 13 ], 
             "to": [ 9.1, 4.1, 15 ], 
             "faces": {
+                "north": { "texture": "#supershotgun_texture", "uv": [ 7.8, 11.3, 8, 11.5 ] },
                 "east": { "texture": "#supershotgun_texture", "uv": [ 7, 11.3, 8, 11.5 ] },
                 "south": { "texture": "#supershotgun_texture", "uv": [ 7, 11.3, 7.2, 11.5 ] },
                 "up": { "texture": "#supershotgun_texture", "uv": [ 7, 11.3, 8, 11.5 ], "rotation": 270 }
@@ -336,111 +363,6 @@
                 "west": { "texture": "#supershotgun_texture", "uv": [ 0, 11.5, 0.5, 12 ] },
                 "down": { "texture": "#supershotgun_texture", "uv": [ 0, 11.5, 0.5, 12 ] }
             }
-        }
-    ],
-    "overrides": [
-        {
-            "predicate": {
-                "pulling": 1
-            },
-            "model": "doomweapon:item/supershotgun_loading1"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.2
-            },
-            "model": "doomweapon:item/supershotgun_loading2"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.23
-            },
-            "model": "doomweapon:item/supershotgun_loading3"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.26
-            },
-            "model": "doomweapon:item/supershotgun_loading4"
-        },
-        {
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.29
-            },
-            "model": "doomweapon:item/supershotgun_loading5"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.32
-            },
-            "model": "doomweapon:item/supershotgun_loading6"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.4
-            },
-            "model": "doomweapon:item/supershotgun_loading7"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.5
-            },
-            "model": "doomweapon:item/supershotgun_loading8"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.6
-            },
-            "model": "doomweapon:item/supershotgun_loading9"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.7
-            },
-            "model": "doomweapon:item/supershotgun_loading10"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.8
-            },
-            "model": "doomweapon:item/supershotgun_loading11"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 0.9
-            },
-            "model": "doomweapon:item/supershotgun_loading12"
-        },
-	{
-            "predicate": {
-                "pulling": 1,
-                "pull": 1.0
-            },
-            "model": "doomweapon:item/supershotgun_loading13"
-        },
-    {
-            "predicate": {
-                "charged": 1
-            },
-            "model": "doomweapon:item/supershotgun_loaded"
-        },
-    {
-            "predicate": {
-                "charged": 1,
-                "firework": 1
-            },
-            "model": "doomweapon:item/supershotgun_loaded"
         }
     ]
 }
