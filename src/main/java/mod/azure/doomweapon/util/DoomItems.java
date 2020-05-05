@@ -22,6 +22,7 @@ import mod.azure.doomweapon.item.tools.ArgentPickaxe;
 import mod.azure.doomweapon.item.tools.ArgentShovel;
 import mod.azure.doomweapon.item.weapons.ArgentSword;
 import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
+import mod.azure.doomweapon.item.weapons.Shotgun;
 import mod.azure.doomweapon.item.weapons.SuperShotgun;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -69,7 +70,7 @@ public class DoomItems {
 					new ArgentShovel("argent_shovel"), new ArgentSword("argent_sword"),
 					ICON = new SwordCrucibleItem("doomcrucible_open"), new UnopenedItem("doomcrucible_closed"),
 					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
-					new SuperShotgun("supershotgun"), // new Shotgun("shotgun"),
+					new SuperShotgun("supershotgun"), new Shotgun("shotgun"),
 					new DoomArmor(doom_armor, helmet, "doom_helmet"),
 					new DoomArmor(doom_armor, chest, "doom_chestplate"),
 					new DoomArmor(doom_armor, pants, "doom_leggings"), new DoomArmor(doom_armor, boots, "doom_boots"),
