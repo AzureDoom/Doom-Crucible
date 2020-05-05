@@ -1,8 +1,7 @@
-package mod.azure.doomweapon.item;
+package mod.azure.doomweapon.util;
 
 import java.util.function.Supplier;
 
-import mod.azure.doomweapon.util.DoomItems;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.LazyValue;

@@ -18,14 +18,14 @@ apply plugin: "com.wynprice.cursemaven"
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
-version = "1.6.2"
+version = "1.7.0"
 group = "mod.azure.doomweapon"
 archivesBaseName = "Doom-Items-Mod-1.15.2"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200403-1.15.1'
+    mappings channel: 'snapshot', version: '20200504-1.15.1'
     //accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
@@ -73,9 +73,9 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.35'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.1.74'
     compile fg.deobf("top.theillusivec4.curios:curios:FORGE-1.15.2-2.0-beta2")
-	compile fg.deobf("curse.maven:MaS:2931966")
+	compile fg.deobf("curse.maven:MaS:2941071")
 	//compile fg.deobf("curse.maven:LMob:2895072")
 	compile fg.deobf("curse.maven:JEI:2866141")
 }
@@ -88,7 +88,7 @@ jar {
             "Specification-Version": "1", // We are version 1 of ourselves
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
+            "Implementation-Vendor" :"AzureDoomC",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

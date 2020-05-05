@@ -3,8 +3,8 @@ package mod.azure.doomweapon.item.weapons;
 import java.util.List;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.item.DoomTier;
 import mod.azure.doomweapon.util.Config;
+import mod.azure.doomweapon.util.DoomTier;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,7 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
-import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.item.UseAction;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -41,6 +41,16 @@ public class SwordCrucibleItem extends SwordItem {
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack itemstack = playerIn.getHeldItem(handIn);
+		// double posX = playerIn.getPosX();
+		// double posY = playerIn.getPosY();
+		// double posZ = playerIn.getPosZ();
+		// worldIn.playSound(null, posX, posY, posZ, ModSoundEvents.WEAPON_THEME,
+		// SoundCategory.BLOCKS, 1F, 1F);
+		UseAction offhandItemAction = playerIn.getHeldItemOffhand().getUseAction();
+
+		if (offhandItemAction != UseAction.BOW && offhandItemAction != UseAction.SPEAR) {
+			playerIn.setActiveHand(handIn);
+		}
 
 		return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
 	}
@@ -50,6 +60,9 @@ public class SwordCrucibleItem extends SwordItem {
 		ItemStack stack = new ItemStack(this);
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.SMITE, 10);
+		stack.addEnchantment(Enchantments.LOOTING, 10);
+		stack.addEnchantment(Enchantments.SHARPNESS, 10);
+		stack.addEnchantment(Enchantments.SWEEPING, 10);
 		if (group == DoomMod.DoomItemGroup) {
 			items.add(stack);
 		}
@@ -59,25 +72,13 @@ public class SwordCrucibleItem extends SwordItem {
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.SMITE, 10);
+		stack.addEnchantment(Enchantments.LOOTING, 10);
+		stack.addEnchantment(Enchantments.SHARPNESS, 10);
+		stack.addEnchantment(Enchantments.SWEEPING, 10);
 	}
 
 	@Override
 	public boolean hasEffect(ItemStack stack) {
-		return false;
-	}
-
-	@Override
-	public boolean shouldSyncTag() {
-		return true;
-	}
-
-	@Override
-	public boolean updateItemStackNBT(CompoundNBT nbt) {
-		return super.updateItemStackNBT(nbt);
-	}
-
-	@Override
-	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
 		return false;
 	}
 }

@@ -3,8 +3,8 @@ package mod.azure.doomweapon.item.weapons;
 import java.util.List;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.item.DoomTier;
 import mod.azure.doomweapon.util.Config;
+import mod.azure.doomweapon.util.DoomTier;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,7 +12,6 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
@@ -47,6 +46,9 @@ public class AxeMarauderItem extends AxeItem {
 		ItemStack stack = new ItemStack(this);
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.SMITE, 10);
+		stack.addEnchantment(Enchantments.LOOTING, 10);
+		stack.addEnchantment(Enchantments.SHARPNESS, 10);
+		stack.addEnchantment(Enchantments.SWEEPING, 10);
 		if (group == DoomMod.DoomItemGroup) {
 			items.add(stack);
 		}
@@ -56,21 +58,9 @@ public class AxeMarauderItem extends AxeItem {
 	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.SMITE, 10);
-	}
-
-	@Override
-	public boolean shouldSyncTag() {
-		return true;
-	}
-
-	@Override
-	public boolean updateItemStackNBT(CompoundNBT nbt) {
-		return super.updateItemStackNBT(nbt);
-	}
-
-	@Override
-	public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
-		return false;
+		stack.addEnchantment(Enchantments.LOOTING, 10);
+		stack.addEnchantment(Enchantments.SHARPNESS, 10);
+		stack.addEnchantment(Enchantments.SWEEPING, 10);
 	}
 
 }

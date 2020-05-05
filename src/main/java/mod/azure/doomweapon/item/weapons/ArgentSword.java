@@ -3,7 +3,7 @@ package mod.azure.doomweapon.item.weapons;
 import java.util.List;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.item.DoomTier;
+import mod.azure.doomweapon.util.DoomTier;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

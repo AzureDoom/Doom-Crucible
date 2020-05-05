@@ -1,7 +1,6 @@
 package mod.azure.doomweapon.util;
 
 import mod.azure.doomweapon.item.ArgentEnergyItem;
-import mod.azure.doomweapon.item.DoomArmorMaterial;
 import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.armor.AstroDoomArmor;
 import mod.azure.doomweapon.item.armor.ClassicDoomArmor;
@@ -23,6 +22,7 @@ import mod.azure.doomweapon.item.tools.ArgentPickaxe;
 import mod.azure.doomweapon.item.tools.ArgentShovel;
 import mod.azure.doomweapon.item.weapons.ArgentSword;
 import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
+import mod.azure.doomweapon.item.weapons.SuperShotgun;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
@@ -34,8 +34,8 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 public class DoomItems {
 
-	public static Item ICON;
 	public static Item ARGENT_ENERGY;
+	public static Item ICON;
 
 	public static IArmorMaterial doom_armor = DoomArmorMaterial.DOOM_ARMOR;
 	public static IArmorMaterial praetor_armor = DoomArmorMaterial.PRAETOR_DOOM_ARMOR;
@@ -51,6 +51,9 @@ public class DoomItems {
 	public static IArmorMaterial phobos_armor = DoomArmorMaterial.PHOBOS_DOOM_ARMOR;
 	public static IArmorMaterial nightmare_armor = DoomArmorMaterial.NIGHTMARE_DOOM_ARMOR;
 	public static IArmorMaterial purplepony_armor = DoomArmorMaterial.PURPLEPONY_DOOM_ARMOR;
+	public static IArmorMaterial classic_red_armor = DoomArmorMaterial.CLASSIC_RED_ARMOR;
+	public static IArmorMaterial classic_black_armor = DoomArmorMaterial.CLASSIC_BLACK_ARMOR;
+	public static IArmorMaterial classic_bronze_armor = DoomArmorMaterial.CLASSIC_BRONZE_ARMOR;
 
 	public static EquipmentSlotType helmet = EquipmentSlotType.HEAD;
 	public static EquipmentSlotType chest = EquipmentSlotType.CHEST;
@@ -66,6 +69,7 @@ public class DoomItems {
 					new ArgentShovel("argent_shovel"), new ArgentSword("argent_sword"),
 					ICON = new SwordCrucibleItem("doomcrucible_open"), new UnopenedItem("doomcrucible_closed"),
 					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
+					new SuperShotgun("supershotgun"), // new Shotgun("shotgun"),
 					new DoomArmor(doom_armor, helmet, "doom_helmet"),
 					new DoomArmor(doom_armor, chest, "doom_chestplate"),
 					new DoomArmor(doom_armor, pants, "doom_leggings"), new DoomArmor(doom_armor, boots, "doom_boots"),
@@ -120,7 +124,13 @@ public class DoomItems {
 					new DoomicornDoomArmor(doomicorn_armor, helmet, "doomicorn_doom_helmet"),
 					new DoomicornDoomArmor(doomicorn_armor, chest, "doomicorn_doom_chestplate"),
 					new DoomicornDoomArmor(doomicorn_armor, pants, "doomicorn_doom_leggings"),
-					new DoomicornDoomArmor(doomicorn_armor, boots, "doomicorn_doom_boots"));
+					new DoomicornDoomArmor(doomicorn_armor, boots, "doomicorn_doom_boots"),
+					new ClassicDoomArmor(classic_red_armor, chest, "classic_red_chestplate"),
+					new ClassicDoomArmor(classic_red_armor, pants, "classic_red_leggings"),
+					new ClassicDoomArmor(classic_black_armor, chest, "classic_black_chestplate"),
+					new ClassicDoomArmor(classic_black_armor, pants, "classic_black_leggings"),
+					new ClassicDoomArmor(classic_bronze_armor, chest, "classic_bronze_chestplate"),
+					new ClassicDoomArmor(classic_bronze_armor, pants, "classic_bronze_leggings"));
 		}
 	}
 }
