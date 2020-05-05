@@ -36,7 +36,7 @@ public class SuperShotgun extends CrossbowItem {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup));
 		this.setRegistryName(DoomMod.MODID, name);
 	}
-
+	
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
 		if (!isCharged(stack) && hasAmmo(entityLiving, stack)) {
@@ -49,8 +49,7 @@ public class SuperShotgun extends CrossbowItem {
 		}
 	}
 
-	@SuppressWarnings("unused")
-	private static void fireProjectile(World worldIn, LivingEntity shooter, Hand handIn, ItemStack crossbow,
+	public static void fireProjectile(World worldIn, LivingEntity shooter, Hand handIn, ItemStack crossbow,
 			ItemStack projectile, float soundPitch, boolean isCreativeMode, float velocity, float inaccuracy,
 			float projectileAngle) {
 		if (!worldIn.isRemote) {
@@ -109,25 +108,23 @@ public class SuperShotgun extends CrossbowItem {
 		}
 	}
 
-	private static AbstractArrowEntity createArrow(World worldIn, LivingEntity shooter, ItemStack crossbow,
+	public static AbstractArrowEntity createArrow(World worldIn, LivingEntity shooter, ItemStack crossbow,
 			ItemStack ammo) {
 		ArrowItem arrowitem = (ArrowItem) (ammo.getItem() instanceof ArrowItem ? ammo.getItem() : Items.ARROW);
 		AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, ammo, shooter);
 		if (shooter instanceof PlayerEntity) {
 			abstractarrowentity.setIsCritical(true);
 		}
-
 		abstractarrowentity.setHitSound(SoundEvents.ITEM_CROSSBOW_HIT);
 		abstractarrowentity.setShotFromCrossbow(true);
 		int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.PIERCING, crossbow);
 		if (i > 0) {
 			abstractarrowentity.setPierceLevel((byte) i);
 		}
-
 		return abstractarrowentity;
 	}
 
-	private SoundEvent getSoundEvent(int enchantmentLevel) {
+	public SoundEvent getSoundEvent(int enchantmentLevel) {
 		switch (enchantmentLevel) {
 		case 1:
 			return ModSoundEvents.QUICK1_1;

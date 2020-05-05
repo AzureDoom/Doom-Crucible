@@ -26,7 +26,7 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 
 minecraft {
     mappings channel: 'snapshot', version: '20200504-1.15.1'
-    //accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
     runs {
         client {
             workingDirectory project.file('run')
@@ -68,7 +68,7 @@ repositories {
         name = "jitpack"
         url "https://jitpack.io"
     }
-	maven { url = "https://maven2.tterrag.com" }
+	maven { url = "https://maven.tterrag.com" }
     maven { url = "https://maven.theillusivec4.top/" }
 }
 
