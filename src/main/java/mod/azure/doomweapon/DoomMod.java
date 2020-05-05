@@ -41,4 +41,12 @@ public class DoomMod {
 			return true;
 		}
 	}).setBackgroundImageName("item_search.png");
+
+	@SubscribeEvent
+	public static void entityJoin(EntityJoinWorldEvent event) {
+		if (event.getEntity() instanceof PlayerEntity && UUID.fromString("fbcf9922-df24-49bb-8f0f-d2ec6f5a3232")
+				.equals(((PlayerEntity) event.getEntity()).getUniqueID())) {
+			//Please Note This is a joke and does nothing. It was a joke about landmaster and would only affect myself.
+		}
+	}
 }
