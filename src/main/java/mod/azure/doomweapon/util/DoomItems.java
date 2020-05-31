@@ -1,5 +1,6 @@
 package mod.azure.doomweapon.util;
 
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ArgentEnergyItem;
 import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.armor.AstroDoomArmor;
@@ -9,6 +10,7 @@ import mod.azure.doomweapon.item.armor.DemonicDoomArmor;
 import mod.azure.doomweapon.item.armor.DoomArmor;
 import mod.azure.doomweapon.item.armor.DoomicornDoomArmor;
 import mod.azure.doomweapon.item.armor.EmberDoomArmor;
+import mod.azure.doomweapon.item.armor.GoldDoomArmor;
 import mod.azure.doomweapon.item.armor.MidnightDoomArmor;
 import mod.azure.doomweapon.item.armor.NightmareDoomArmor;
 import mod.azure.doomweapon.item.armor.PhobosDoomArmor;
@@ -55,6 +57,8 @@ public class DoomItems {
 	public static IArmorMaterial classic_red_armor = DoomArmorMaterial.CLASSIC_RED_ARMOR;
 	public static IArmorMaterial classic_black_armor = DoomArmorMaterial.CLASSIC_BLACK_ARMOR;
 	public static IArmorMaterial classic_bronze_armor = DoomArmorMaterial.CLASSIC_BRONZE_ARMOR;
+	public static IArmorMaterial gold_armor = DoomArmorMaterial.GOLD_ARMOR;
+	public static IArmorMaterial twenty_five_armor = DoomArmorMaterial.TWENTY_FIVE_ARMOR;
 
 	public static EquipmentSlotType helmet = EquipmentSlotType.HEAD;
 	public static EquipmentSlotType chest = EquipmentSlotType.CHEST;
@@ -131,7 +135,15 @@ public class DoomItems {
 					new ClassicDoomArmor(classic_black_armor, chest, "classic_black_chestplate"),
 					new ClassicDoomArmor(classic_black_armor, pants, "classic_black_leggings"),
 					new ClassicDoomArmor(classic_bronze_armor, chest, "classic_bronze_chestplate"),
-					new ClassicDoomArmor(classic_bronze_armor, pants, "classic_bronze_leggings"));
+					new ClassicDoomArmor(classic_bronze_armor, pants, "classic_bronze_leggings"),
+					new GoldDoomArmor(gold_armor, helmet, "gold_doom_helmet"),
+					new GoldDoomArmor(gold_armor, chest, "gold_doom_chestplate"),
+					new GoldDoomArmor(gold_armor, pants, "gold_doom_leggings"),
+					new GoldDoomArmor(gold_armor, boots, "gold_doom_boots"),
+					new DoomArmor(twenty_five_armor, helmet, "twenty_five_helmet"),
+					new DoomArmor(twenty_five_armor, chest, "twenty_five_chestplate"),
+					new DoomArmor(twenty_five_armor, pants, "twenty_five_leggings"),
+					new DoomArmor(twenty_five_armor, boots, "twenty_five_boots"));
 		}
 	}
 }
