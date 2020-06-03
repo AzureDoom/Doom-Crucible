@@ -2,13 +2,18 @@ package mod.azure.doomweapon.item.weapons;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.util.ModSoundEvents;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ArrowItem;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
@@ -21,6 +26,71 @@ public class SuperShotgun extends CrossbowItem {
 		this.setRegistryName(DoomMod.MODID, name);
 	}
 
+	//- - - - - - - - - - - - -
+	//remove
+	
+	  private static boolean hasAmmo(LivingEntity entityIn, ItemStack stack) {
+	      int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.MULTISHOT, stack);
+	      int j = i == 0 ? 1 : 3;
+	      boolean flag = entityIn instanceof PlayerEntity && ((PlayerEntity)entityIn).abilities.isCreativeMode;
+	      ItemStack itemstack = entityIn.findAmmo(stack);
+	      ItemStack itemstack1 = itemstack.copy();
+
+	      for(int k = 0; k < j; ++k) {
+	         if (k > 0) {
+	            itemstack = itemstack1.copy();
+	         }
+
+	         if (itemstack.isEmpty() && flag) {
+	            itemstack = new ItemStack(Items.ARROW);
+	            itemstack1 = itemstack.copy();
+	         }
+
+	         if (!func_220023_a(entityIn, stack, itemstack, k > 0, flag)) {
+	            return false;
+	         }
+	      }
+
+	      return true;
+	   }
+
+	   private static boolean func_220023_a(LivingEntity p_220023_0_, ItemStack p_220023_1_, ItemStack p_220023_2_, boolean p_220023_3_, boolean p_220023_4_) {
+	      if (p_220023_2_.isEmpty()) {
+	         return false;
+	      } else {
+	         boolean flag = p_220023_4_ && p_220023_2_.getItem() instanceof ArrowItem;
+	         ItemStack itemstack;
+	         if (!flag && !p_220023_4_ && !p_220023_3_) {
+	            itemstack = p_220023_2_.split(1);
+	            if (p_220023_2_.isEmpty() && p_220023_0_ instanceof PlayerEntity) {
+	               ((PlayerEntity)p_220023_0_).inventory.deleteStack(p_220023_2_);
+	            }
+	         } else {
+	            itemstack = p_220023_2_.copy();
+	         }
+
+	         addChargedProjectile(p_220023_1_, itemstack);
+	         return true;
+	      }
+	   }
+	   
+	   private static void addChargedProjectile(ItemStack crossbow, ItemStack projectile) {
+		      CompoundNBT compoundnbt = crossbow.getOrCreateTag();
+		      ListNBT listnbt;
+		      if (compoundnbt.contains("ChargedProjectiles", 9)) {
+		         listnbt = compoundnbt.getList("ChargedProjectiles", 10);
+		      } else {
+		         listnbt = new ListNBT();
+		      }
+
+		      CompoundNBT compoundnbt1 = new CompoundNBT();
+		      projectile.write(compoundnbt1);
+		      listnbt.add(compoundnbt1);
+		      compoundnbt.put("ChargedProjectiles", listnbt);
+		   }
+	
+	   //- - - - - - - - - - - - -
+	   
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
 		if (!isCharged(stack) && hasAmmo(entityLiving, stack)) {

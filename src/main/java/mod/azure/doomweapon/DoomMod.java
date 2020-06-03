@@ -1,6 +1,8 @@
 package mod.azure.doomweapon;
 
 import java.util.UUID;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import mod.azure.doomweapon.util.Config;
 import mod.azure.doomweapon.util.DoomItems;
@@ -22,6 +24,7 @@ public class DoomMod {
 
 	public static DoomMod instance;
 	public static final String MODID = "doomweapon";
+	public static final Logger logger = LogManager.getLogger(MODID);
 
 	public DoomMod() {
 		instance = this;

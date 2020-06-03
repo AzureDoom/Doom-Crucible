@@ -807,4 +807,130 @@ public class DoomArmorMaterial {
 		}
 
 	};
+	
+	public static final IArmorMaterial REDNECK1_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:redneck1_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
+	
+	public static final IArmorMaterial REDNECK2_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:redneck2_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
+	
+	public static final IArmorMaterial REDNECK3_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:redneck3_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
 }

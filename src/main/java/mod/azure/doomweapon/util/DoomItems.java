@@ -1,6 +1,5 @@
 package mod.azure.doomweapon.util;
 
-import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ArgentEnergyItem;
 import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.armor.AstroDoomArmor;
@@ -18,6 +17,7 @@ import mod.azure.doomweapon.item.armor.PraetorDoomArmor;
 import mod.azure.doomweapon.item.armor.PurplePonyDoomArmor;
 import mod.azure.doomweapon.item.armor.SentinelDoomArmor;
 import mod.azure.doomweapon.item.armor.ZombieDoomArmor;
+import mod.azure.doomweapon.item.armor.skin.SkinArmor;
 import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
@@ -59,6 +59,10 @@ public class DoomItems {
 	public static IArmorMaterial classic_bronze_armor = DoomArmorMaterial.CLASSIC_BRONZE_ARMOR;
 	public static IArmorMaterial gold_armor = DoomArmorMaterial.GOLD_ARMOR;
 	public static IArmorMaterial twenty_five_armor = DoomArmorMaterial.TWENTY_FIVE_ARMOR;
+	
+	public static IArmorMaterial redneck1_armor = DoomArmorMaterial.REDNECK1_ARMOR;
+	public static IArmorMaterial redneck2_armor = DoomArmorMaterial.REDNECK2_ARMOR;
+	public static IArmorMaterial redneck3_armor = DoomArmorMaterial.REDNECK3_ARMOR;
 
 	public static EquipmentSlotType helmet = EquipmentSlotType.HEAD;
 	public static EquipmentSlotType chest = EquipmentSlotType.CHEST;
@@ -143,7 +147,30 @@ public class DoomItems {
 					new DoomArmor(twenty_five_armor, helmet, "twenty_five_helmet"),
 					new DoomArmor(twenty_five_armor, chest, "twenty_five_chestplate"),
 					new DoomArmor(twenty_five_armor, pants, "twenty_five_leggings"),
-					new DoomArmor(twenty_five_armor, boots, "twenty_five_boots"));
+					new DoomArmor(twenty_five_armor, boots, "twenty_five_boots"),
+					
+			//using skin armor model  v v v
+//					new SkinArmor(astro_armor, helmet, "skin_helmet"),
+//					new SkinArmor(astro_armor, chest, "skin_chestplate"),
+//					new SkinArmor(astro_armor, pants, "skin_leggings"),
+//					new SkinArmor(astro_armor, boots, "skin_boots"),
+					
+					new SkinArmor(redneck1_armor, helmet, "redneck_doom1_helmet"),
+					new SkinArmor(redneck1_armor, chest, "redneck_doom1_chestplate"),
+					new SkinArmor(redneck1_armor, pants, "redneck_doom1_leggings"),
+					new SkinArmor(redneck1_armor, boots, "redneck_doom1_boots"),
+					
+					new SkinArmor(redneck2_armor, helmet, "redneck_doom2_helmet"),
+					new SkinArmor(redneck2_armor, chest, "redneck_doom2_chestplate"),
+					new SkinArmor(redneck2_armor, pants, "redneck_doom2_leggings"),
+					new SkinArmor(redneck2_armor, boots, "redneck_doom2_boots"),
+			
+					new SkinArmor(redneck3_armor, helmet, "redneck_doom3_helmet"),
+					new SkinArmor(redneck3_armor, chest, "redneck_doom3_chestplate"),
+					new SkinArmor(redneck3_armor, pants, "redneck_doom3_leggings"),
+					new SkinArmor(redneck3_armor, boots, "redneck_doom3_boots"));
+	
+			
 		}
 	}
 }
