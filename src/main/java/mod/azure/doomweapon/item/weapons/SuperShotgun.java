@@ -26,10 +26,7 @@ public class SuperShotgun extends CrossbowItem {
 		this.setRegistryName(DoomMod.MODID, name);
 	}
 
-	//- - - - - - - - - - - - -
-	//remove
-	
-	  private static boolean hasAmmo(LivingEntity entityIn, ItemStack stack) {
+	public static boolean hasAmmo(LivingEntity entityIn, ItemStack stack) {
 	      int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.MULTISHOT, stack);
 	      int j = i == 0 ? 1 : 3;
 	      boolean flag = entityIn instanceof PlayerEntity && ((PlayerEntity)entityIn).abilities.isCreativeMode;
