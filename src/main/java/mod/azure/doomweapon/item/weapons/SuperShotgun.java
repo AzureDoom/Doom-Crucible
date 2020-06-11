@@ -20,9 +20,8 @@ import net.minecraft.world.World;
 
 public class SuperShotgun extends CrossbowItem {
 
-	public SuperShotgun(String name) {
+	public SuperShotgun() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	public static boolean hasAmmo(LivingEntity entityIn, ItemStack stack) {

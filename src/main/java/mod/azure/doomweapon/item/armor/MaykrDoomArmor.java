@@ -21,9 +21,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class MaykrDoomArmor extends SkinArmor {
 
-	public MaykrDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot, String name) {
+	public MaykrDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot) {
 		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
+		
 	}
 
 	@Override

@@ -37,11 +37,7 @@ import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -78,116 +74,217 @@ public class DoomItems {
 	public static EquipmentSlotType chest = EquipmentSlotType.CHEST;
 	public static EquipmentSlotType pants = EquipmentSlotType.LEGS;
 	public static EquipmentSlotType boots = EquipmentSlotType.FEET;
-	
+
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, DoomMod.MODID);
-	
-	public static final RegistryObject<Item> SHOTGUN_SHELLS = ITEMS.register("shotgun_shells", () -> new ShellAmmo(new Item.Properties().group(DoomMod.DoomItemGroup)));
-	public static final RegistryObject<Item> ARGENT_BOLT = ITEMS.register("argent_bolt", () -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup)));
-	public static final RegistryObject<Item> ARGENT_ENERGY = ITEMS.register("argent_energy", () -> new ArgentEnergyItem());
+
+	// AMMO
+	public static final RegistryObject<Item> SHOTGUN_SHELLS = ITEMS.register("shotgun_shells",
+			() -> new ShellAmmo(new Item.Properties().group(DoomMod.DoomItemGroup)));
+	public static final RegistryObject<Item> ARGENT_BOLT = ITEMS.register("argent_bolt",
+			() -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup)));
+	// MISC
+	public static final RegistryObject<Item> ARGENT_ENERGY = ITEMS.register("argent_energy",
+			() -> new ArgentEnergyItem());
+	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
-
-	@Mod.EventBusSubscriber(bus = Bus.MOD)
-	public static class RegistryEvents {
-		@SubscribeEvent
-		public static void registerItems(final RegistryEvent.Register<Item> event) {
-			event.getRegistry().registerAll(
-					new ArgentAxe("argent_axe"), new ArgentHoe("argent_hoe"), new ArgentPickaxe("argent_pickaxe"),
-					new ArgentShovel("argent_shovel"), new ArgentSword("argent_sword"),
-					new UnopenedItem("doomcrucible_closed"),
-					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
-					new SuperShotgun("supershotgun"), new Shotgun("shotgun"), new Ballista("ballista"),
-					new DoomArmor(doom_armor, helmet, "doom_helmet"),
-					new DoomArmor(doom_armor, chest, "doom_chestplate"),
-					new DoomArmor(doom_armor, pants, "doom_leggings"), new DoomArmor(doom_armor, boots, "doom_boots"),
-					new ClassicDoomArmor(classic_armor, helmet, "classic_doom_helmet"),
-					new ClassicDoomArmor(classic_armor, chest, "classic_doom_chestplate"),
-					new ClassicDoomArmor(classic_armor, pants, "classic_doom_leggings"),
-					new ClassicDoomArmor(classic_armor, boots, "classic_doom_boots"),
-					new PraetorDoomArmor(praetor_armor, helmet, "praetor_doom_helmet"),
-					new PraetorDoomArmor(praetor_armor, chest, "praetor_doom_chestplate"),
-					new PraetorDoomArmor(praetor_armor, pants, "praetor_doom_leggings"),
-					new PraetorDoomArmor(praetor_armor, boots, "praetor_doom_boots"),
-					new AstroDoomArmor(astro_armor, helmet, "astro_doom_helmet"),
-					new AstroDoomArmor(astro_armor, chest, "astro_doom_chestplate"),
-					new AstroDoomArmor(astro_armor, pants, "astro_doom_leggings"),
-					new AstroDoomArmor(astro_armor, boots, "astro_doom_boots"),
-					new CrimsonDoomArmor(crimson_armor, helmet, "crimson_doom_helmet"),
-					new CrimsonDoomArmor(crimson_armor, chest, "crimson_doom_chestplate"),
-					new CrimsonDoomArmor(crimson_armor, pants, "crimson_doom_leggings"),
-					new CrimsonDoomArmor(crimson_armor, boots, "crimson_doom_boots"),
-					new MidnightDoomArmor(midnight_armor, helmet, "midnight_doom_helmet"),
-					new MidnightDoomArmor(midnight_armor, chest, "midnight_doom_chestplate"),
-					new MidnightDoomArmor(midnight_armor, pants, "midnight_doom_leggings"),
-					new MidnightDoomArmor(midnight_armor, boots, "midnight_doom_boots"),
-					new DemonicDoomArmor(demonic_armor, helmet, "demonic_doom_helmet"),
-					new DemonicDoomArmor(demonic_armor, chest, "demonic_doom_chestplate"),
-					new DemonicDoomArmor(demonic_armor, pants, "demonic_doom_leggings"),
-					new DemonicDoomArmor(demonic_armor, boots, "demonic_doom_boots"),
-					new SentinelDoomArmor(sentinel_armor, helmet, "sentinel_doom_helmet"),
-					new SentinelDoomArmor(sentinel_armor, chest, "sentinel_doom_chestplate"),
-					new SentinelDoomArmor(sentinel_armor, pants, "sentinel_doom_leggings"),
-					new SentinelDoomArmor(sentinel_armor, boots, "sentinel_doom_boots"),
-					new EmberDoomArmor(ember_armor, helmet, "ember_doom_helmet"),
-					new EmberDoomArmor(ember_armor, chest, "ember_doom_chestplate"),
-					new EmberDoomArmor(ember_armor, pants, "ember_doom_leggings"),
-					new EmberDoomArmor(ember_armor, boots, "ember_doom_boots"),
-					new ZombieDoomArmor(zombie_armor, helmet, "zombie_doom_helmet"),
-					new ZombieDoomArmor(zombie_armor, chest, "zombie_doom_chestplate"),
-					new ZombieDoomArmor(zombie_armor, pants, "zombie_doom_leggings"),
-					new ZombieDoomArmor(zombie_armor, boots, "zombie_doom_boots"),
-					new PhobosDoomArmor(phobos_armor, helmet, "phobos_doom_helmet"),
-					new PhobosDoomArmor(phobos_armor, chest, "phobos_doom_chestplate"),
-					new PhobosDoomArmor(phobos_armor, pants, "phobos_doom_leggings"),
-					new PhobosDoomArmor(phobos_armor, boots, "phobos_doom_boots"),
-					new NightmareDoomArmor(nightmare_armor, helmet, "nightmare_doom_helmet"),
-					new NightmareDoomArmor(nightmare_armor, chest, "nightmare_doom_chestplate"),
-					new NightmareDoomArmor(nightmare_armor, pants, "nightmare_doom_leggings"),
-					new NightmareDoomArmor(nightmare_armor, boots, "nightmare_doom_boots"),
-					new PurplePonyDoomArmor(purplepony_armor, helmet, "purplepony_doom_helmet"),
-					new PurplePonyDoomArmor(purplepony_armor, chest, "purplepony_doom_chestplate"),
-					new PurplePonyDoomArmor(purplepony_armor, pants, "purplepony_doom_leggings"),
-					new PurplePonyDoomArmor(purplepony_armor, boots, "purplepony_doom_boots"),
-					new DoomicornDoomArmor(doomicorn_armor, helmet, "doomicorn_doom_helmet"),
-					new DoomicornDoomArmor(doomicorn_armor, chest, "doomicorn_doom_chestplate"),
-					new DoomicornDoomArmor(doomicorn_armor, pants, "doomicorn_doom_leggings"),
-					new DoomicornDoomArmor(doomicorn_armor, boots, "doomicorn_doom_boots"),
-					new ClassicDoomArmor(classic_red_armor, chest, "classic_red_chestplate"),
-					new ClassicDoomArmor(classic_red_armor, pants, "classic_red_leggings"),
-					new ClassicDoomArmor(classic_indigo_armor, chest, "classic_black_chestplate"),
-					new ClassicDoomArmor(classic_indigo_armor, pants, "classic_black_leggings"),
-					new ClassicDoomArmor(classic_bronze_armor, chest, "classic_bronze_chestplate"),
-					new ClassicDoomArmor(classic_bronze_armor, pants, "classic_bronze_leggings"),
-					new GoldDoomArmor(gold_armor, helmet, "gold_doom_helmet"),
-					new GoldDoomArmor(gold_armor, chest, "gold_doom_chestplate"),
-					new GoldDoomArmor(gold_armor, pants, "gold_doom_leggings"),
-					new GoldDoomArmor(gold_armor, boots, "gold_doom_boots"),
-					new DoomArmor(twenty_five_armor, helmet, "twenty_five_helmet"),
-					new DoomArmor(twenty_five_armor, chest, "twenty_five_chestplate"),
-					new DoomArmor(twenty_five_armor, pants, "twenty_five_leggings"),
-					new DoomArmor(twenty_five_armor, boots, "twenty_five_boots"),
-					new DoomArmor(bronze_doom_armor, helmet, "bronze_doom_helmet"),
-					new DoomArmor(bronze_doom_armor, chest, "bronze_doom_chestplate"),
-					new DoomArmor(bronze_doom_armor, pants, "bronze_doom_leggings"),
-					new DoomArmor(bronze_doom_armor, boots, "bronze_doom_boots"),
-					new CultistDoomArmor(cultist_doom_armor, helmet, "cultist_doom_helmet"),
-					new CultistDoomArmor(cultist_doom_armor, chest, "cultist_doom_chestplate"),
-					new CultistDoomArmor(cultist_doom_armor, pants, "cultist_doom_leggings"),
-					new CultistDoomArmor(cultist_doom_armor, boots, "cultist_doom_boots"),
-					new MaykrDoomArmor(maykr_doom_armor, helmet, "maykr_doom_helmet"),
-					new MaykrDoomArmor(maykr_doom_armor, chest, "maykr_doom_chestplate"),
-					new MaykrDoomArmor(maykr_doom_armor, pants, "maykr_doom_leggings"),
-					new MaykrDoomArmor(maykr_doom_armor, boots, "maykr_doom_boots"),
-					new PainterDoomArmor(painter_doom_armor, helmet, "painter_doom_helmet"),
-					new PainterDoomArmor(painter_doom_armor, chest, "painter_doom_chestplate"),
-					new PainterDoomArmor(painter_doom_armor, pants, "painter_doom_leggings"),
-					new PainterDoomArmor(painter_doom_armor, boots, "painter_doom_boots"),
-					new MulletDoomArmor(redneck1_armor, helmet, "redneck_doom_helmet"),
-					new MulletDoomArmor(redneck1_armor, chest, "redneck_doom1_chestplate"),
-					new MulletDoomArmor(redneck2_armor, chest, "redneck_doom2_chestplate"),
-					new MulletDoomArmor(redneck3_armor, chest, "redneck_doom3_chestplate"),
-					new MulletDoomArmor(redneck1_armor, pants, "redneck_doom_leggings"),
-					new MulletDoomArmor(redneck1_armor, boots, "redneck_doom_boots"));
-
-		}
-	}
+	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());
+	public static final RegistryObject<Item> ARGENT_HOE = ITEMS.register("argent_hoe", () -> new ArgentHoe());
+	public static final RegistryObject<Item> ARGENT_PICKAXE = ITEMS.register("argent_pickaxe",
+			() -> new ArgentPickaxe());
+	public static final RegistryObject<Item> ARGENT_SHOVEL = ITEMS.register("argent_shovel", () -> new ArgentShovel());
+	public static final RegistryObject<Item> ARGENT_SWORD = ITEMS.register("argent_sword", () -> new ArgentSword());
+	public static final RegistryObject<Item> SWORD_CLOSED = ITEMS.register("doomcrucible_closed",
+			() -> new UnopenedItem());
+	public static final RegistryObject<Item> AXE_OPEN = ITEMS.register("axe_marauder_open",
+			() -> new AxeMarauderItem());
+	public static final RegistryObject<Item> AXE_CLOSED = ITEMS.register("axe_marauder_closed",
+			() -> new UnopenedItem());
+	public static final RegistryObject<Item> SSG = ITEMS.register("supershotgun", () -> new SuperShotgun());
+	public static final RegistryObject<Item> SG = ITEMS.register("shotgun", () -> new Shotgun());
+	public static final RegistryObject<Item> BALLISTA = ITEMS.register("ballista", () -> new Ballista());
+	// ARMOR
+	public static final RegistryObject<Item> DOOM_HELMET = ITEMS.register("doom_helmet",
+			() -> new DoomArmor(doom_armor, helmet));
+	public static final RegistryObject<Item> DOOM_CHESTPLATE = ITEMS.register("doom_chestplate",
+			() -> new DoomArmor(doom_armor, chest));
+	public static final RegistryObject<Item> DOOM_LEGGINGS = ITEMS.register("doom_leggings",
+			() -> new DoomArmor(doom_armor, pants));
+	public static final RegistryObject<Item> DOOM_BOOTS = ITEMS.register("doom_boots",
+			() -> new DoomArmor(doom_armor, boots));
+	public static final RegistryObject<Item> PRAETOR_DOOM_HELMET = ITEMS.register("praetor_doom_helmet",
+			() -> new PraetorDoomArmor(praetor_armor, helmet));
+	public static final RegistryObject<Item> PRAETOR_DOOM_CHESTPLATE = ITEMS.register("praetor_doom_chestplate",
+			() -> new PraetorDoomArmor(praetor_armor, chest));
+	public static final RegistryObject<Item> PRAETOR_DOOM_LEGGINGS = ITEMS.register("praetor_doom_leggings",
+			() -> new PraetorDoomArmor(praetor_armor, pants));
+	public static final RegistryObject<Item> PRAETOR_DOOM_BOOTS = ITEMS.register("praetor_doom_boots",
+			() -> new PraetorDoomArmor(praetor_armor, boots));
+	public static final RegistryObject<Item> ASTRO_DOOM_HELMET = ITEMS.register("astro_doom_helmet",
+			() -> new AstroDoomArmor(astro_armor, helmet));
+	public static final RegistryObject<Item> ASTRO_DOOM_CHESTPLATE = ITEMS.register("astro_doom_chestplate",
+			() -> new AstroDoomArmor(astro_armor, chest));
+	public static final RegistryObject<Item> ASTRO_DOOM_LEGGINGS = ITEMS.register("astro_doom_leggings",
+			() -> new AstroDoomArmor(astro_armor, pants));
+	public static final RegistryObject<Item> ASTRO_DOOM_BOOTS = ITEMS.register("astro_doom_boots",
+			() -> new AstroDoomArmor(astro_armor, boots));
+	public static final RegistryObject<Item> CRIMSON_DOOM_HELMET = ITEMS.register("crimson_doom_helmet",
+			() -> new CrimsonDoomArmor(crimson_armor, helmet));
+	public static final RegistryObject<Item> CRIMSON_DOOM_CHESTPLATE = ITEMS.register("crimson_doom_chestplate",
+			() -> new CrimsonDoomArmor(crimson_armor, chest));
+	public static final RegistryObject<Item> CRIMSON_DOOM_LEGGINGS = ITEMS.register("crimson_doom_leggings",
+			() -> new CrimsonDoomArmor(crimson_armor, pants));
+	public static final RegistryObject<Item> CRIMSON_DOOM_BOOTS = ITEMS.register("crimson_doom_boots",
+			() -> new CrimsonDoomArmor(crimson_armor, boots));
+	public static final RegistryObject<Item> MIDNIGHT_DOOM_HELMET = ITEMS.register("midnight_doom_helmet",
+			() -> new MidnightDoomArmor(midnight_armor, helmet));
+	public static final RegistryObject<Item> MIDNIGHT_DOOM_CHESTPLATE = ITEMS.register("midnight_doom_chestplate",
+			() -> new MidnightDoomArmor(midnight_armor, chest));
+	public static final RegistryObject<Item> MIDNIGHT_DOOM_LEGGINGS = ITEMS.register("midnight_doom_leggings",
+			() -> new MidnightDoomArmor(midnight_armor, pants));
+	public static final RegistryObject<Item> MIDNIGHT_DOOM_BOOTS = ITEMS.register("midnight_doom_boots",
+			() -> new MidnightDoomArmor(midnight_armor, boots));
+	public static final RegistryObject<Item> DEMONIC_DOOM_HELMET = ITEMS.register("demonic_doom_helmet",
+			() -> new DemonicDoomArmor(demonic_armor, helmet));
+	public static final RegistryObject<Item> DEMONIC_DOOM_CHESTPLATE = ITEMS.register("demonic_doom_chestplate",
+			() -> new DemonicDoomArmor(demonic_armor, chest));
+	public static final RegistryObject<Item> DEMONIC_DOOM_LEGGINGS = ITEMS.register("demonic_doom_leggings",
+			() -> new DemonicDoomArmor(demonic_armor, pants));
+	public static final RegistryObject<Item> DEMONIC_DOOM_BOOTS = ITEMS.register("demonic_doom_boots",
+			() -> new DemonicDoomArmor(demonic_armor, boots));
+	public static final RegistryObject<Item> SENTINEL_DOOM_HELMET = ITEMS.register("sentinel_doom_helmet",
+			() -> new SentinelDoomArmor(sentinel_armor, helmet));
+	public static final RegistryObject<Item> SENTINEL_DOOM_CHESTPLATE = ITEMS.register("sentinel_doom_chestplate",
+			() -> new SentinelDoomArmor(sentinel_armor, chest));
+	public static final RegistryObject<Item> SENTINEL_DOOM_LEGGINGS = ITEMS.register("sentinel_doom_leggings",
+			() -> new SentinelDoomArmor(sentinel_armor, pants));
+	public static final RegistryObject<Item> SENTINEL_DOOM_BOOTS = ITEMS.register("sentinel_doom_boots",
+			() -> new SentinelDoomArmor(sentinel_armor, boots));
+	public static final RegistryObject<Item> EMBER_DOOM_HELMET = ITEMS.register("ember_doom_helmet",
+			() -> new EmberDoomArmor(ember_armor, helmet));
+	public static final RegistryObject<Item> EMBER_DOOM_CHESTPLATE = ITEMS.register("ember_doom_chestplate",
+			() -> new EmberDoomArmor(ember_armor, chest));
+	public static final RegistryObject<Item> EMBER_DOOM_LEGGINGS = ITEMS.register("ember_doom_leggings",
+			() -> new EmberDoomArmor(ember_armor, pants));
+	public static final RegistryObject<Item> EMBER_DOOM_BOOTS = ITEMS.register("ember_doom_boots",
+			() -> new EmberDoomArmor(ember_armor, boots));
+	public static final RegistryObject<Item> ZOMBIE_DOOM_HELMET = ITEMS.register("zombie_doom_helmet",
+			() -> new ZombieDoomArmor(phobos_armor, helmet));
+	public static final RegistryObject<Item> ZOMBIE_DOOM_CHESTPLATE = ITEMS.register("zombie_doom_chestplate",
+			() -> new ZombieDoomArmor(phobos_armor, chest));
+	public static final RegistryObject<Item> ZOMBIE_DOOM_LEGGINGS = ITEMS.register("zombie_doom_leggings",
+			() -> new ZombieDoomArmor(phobos_armor, pants));
+	public static final RegistryObject<Item> ZOMBIE_DOOM_BOOTS = ITEMS.register("zombie_doom_boots",
+			() -> new ZombieDoomArmor(phobos_armor, boots));
+	public static final RegistryObject<Item> PHOBOS_DOOM_HELMET = ITEMS.register("phobos_doom_helmet",
+			() -> new PhobosDoomArmor(phobos_armor, helmet));
+	public static final RegistryObject<Item> PHOBOS_DOOM_CHESTPLATE = ITEMS.register("phobos_doom_chestplate",
+			() -> new PhobosDoomArmor(phobos_armor, chest));
+	public static final RegistryObject<Item> PHOBOS_DOOM_LEGGINGS = ITEMS.register("phobos_doom_leggings",
+			() -> new PhobosDoomArmor(phobos_armor, pants));
+	public static final RegistryObject<Item> PHOBOS_DOOM_BOOTS = ITEMS.register("phobos_doom_boots",
+			() -> new PhobosDoomArmor(phobos_armor, boots));
+	public static final RegistryObject<Item> NIGHTMARE_DOOM_HELMET = ITEMS.register("nightmare_doom_helmet",
+			() -> new NightmareDoomArmor(nightmare_armor, helmet));
+	public static final RegistryObject<Item> NIGHTMARE_DOOM_CHESTPLATE = ITEMS.register("nightmare_doom_chestplate",
+			() -> new NightmareDoomArmor(nightmare_armor, chest));
+	public static final RegistryObject<Item> NIGHTMARE_DOOM_LEGGINGS = ITEMS.register("nightmare_doom_leggings",
+			() -> new NightmareDoomArmor(nightmare_armor, pants));
+	public static final RegistryObject<Item> NIGHTMARE_DOOM_BOOTS = ITEMS.register("nightmare_doom_boots",
+			() -> new NightmareDoomArmor(nightmare_armor, boots));
+	public static final RegistryObject<Item> PURPLEPONY_DOOM_HELMET = ITEMS.register("purplepony_doom_helmet",
+			() -> new PurplePonyDoomArmor(purplepony_armor, helmet));
+	public static final RegistryObject<Item> PURPLEPONY_DOOM_CHESTPLATE = ITEMS.register("purplepony_doom_chestplate",
+			() -> new PurplePonyDoomArmor(purplepony_armor, chest));
+	public static final RegistryObject<Item> PURPLEPONY_DOOM_LEGGINGS = ITEMS.register("purplepony_doom_leggings",
+			() -> new PurplePonyDoomArmor(purplepony_armor, pants));
+	public static final RegistryObject<Item> PURPLEPONY_DOOM_BOOTS = ITEMS.register("purplepony_doom_boots",
+			() -> new PurplePonyDoomArmor(purplepony_armor, boots));
+	public static final RegistryObject<Item> DOOMICORN_DOOM_HELMET = ITEMS.register("doomicorn_doom_helmet",
+			() -> new DoomicornDoomArmor(doomicorn_armor, helmet));
+	public static final RegistryObject<Item> DOOMICORN_DOOM_CHESTPLATE = ITEMS.register("doomicorn_doom_chestplate",
+			() -> new DoomicornDoomArmor(doomicorn_armor, chest));
+	public static final RegistryObject<Item> DOOMICORN_DOOM_LEGGINGS = ITEMS.register("doomicorn_doom_leggings",
+			() -> new DoomicornDoomArmor(doomicorn_armor, pants));
+	public static final RegistryObject<Item> DOOMICORN_DOOM_BOOTS = ITEMS.register("doomicorn_doom_boots",
+			() -> new DoomicornDoomArmor(doomicorn_armor, boots));
+	public static final RegistryObject<Item> GOLD_DOOM_HELMET = ITEMS.register("gold_doom_helmet",
+			() -> new GoldDoomArmor(gold_armor, helmet));
+	public static final RegistryObject<Item> GOLD_DOOM_CHESTPLATE = ITEMS.register("gold_doom_chestplate",
+			() -> new GoldDoomArmor(gold_armor, chest));
+	public static final RegistryObject<Item> GOLD_DOOM_LEGGINGS = ITEMS.register("gold_doom_leggings",
+			() -> new GoldDoomArmor(gold_armor, pants));
+	public static final RegistryObject<Item> GOLD_DOOM_BOOTS = ITEMS.register("gold_doom_boots",
+			() -> new GoldDoomArmor(gold_armor, boots));
+	public static final RegistryObject<Item> TWENTY_FIVE_DOOM_HELMET = ITEMS.register("twenty_five_helmet",
+			() -> new DoomArmor(twenty_five_armor, helmet));
+	public static final RegistryObject<Item> TWENTY_FIVE_DOOM_CHESTPLATE = ITEMS.register("twenty_five_chestplate",
+			() -> new DoomArmor(twenty_five_armor, chest));
+	public static final RegistryObject<Item> TWENTY_FIVE_DOOM_LEGGINGS = ITEMS.register("twenty_five_leggings",
+			() -> new DoomArmor(twenty_five_armor, pants));
+	public static final RegistryObject<Item> TWENTY_FIVE_DOOM_BOOTS = ITEMS.register("twenty_five_boots",
+			() -> new DoomArmor(twenty_five_armor, boots));
+	public static final RegistryObject<Item> BRONZE_DOOM_HELMET = ITEMS.register("bronze_doom_helmet",
+			() -> new DoomArmor(bronze_doom_armor, helmet));
+	public static final RegistryObject<Item> BRONZE_DOOM_CHESTPLATE = ITEMS.register("bronze_doom_chestplate",
+			() -> new DoomArmor(bronze_doom_armor, chest));
+	public static final RegistryObject<Item> BRONZE_DOOM_LEGGINGS = ITEMS.register("bronze_doom_leggings",
+			() -> new DoomArmor(bronze_doom_armor, pants));
+	public static final RegistryObject<Item> BRONZE_DOOM_BOOTS = ITEMS.register("bronze_doom_boots",
+			() -> new DoomArmor(bronze_doom_armor, boots));
+	public static final RegistryObject<Item> CULTIST_DOOM_HELMET = ITEMS.register("cultist_doom_helmet",
+			() -> new CultistDoomArmor(cultist_doom_armor, helmet));
+	public static final RegistryObject<Item> CULTIST_DOOM_CHESTPLATE = ITEMS.register("cultist_doom_chestplate",
+			() -> new CultistDoomArmor(cultist_doom_armor, chest));
+	public static final RegistryObject<Item> CULTIST_DOOM_LEGGINGS = ITEMS.register("cultist_doom_leggings",
+			() -> new CultistDoomArmor(cultist_doom_armor, pants));
+	public static final RegistryObject<Item> CULTIST_DOOM_BOOTS = ITEMS.register("cultist_doom_boots",
+			() -> new CultistDoomArmor(cultist_doom_armor, boots));
+	public static final RegistryObject<Item> MAYKR_DOOM_HELMET = ITEMS.register("maykr_doom_helmet",
+			() -> new MaykrDoomArmor(maykr_doom_armor, helmet));
+	public static final RegistryObject<Item> MAYKR_DOOM_CHESTPLATE = ITEMS.register("maykr_doom_chestplate",
+			() -> new MaykrDoomArmor(maykr_doom_armor, chest));
+	public static final RegistryObject<Item> MAYKR_DOOM_LEGGINGS = ITEMS.register("maykr_doom_leggings",
+			() -> new MaykrDoomArmor(maykr_doom_armor, pants));
+	public static final RegistryObject<Item> MAYKR_DOOM_BOOTS = ITEMS.register("maykr_doom_boots",
+			() -> new MaykrDoomArmor(maykr_doom_armor, boots));
+	public static final RegistryObject<Item> PAINTER_DOOM_HELMET = ITEMS.register("painter_doom_helmet",
+			() -> new PainterDoomArmor(painter_doom_armor, helmet));
+	public static final RegistryObject<Item> PAINTER_DOOM_CHESTPLATE = ITEMS.register("painter_doom_chestplate",
+			() -> new PainterDoomArmor(painter_doom_armor, chest));
+	public static final RegistryObject<Item> PAINTER_DOOM_LEGGINGS = ITEMS.register("painter_doom_leggings",
+			() -> new PainterDoomArmor(painter_doom_armor, pants));
+	public static final RegistryObject<Item> PAINTER_DOOM_BOOTS = ITEMS.register("painter_doom_boots",
+			() -> new PainterDoomArmor(painter_doom_armor, boots));
+	public static final RegistryObject<Item> CLASSIC_DOOM_HELMET = ITEMS.register("classic_doom_helmet",
+			() -> new ClassicDoomArmor(classic_armor, helmet));
+	public static final RegistryObject<Item> CLASSIC_DOOM_CHESTPLATE = ITEMS.register("classic_doom_chestplate",
+			() -> new ClassicDoomArmor(classic_armor, chest));
+	public static final RegistryObject<Item> CLASSIC_DOOM_LEGGINGS = ITEMS.register("classic_doom_leggings",
+			() -> new ClassicDoomArmor(classic_armor, pants));
+	public static final RegistryObject<Item> CLASSIC_RED_DOOM_CHESTPLATE = ITEMS.register("classic_red_chestplate",
+			() -> new ClassicDoomArmor(classic_red_armor, chest));
+	public static final RegistryObject<Item> CLASSIC_RED_DOOM_LEGGINGS = ITEMS.register("classic_red_leggings",
+			() -> new ClassicDoomArmor(classic_red_armor, pants));
+	public static final RegistryObject<Item> CLASSIC_INDIGO_DOOM_CHESTPLATE = ITEMS.register("classic_black_chestplate",
+			() -> new ClassicDoomArmor(classic_indigo_armor, chest));
+	public static final RegistryObject<Item> CLASSIC_INDIGO_DOOM_LEGGINGS = ITEMS.register("classic_black_leggings",
+			() -> new ClassicDoomArmor(classic_indigo_armor, pants));
+	public static final RegistryObject<Item> CLASSIC_BRONZE_DOOM_CHESTPLATE = ITEMS
+			.register("classic_bronze_chestplate", () -> new ClassicDoomArmor(classic_bronze_armor, chest));
+	public static final RegistryObject<Item> CLASSIC_BRONZE_DOOM_LEGGINGS = ITEMS.register("classic_bronze_leggings",
+			() -> new ClassicDoomArmor(classic_bronze_armor, pants));
+	public static final RegistryObject<Item> CLASSIC_DOOM_BOOTS = ITEMS.register("classic_doom_boots",
+			() -> new ClassicDoomArmor(classic_armor, boots));
+	public static final RegistryObject<Item> MULLET_DOOM_HELMET = ITEMS.register("redneck_doom_helmet",
+			() -> new MulletDoomArmor(redneck1_armor, helmet));
+	public static final RegistryObject<Item> DOOM_CHESTPLATE1 = ITEMS.register("redneck_doom1_chestplate",
+			() -> new MulletDoomArmor(redneck1_armor, chest));
+	public static final RegistryObject<Item> MULLET_DOOM_CHESTPLATE2 = ITEMS.register("redneck_doom2_chestplate",
+			() -> new MulletDoomArmor(redneck2_armor, chest));
+	public static final RegistryObject<Item> MULLET_DOOM_CHESTPLATE3 = ITEMS.register("redneck_doom3_chestplate",
+			() -> new MulletDoomArmor(redneck3_armor, chest));
+	public static final RegistryObject<Item> MULLET_DOOM_LEGGINGS = ITEMS.register("doom_leggings",
+			() -> new MulletDoomArmor(redneck1_armor, pants));
+	public static final RegistryObject<Item> MULLET_DOOM_BOOTS = ITEMS.register("redneck_doom_boots",
+			() -> new MulletDoomArmor(redneck1_armor, boots));
 }

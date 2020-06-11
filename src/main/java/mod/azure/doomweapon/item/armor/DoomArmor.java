@@ -21,9 +21,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class DoomArmor extends SkinArmor {
 
-	public DoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot, String name) {
+	public DoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot) {
 		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
+		
 	}
 
 	@Override

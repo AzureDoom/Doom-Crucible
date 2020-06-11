@@ -12,9 +12,8 @@ import net.minecraft.world.World;
 
 public class Ballista extends CrossbowItem {
 
-	public Ballista(String name) {
+	public Ballista() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

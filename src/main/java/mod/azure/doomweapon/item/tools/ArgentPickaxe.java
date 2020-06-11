@@ -16,9 +16,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ArgentPickaxe extends PickaxeItem {
 
-	public ArgentPickaxe(String name) {
+	public ArgentPickaxe() {
 		super(DoomTier.DOOM, 4, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

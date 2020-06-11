@@ -16,9 +16,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ArgentAxe extends AxeItem {
 
-	public ArgentAxe(String name) {
+	public ArgentAxe() {
 		super(DoomTier.DOOM, 8, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

@@ -16,9 +16,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ArgentHoe extends HoeItem {
 
-	public ArgentHoe(String name) {
+	public ArgentHoe() {
 		super(DoomTier.DOOM, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 	
 	@Override

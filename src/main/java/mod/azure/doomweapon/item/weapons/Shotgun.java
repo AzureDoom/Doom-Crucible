@@ -23,9 +23,8 @@ import net.minecraft.world.World;
 
 public class Shotgun extends BowItem {
 
-	public Shotgun(String name) {
+	public Shotgun() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {

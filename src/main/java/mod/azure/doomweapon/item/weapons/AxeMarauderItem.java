@@ -21,10 +21,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class AxeMarauderItem extends AxeItem {
 
-	public AxeMarauderItem(String name) {
+	public AxeMarauderItem() {
 		super(DoomTier.DOOM, Config.SERVER.AXE_CRUCIBLE_ATTACK.get(), -2.4F, new Item.Properties()
 				.group(DoomMod.DoomItemGroup).maxDamage(Config.SERVER.AXE_CRUCIBLE_MAXDAMAGE.get()));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

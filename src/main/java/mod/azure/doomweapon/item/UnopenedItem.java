@@ -14,9 +14,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class UnopenedItem extends Item {
 
-	public UnopenedItem(String name) {
+	public UnopenedItem() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

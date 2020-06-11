@@ -21,9 +21,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class PainterDoomArmor extends SkinArmor {
 
-	public PainterDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot, String name) {
+	public PainterDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot) {
 		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
+		
 	}
 
 	@Override
