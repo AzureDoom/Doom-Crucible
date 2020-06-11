@@ -640,7 +640,7 @@ public class DoomArmorMaterial {
 
 	};
 
-	public static final IArmorMaterial CLASSIC_BLACK_ARMOR = new IArmorMaterial() {
+	public static final IArmorMaterial CLASSIC_INDIGO_ARMOR = new IArmorMaterial() {
 
 		private final int[] armors = new int[] { 5, 8, 10, 5 };
 
@@ -672,7 +672,7 @@ public class DoomArmorMaterial {
 		@Override
 		@OnlyIn(Dist.CLIENT)
 		public String getName() {
-			return "doomweapon:classic_black_armor";
+			return "doomweapon:classic_indigo_armor";
 		}
 
 		@Override
@@ -807,7 +807,7 @@ public class DoomArmorMaterial {
 		}
 
 	};
-	
+
 	public static final IArmorMaterial REDNECK1_ARMOR = new IArmorMaterial() {
 
 		private final int[] armors = new int[] { 5, 8, 10, 5 };
@@ -849,7 +849,7 @@ public class DoomArmorMaterial {
 		}
 
 	};
-	
+
 	public static final IArmorMaterial REDNECK2_ARMOR = new IArmorMaterial() {
 
 		private final int[] armors = new int[] { 5, 8, 10, 5 };
@@ -891,7 +891,7 @@ public class DoomArmorMaterial {
 		}
 
 	};
-	
+
 	public static final IArmorMaterial REDNECK3_ARMOR = new IArmorMaterial() {
 
 		private final int[] armors = new int[] { 5, 8, 10, 5 };
@@ -925,6 +925,174 @@ public class DoomArmorMaterial {
 		@OnlyIn(Dist.CLIENT)
 		public String getName() {
 			return "doomweapon:redneck3_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
+
+	public static final IArmorMaterial BRONZE_DOOM_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:bronze_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
+	
+	public static final IArmorMaterial PAINTER_DOOM_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:painter_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
+	
+	public static final IArmorMaterial CULTIST_DOOM_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:cultist_armor";
+		}
+
+		@Override
+		public float getToughness() {
+			return 8;
+		}
+
+	};
+	
+	public static final IArmorMaterial MAYKR_DOOM_ARMOR = new IArmorMaterial() {
+
+		private final int[] armors = new int[] { 5, 8, 10, 5 };
+
+		@Override
+		public int getDurability(EquipmentSlotType slotIn) {
+			return 1000;
+		}
+
+		@Override
+		public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+			return this.armors[slotIn.getIndex()];
+		}
+
+		@Override
+		public int getEnchantability() {
+			return 15;
+		}
+
+		@Override
+		public SoundEvent getSoundEvent() {
+			return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+		}
+
+		@Override
+		public Ingredient getRepairMaterial() {
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public String getName() {
+			return "doomweapon:maykr_armor";
 		}
 
 		@Override

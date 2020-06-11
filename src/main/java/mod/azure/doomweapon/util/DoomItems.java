@@ -5,14 +5,17 @@ import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.armor.AstroDoomArmor;
 import mod.azure.doomweapon.item.armor.ClassicDoomArmor;
 import mod.azure.doomweapon.item.armor.CrimsonDoomArmor;
+import mod.azure.doomweapon.item.armor.CultistDoomArmor;
 import mod.azure.doomweapon.item.armor.DemonicDoomArmor;
 import mod.azure.doomweapon.item.armor.DoomArmor;
 import mod.azure.doomweapon.item.armor.DoomicornDoomArmor;
 import mod.azure.doomweapon.item.armor.EmberDoomArmor;
 import mod.azure.doomweapon.item.armor.GoldDoomArmor;
+import mod.azure.doomweapon.item.armor.MaykrDoomArmor;
 import mod.azure.doomweapon.item.armor.MidnightDoomArmor;
 import mod.azure.doomweapon.item.armor.MulletDoomArmor;
 import mod.azure.doomweapon.item.armor.NightmareDoomArmor;
+import mod.azure.doomweapon.item.armor.PainterDoomArmor;
 import mod.azure.doomweapon.item.armor.PhobosDoomArmor;
 import mod.azure.doomweapon.item.armor.PraetorDoomArmor;
 import mod.azure.doomweapon.item.armor.PurplePonyDoomArmor;
@@ -55,11 +58,14 @@ public class DoomItems {
 	public static IArmorMaterial nightmare_armor = DoomArmorMaterial.NIGHTMARE_DOOM_ARMOR;
 	public static IArmorMaterial purplepony_armor = DoomArmorMaterial.PURPLEPONY_DOOM_ARMOR;
 	public static IArmorMaterial classic_red_armor = DoomArmorMaterial.CLASSIC_RED_ARMOR;
-	public static IArmorMaterial classic_black_armor = DoomArmorMaterial.CLASSIC_BLACK_ARMOR;
+	public static IArmorMaterial classic_indigo_armor = DoomArmorMaterial.CLASSIC_INDIGO_ARMOR;
 	public static IArmorMaterial classic_bronze_armor = DoomArmorMaterial.CLASSIC_BRONZE_ARMOR;
 	public static IArmorMaterial gold_armor = DoomArmorMaterial.GOLD_ARMOR;
 	public static IArmorMaterial twenty_five_armor = DoomArmorMaterial.TWENTY_FIVE_ARMOR;
-
+	public static IArmorMaterial bronze_doom_armor = DoomArmorMaterial.BRONZE_DOOM_ARMOR;
+	public static IArmorMaterial painter_doom_armor = DoomArmorMaterial.PAINTER_DOOM_ARMOR;
+	public static IArmorMaterial cultist_doom_armor = DoomArmorMaterial.CULTIST_DOOM_ARMOR;
+	public static IArmorMaterial maykr_doom_armor = DoomArmorMaterial.MAYKR_DOOM_ARMOR;
 	public static IArmorMaterial redneck1_armor = DoomArmorMaterial.REDNECK1_ARMOR;
 	public static IArmorMaterial redneck2_armor = DoomArmorMaterial.REDNECK2_ARMOR;
 	public static IArmorMaterial redneck3_armor = DoomArmorMaterial.REDNECK3_ARMOR;
@@ -136,8 +142,8 @@ public class DoomItems {
 					new DoomicornDoomArmor(doomicorn_armor, boots, "doomicorn_doom_boots"),
 					new ClassicDoomArmor(classic_red_armor, chest, "classic_red_chestplate"),
 					new ClassicDoomArmor(classic_red_armor, pants, "classic_red_leggings"),
-					new ClassicDoomArmor(classic_black_armor, chest, "classic_black_chestplate"),
-					new ClassicDoomArmor(classic_black_armor, pants, "classic_black_leggings"),
+					new ClassicDoomArmor(classic_indigo_armor, chest, "classic_black_chestplate"),
+					new ClassicDoomArmor(classic_indigo_armor, pants, "classic_black_leggings"),
 					new ClassicDoomArmor(classic_bronze_armor, chest, "classic_bronze_chestplate"),
 					new ClassicDoomArmor(classic_bronze_armor, pants, "classic_bronze_leggings"),
 					new GoldDoomArmor(gold_armor, helmet, "gold_doom_helmet"),
@@ -148,6 +154,22 @@ public class DoomItems {
 					new DoomArmor(twenty_five_armor, chest, "twenty_five_chestplate"),
 					new DoomArmor(twenty_five_armor, pants, "twenty_five_leggings"),
 					new DoomArmor(twenty_five_armor, boots, "twenty_five_boots"),
+					new DoomArmor(bronze_doom_armor, helmet, "bronze_doom_helmet"),
+					new DoomArmor(bronze_doom_armor, chest, "bronze_doom_chestplate"),
+					new DoomArmor(bronze_doom_armor, pants, "bronze_doom_leggings"),
+					new DoomArmor(bronze_doom_armor, boots, "bronze_doom_boots"),
+					new CultistDoomArmor(cultist_doom_armor, helmet, "cultist_doom_helmet"),
+					new CultistDoomArmor(cultist_doom_armor, chest, "cultist_doom_chestplate"),
+					new CultistDoomArmor(cultist_doom_armor, pants, "cultist_doom_leggings"),
+					new CultistDoomArmor(cultist_doom_armor, boots, "cultist_doom_boots"),
+					new MaykrDoomArmor(maykr_doom_armor, helmet, "maykr_doom_helmet"),
+					new MaykrDoomArmor(maykr_doom_armor, chest, "maykr_doom_chestplate"),
+					new MaykrDoomArmor(maykr_doom_armor, pants, "maykr_doom_leggings"),
+					new MaykrDoomArmor(maykr_doom_armor, boots, "maykr_doom_boots"),
+					new PainterDoomArmor(painter_doom_armor, helmet, "painter_doom_helmet"),
+					new PainterDoomArmor(painter_doom_armor, chest, "painter_doom_chestplate"),
+					new PainterDoomArmor(painter_doom_armor, pants, "painter_doom_leggings"),
+					new PainterDoomArmor(painter_doom_armor, boots, "painter_doom_boots"),
 					new MulletDoomArmor(redneck1_armor, helmet, "redneck_doom_helmet"),
 					new MulletDoomArmor(redneck1_armor, chest, "redneck_doom1_chestplate"),
 					new MulletDoomArmor(redneck2_armor, chest, "redneck_doom2_chestplate"),
