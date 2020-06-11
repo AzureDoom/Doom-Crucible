@@ -16,9 +16,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class ArgentEnergyItem extends Item {
 
-	public ArgentEnergyItem(String name) {
+	public ArgentEnergyItem() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

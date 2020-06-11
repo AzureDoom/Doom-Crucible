@@ -83,15 +83,17 @@ public class DoomItems {
 	
 	public static final RegistryObject<Item> SHOTGUN_SHELLS = ITEMS.register("shotgun_shells", () -> new ShellAmmo(new Item.Properties().group(DoomMod.DoomItemGroup)));
 	public static final RegistryObject<Item> ARGENT_BOLT = ITEMS.register("argent_bolt", () -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup)));
+	public static final RegistryObject<Item> ARGENT_ENERGY = ITEMS.register("argent_energy", () -> new ArgentEnergyItem());
+	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 
 	@Mod.EventBusSubscriber(bus = Bus.MOD)
 	public static class RegistryEvents {
 		@SubscribeEvent
 		public static void registerItems(final RegistryEvent.Register<Item> event) {
-			event.getRegistry().registerAll(ARGENT_ENERGY = new ArgentEnergyItem("argent_energy"),
+			event.getRegistry().registerAll(
 					new ArgentAxe("argent_axe"), new ArgentHoe("argent_hoe"), new ArgentPickaxe("argent_pickaxe"),
 					new ArgentShovel("argent_shovel"), new ArgentSword("argent_sword"),
-					ICON = new SwordCrucibleItem("doomcrucible_open"), new UnopenedItem("doomcrucible_closed"),
+					new UnopenedItem("doomcrucible_closed"),
 					new AxeMarauderItem("axe_marauder_open"), new UnopenedItem("axe_marauder_closed"),
 					new SuperShotgun("supershotgun"), new Shotgun("shotgun"), new Ballista("ballista"),
 					new DoomArmor(doom_armor, helmet, "doom_helmet"),

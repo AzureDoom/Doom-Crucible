@@ -25,10 +25,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class SwordCrucibleItem extends SwordItem {
 
-	public SwordCrucibleItem(String name) {
+	public SwordCrucibleItem() {
 		super(DoomTier.DOOM, Config.SERVER.SWORD_CRUCIBLE_ATTACK.get(), -2.4F, new Item.Properties()
 				.group(DoomMod.DoomItemGroup).maxDamage(Config.SERVER.SWORD_CRUCIBLE_MAXDAMAGE.get()));
-		this.setRegistryName(DoomMod.MODID, name);
 	}
 
 	@Override

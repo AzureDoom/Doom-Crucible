@@ -40,7 +40,7 @@ public class DoomMod {
 	public static final ItemGroup DoomItemGroup = (new ItemGroup("doomweapon") {
 		@OnlyIn(Dist.CLIENT)
 		public ItemStack createIcon() {
-			return new ItemStack(DoomItems.ICON);
+			return new ItemStack(DoomItems.ICON.get());
 		}
 
 		public boolean hasSearchBar() {

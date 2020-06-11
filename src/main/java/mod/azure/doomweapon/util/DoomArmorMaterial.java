@@ -36,7 +36,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -78,7 +78,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -120,7 +120,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -162,7 +162,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -204,7 +204,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -246,7 +246,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -288,7 +288,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -330,7 +330,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -372,7 +372,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -414,7 +414,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -456,7 +456,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -498,7 +498,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -540,7 +540,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -582,7 +582,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -624,7 +624,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -666,7 +666,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -708,7 +708,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -750,7 +750,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -792,7 +792,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -834,7 +834,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -876,7 +876,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -918,7 +918,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -960,7 +960,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -1002,7 +1002,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -1044,7 +1044,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
@@ -1086,7 +1086,7 @@ public class DoomArmorMaterial {
 
 		@Override
 		public Ingredient getRepairMaterial() {
-			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY);
+			return Ingredient.fromItems(DoomItems.ARGENT_ENERGY.get());
 		}
 
 		@Override
