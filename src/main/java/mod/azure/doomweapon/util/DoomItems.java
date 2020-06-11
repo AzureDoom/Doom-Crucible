@@ -283,7 +283,7 @@ public class DoomItems {
 			() -> new MulletDoomArmor(redneck2_armor, chest));
 	public static final RegistryObject<Item> MULLET_DOOM_CHESTPLATE3 = ITEMS.register("redneck_doom3_chestplate",
 			() -> new MulletDoomArmor(redneck3_armor, chest));
-	public static final RegistryObject<Item> MULLET_DOOM_LEGGINGS = ITEMS.register("doom_leggings",
+	public static final RegistryObject<Item> MULLET_DOOM_LEGGINGS = ITEMS.register("redneck_doom_leggings",
 			() -> new MulletDoomArmor(redneck1_armor, pants));
 	public static final RegistryObject<Item> MULLET_DOOM_BOOTS = ITEMS.register("redneck_doom_boots",
 			() -> new MulletDoomArmor(redneck1_armor, boots));
