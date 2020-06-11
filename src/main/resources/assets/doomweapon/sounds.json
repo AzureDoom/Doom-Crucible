@@ -1,7 +1,4 @@
 {
-	"doom.theme": {
-		"category": "music", "sounds": [{"name": "doomweapon:weapon_theme", "stream": true}]
-	},
 	"doom.loading_end": {
 		"category": "music", "sounds": [{"name": "doomweapon:loading_end", "stream": true}]
 	},
