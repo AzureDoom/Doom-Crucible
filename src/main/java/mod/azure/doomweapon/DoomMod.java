@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import mod.azure.doomweapon.util.Config;
 import mod.azure.doomweapon.util.DoomItems;
+import mod.azure.doomweapon.util.ModEntityTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -11,10 +12,12 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 @Mod(DoomMod.MODID)
@@ -25,10 +28,13 @@ public class DoomMod {
 
 	public DoomMod() {
 		instance = this;
+		final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 		ModLoadingContext modLoadingContext = ModLoadingContext.get();
 		modLoadingContext.registerConfig(ModConfig.Type.CLIENT, Config.SERVER_SPEC, "doomweapon-config.toml");
 		Config.loadConfig(Config.SERVER_SPEC, FMLPaths.CONFIGDIR.get().resolve("doomweapon-config.toml").toString());
 		MinecraftForge.EVENT_BUS.register(this);
+		DoomItems.ITEMS.register(modEventBus);
+		ModEntityTypes.ENTITY_TYPES.register(modEventBus);
 	}
 
 	public static final ItemGroup DoomItemGroup = (new ItemGroup("doomweapon") {

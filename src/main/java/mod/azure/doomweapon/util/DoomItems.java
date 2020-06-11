@@ -1,5 +1,6 @@
 package mod.azure.doomweapon.util;
 
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ArgentEnergyItem;
 import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.armor.AstroDoomArmor;
@@ -25,9 +26,11 @@ import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
 import mod.azure.doomweapon.item.tools.ArgentShovel;
+import mod.azure.doomweapon.item.weapons.ArgentBolt;
 import mod.azure.doomweapon.item.weapons.ArgentSword;
 import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
 import mod.azure.doomweapon.item.weapons.Ballista;
+import mod.azure.doomweapon.item.weapons.ShellAmmo;
 import mod.azure.doomweapon.item.weapons.Shotgun;
 import mod.azure.doomweapon.item.weapons.SuperShotgun;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
@@ -36,13 +39,13 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class DoomItems {
-
-	public static Item ARGENT_ENERGY;
-	public static Item ICON;
 
 	public static IArmorMaterial doom_armor = DoomArmorMaterial.DOOM_ARMOR;
 	public static IArmorMaterial praetor_armor = DoomArmorMaterial.PRAETOR_DOOM_ARMOR;
@@ -75,6 +78,11 @@ public class DoomItems {
 	public static EquipmentSlotType chest = EquipmentSlotType.CHEST;
 	public static EquipmentSlotType pants = EquipmentSlotType.LEGS;
 	public static EquipmentSlotType boots = EquipmentSlotType.FEET;
+	
+	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, DoomMod.MODID);
+	
+	public static final RegistryObject<Item> SHOTGUN_SHELLS = ITEMS.register("shotgun_shells", () -> new ShellAmmo(new Item.Properties().group(DoomMod.DoomItemGroup)));
+	public static final RegistryObject<Item> ARGENT_BOLT = ITEMS.register("argent_bolt", () -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup)));
 
 	@Mod.EventBusSubscriber(bus = Bus.MOD)
 	public static class RegistryEvents {

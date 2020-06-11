@@ -2,10 +2,11 @@ package mod.azure.doomweapon.item.weapons;
 
 import java.util.List;
 
-import mod.azure.doomweapon.entity.ShotgunShellEntity;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
@@ -14,9 +15,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class ShellAmmo extends ArrowItem {
+public class ArgentBolt extends ArrowItem {
 
-	public ShellAmmo(Properties properties) {
+	public ArgentBolt(Properties properties) {
 		super(properties);
 	}
 
@@ -27,16 +28,16 @@ public class ShellAmmo extends ArrowItem {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
-	@Override
-	public boolean isInfinite(ItemStack stack, ItemStack bow, net.minecraft.entity.player.PlayerEntity player) {
-		int enchant = net.minecraft.enchantment.EnchantmentHelper
-				.getEnchantmentLevel(net.minecraft.enchantment.Enchantments.INFINITY, bow);
-		return enchant <= 0 ? false : this instanceof ShellAmmo;
+	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
+		ArrowEntity arrowentity = new ArrowEntity(worldIn, shooter);
+		arrowentity.setPotionEffect(stack);
+		return arrowentity;
 	}
 
-	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, EntityType<? extends ShotgunShellEntity> shooter) {
-		ShotgunShellEntity arrowentity = new ShotgunShellEntity(shooter, worldIn);
-		return arrowentity;
+	public boolean isInfinite(ItemStack stack, ItemStack bow, PlayerEntity player) {
+		int enchant = net.minecraft.enchantment.EnchantmentHelper
+				.getEnchantmentLevel(net.minecraft.enchantment.Enchantments.INFINITY, bow);
+		return enchant <= 0 ? false : this.getClass() == ArgentBolt.class;
 	}
 
 }
