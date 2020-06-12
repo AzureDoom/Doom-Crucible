@@ -36,7 +36,6 @@ public class SuperShotgun extends CrossbowItem {
 			if (k > 0) {
 				itemstack = itemstack1.copy();
 			}
-
 			if (itemstack.isEmpty() && flag) {
 				itemstack = new ItemStack(DoomItems.SHOTGUN_SHELLS.get());
 				itemstack1 = itemstack.copy();
@@ -85,8 +84,6 @@ public class SuperShotgun extends CrossbowItem {
 		listnbt.add(compoundnbt1);
 		compoundnbt.put("ChargedProjectiles", listnbt);
 	}
-
-	// - - - - - - - - - - - - -
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {

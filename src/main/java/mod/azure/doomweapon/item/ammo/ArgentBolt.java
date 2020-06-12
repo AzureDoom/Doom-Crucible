@@ -2,11 +2,10 @@ package mod.azure.doomweapon.item.ammo;
 
 import java.util.List;
 
+import mod.azure.doomweapon.entity.ArgentBoltEntity;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
@@ -28,16 +27,17 @@ public class ArgentBolt extends ArrowItem {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
-	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
-		ArrowEntity arrowentity = new ArrowEntity(worldIn, shooter);
-		arrowentity.setPotionEffect(stack);
-		return arrowentity;
-	}
-
-	public boolean isInfinite(ItemStack stack, ItemStack bow, PlayerEntity player) {
+	@Override
+	public boolean isInfinite(ItemStack stack, ItemStack bow, net.minecraft.entity.player.PlayerEntity player) {
 		int enchant = net.minecraft.enchantment.EnchantmentHelper
 				.getEnchantmentLevel(net.minecraft.enchantment.Enchantments.INFINITY, bow);
-		return enchant <= 0 ? false : this.getClass() == ArgentBolt.class;
+		return enchant <= 0 ? false : this instanceof ArgentBolt;
+	}
+
+	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack,
+			EntityType<? extends ArgentBoltEntity> shooter) {
+		ArgentBoltEntity arrowentity = new ArgentBoltEntity(shooter, worldIn);
+		return arrowentity;
 	}
 
 }

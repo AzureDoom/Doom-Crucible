@@ -9,24 +9,24 @@ import net.minecraft.network.IPacket;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class ShotgunShellEntity extends AbstractArrowEntity  {
+public class ArgentBoltEntity extends AbstractArrowEntity  {
 
-	public ShotgunShellEntity(EntityType<? extends ShotgunShellEntity> shooter, World worldIn) {
+	public ArgentBoltEntity(EntityType<? extends ArgentBoltEntity> shooter, World worldIn) {
 		super(shooter, worldIn);
 	}
 	
-	public ShotgunShellEntity(World world) {
-        super(ModEntityTypes.SHOTGUN_SHELL.get(), world);
+	public ArgentBoltEntity(World world) {
+        super(ModEntityTypes.ARGENT_BOLT.get(), world);
     }
 
 	@SuppressWarnings("unchecked")
-	public ShotgunShellEntity(World worldIn, EntityType<?> type) {
+	public ArgentBoltEntity(World worldIn, EntityType<?> type) {
 		super((EntityType<? extends AbstractArrowEntity>) type, worldIn);
 	}
 
 	@Override
 	protected ItemStack getArrowStack() {
-		return new ItemStack(DoomItems.SHOTGUN_SHELLS.get());
+		return new ItemStack(DoomItems.ARGENT_BOLT.get());
 	}
 
 	@Override
