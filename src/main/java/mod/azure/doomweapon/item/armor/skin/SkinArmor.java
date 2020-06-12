@@ -10,6 +10,8 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 //created by Marctron
 public class SkinArmor extends ArmorItem {
@@ -38,14 +40,12 @@ public class SkinArmor extends ArmorItem {
 		return false;
 	}
 
-	@SuppressWarnings("rawtypes")
-	private static BipedModelSkin model = new BipedModelSkin(0f, false);
-
 	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@OnlyIn(Dist.CLIENT)
 	@Override
 	public final BipedModel getArmorModel(LivingEntity entityLiving, ItemStack itemStack, EquipmentSlotType armorSlot,
 			BipedModel _default) {
-
+		final BipedModelSkin model = new BipedModelSkin(0f, false);
 		if (!itemStack.isEmpty()) {
 			if (itemStack.getItem() instanceof ArmorItem) {
 				model.Head.showModel = armorSlot == EquipmentSlotType.HEAD;
