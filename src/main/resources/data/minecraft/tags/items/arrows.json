@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "doomweapon:shotgun_shells"
+    "doomweapon:shotgun_shells",
+	"doomweapon:argent_bolt"
   ]
 }
