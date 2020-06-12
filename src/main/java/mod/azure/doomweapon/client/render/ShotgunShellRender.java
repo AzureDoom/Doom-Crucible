@@ -1,6 +1,7 @@
-package mod.azure.doomweapon.entity;
+package mod.azure.doomweapon.client.render;
 
 import mod.azure.doomweapon.DoomMod;
+import mod.azure.doomweapon.entity.ShotgunShellEntity;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.util.ResourceLocation;

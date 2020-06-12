@@ -1,7 +1,7 @@
 package mod.azure.doomweapon.item.armor.skin;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.models.BipedModelSkin;
+import mod.azure.doomweapon.client.models.BipedModelSkin;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;

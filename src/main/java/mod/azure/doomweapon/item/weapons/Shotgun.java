@@ -4,6 +4,7 @@ import java.util.function.Predicate;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.entity.ShotgunShellEntity;
+import mod.azure.doomweapon.item.ammo.ShellAmmo;
 import mod.azure.doomweapon.util.DoomItems;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
@@ -82,7 +83,7 @@ public class Shotgun extends BowItem {
 						if (flag1
 								|| playerentity.abilities.isCreativeMode && (itemstack.getItem() == Items.SPECTRAL_ARROW
 										|| itemstack.getItem() == Items.TIPPED_ARROW)) {
-							abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.CREATIVE_ONLY;
+							abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
 						}
 
 						worldIn.addEntity(abstractarrowentity);

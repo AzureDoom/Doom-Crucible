@@ -1,6 +1,7 @@
 package mod.azure.doomweapon.item.weapons;
 
 import mod.azure.doomweapon.DoomMod;
+import mod.azure.doomweapon.item.ammo.ShellAmmo;
 import mod.azure.doomweapon.util.DoomItems;
 import mod.azure.doomweapon.util.ModSoundEvents;
 import net.minecraft.enchantment.EnchantmentHelper;

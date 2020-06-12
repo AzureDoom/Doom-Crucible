@@ -1,7 +1,8 @@
-package mod.azure.doomweapon.util;
+package mod.azure.doomweapon.client;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.entity.ShotgunShellRender;
+import mod.azure.doomweapon.client.render.ShotgunShellRender;
+import mod.azure.doomweapon.util.ModEntityTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;

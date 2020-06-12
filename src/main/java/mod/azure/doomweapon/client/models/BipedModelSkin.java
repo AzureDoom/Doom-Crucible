@@ -1,4 +1,4 @@
-package mod.azure.doomweapon.models;
+package mod.azure.doomweapon.client.models;
 
 import com.google.common.collect.ImmutableList;
 
