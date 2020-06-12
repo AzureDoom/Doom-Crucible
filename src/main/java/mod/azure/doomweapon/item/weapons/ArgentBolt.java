@@ -24,7 +24,7 @@ public class ArgentBolt extends ArrowItem {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent("\u00A7o" + "Loads shotgun with malicious intent."));
+		tooltip.add(new StringTextComponent("\u00A7o" + "Powered by Argent. Used for Ballista."));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
