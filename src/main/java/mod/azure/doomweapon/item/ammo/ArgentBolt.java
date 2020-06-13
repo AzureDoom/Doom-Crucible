@@ -4,7 +4,7 @@ import java.util.List;
 
 import mod.azure.doomweapon.entity.ArgentBoltEntity;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
 import net.minecraft.item.ArrowItem;
 import net.minecraft.item.ItemStack;
@@ -34,9 +34,9 @@ public class ArgentBolt extends ArrowItem {
 		return enchant <= 0 ? false : this instanceof ArgentBolt;
 	}
 
-	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack,
-			EntityType<? extends ArgentBoltEntity> shooter) {
-		ArgentBoltEntity arrowentity = new ArgentBoltEntity(shooter, worldIn);
+	@Override
+	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
+		ArgentBoltEntity arrowentity = new ArgentBoltEntity(worldIn, shooter);
 		return arrowentity;
 	}
 

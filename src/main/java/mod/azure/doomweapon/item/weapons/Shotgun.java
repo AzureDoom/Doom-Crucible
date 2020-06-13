@@ -38,5 +38,4 @@ public class Shotgun extends BowItem {
 	public boolean hasEffect(ItemStack stack) {
 		return false;
 	}
-
 }
