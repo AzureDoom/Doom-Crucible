@@ -1,9 +1,10 @@
 package mod.azure.doomweapon.entity;
 
-import mod.azure.doomweapon.util.DoomItems;
 import mod.azure.doomweapon.util.ModEntityTypes;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.world.World;
@@ -11,22 +12,22 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 public class ShotgunShellEntity extends AbstractArrowEntity  {
 
-	public ShotgunShellEntity(EntityType<? extends ShotgunShellEntity> shooter, World worldIn) {
-		super(shooter, worldIn);
-	}
-	
-	public ShotgunShellEntity(World world) {
-        super(ModEntityTypes.SHOTGUN_SHELL.get(), world);
-    }
+	private final Item referenceItem;
 
 	@SuppressWarnings("unchecked")
-	public ShotgunShellEntity(World worldIn, EntityType<?> type) {
-		super((EntityType<? extends AbstractArrowEntity>) type, worldIn);
+	public ShotgunShellEntity(EntityType<?> type, World world) {
+		super((EntityType<? extends AbstractArrowEntity>) type, world);
+		this.referenceItem = null;
+	}
+
+	public ShotgunShellEntity(LivingEntity shooter, World world, Item referenceItemIn) {
+		super(ModEntityTypes.SHOTGUN_SHELL.get(), shooter, world);
+		this.referenceItem = referenceItemIn;
 	}
 
 	@Override
-	protected ItemStack getArrowStack() {
-		return new ItemStack(DoomItems.SHOTGUN_SHELLS.get());
+	public ItemStack getArrowStack() {
+		return new ItemStack(this.referenceItem);
 	}
 
 	@Override

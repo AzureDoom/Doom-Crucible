@@ -1,37 +1,33 @@
 package mod.azure.doomweapon.entity;
 
-import mod.azure.doomweapon.util.DoomItems;
 import mod.azure.doomweapon.util.ModEntityTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class ArgentBoltEntity extends ArrowEntity  {
+public class ArgentBoltEntity extends AbstractArrowEntity {
 
-	public ArgentBoltEntity(EntityType<? extends ArgentBoltEntity> shooter, World worldIn) {
-		super(shooter, worldIn);
-	}
-	
-	public ArgentBoltEntity(World worldIn, LivingEntity shooter) {
-		super(worldIn, shooter);
-	}
-	
-	public ArgentBoltEntity(World world) {
-        super(ModEntityTypes.ARGENT_BOLT.get(), world);
-    }
+	private final Item referenceItem;
 
 	@SuppressWarnings("unchecked")
-	public ArgentBoltEntity(World worldIn, EntityType<?> type) {
-		super((EntityType<? extends ArrowEntity>) type, worldIn);
+	public ArgentBoltEntity(EntityType<?> type, World world) {
+		super((EntityType<? extends AbstractArrowEntity>) type, world);
+		this.referenceItem = null;
+	}
+
+	public ArgentBoltEntity(LivingEntity shooter, World world, Item referenceItemIn) {
+		super(ModEntityTypes.ARGENT_BOLT.get(), shooter, world);
+		this.referenceItem = referenceItemIn;
 	}
 
 	@Override
-	protected ItemStack getArrowStack() {
-		return new ItemStack(DoomItems.ARGENT_BOLT.get());
+	public ItemStack getArrowStack() {
+		return new ItemStack(this.referenceItem);
 	}
 
 	@Override

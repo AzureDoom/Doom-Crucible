@@ -4,20 +4,25 @@ import java.util.List;
 
 import mod.azure.doomweapon.entity.ShotgunShellEntity;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ArrowItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.RegistryObject;
 
 public class ShellAmmo extends ArrowItem {
 
-	public ShellAmmo(Properties properties) {
+	public final float damage;
+	private RegistryObject<Item> ref;
+
+	public ShellAmmo(Properties properties, float damageIn) {
 		super(properties);
+		this.damage = damageIn;
 	}
 
 	@Override
@@ -34,8 +39,15 @@ public class ShellAmmo extends ArrowItem {
 		return enchant <= 0 ? false : this instanceof ShellAmmo;
 	}
 
-	public AbstractArrowEntity createArrow(World worldIn, ItemStack stack, EntityType<? extends ShotgunShellEntity> shooter) {
-		ShotgunShellEntity arrowentity = new ShotgunShellEntity(shooter, worldIn);
+	public ShellAmmo setItemReference(RegistryObject<Item> refIn) {
+		this.ref = refIn;
+		return this;
+	}
+
+	@Override
+	public ShotgunShellEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
+		ShotgunShellEntity arrowentity = new ShotgunShellEntity(shooter, worldIn, ref.get());
+		arrowentity.setDamage(this.damage);
 		return arrowentity;
 	}
 

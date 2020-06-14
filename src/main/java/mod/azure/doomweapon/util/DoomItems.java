@@ -79,9 +79,9 @@ public class DoomItems {
 
 	// AMMO
 	public static final RegistryObject<Item> SHOTGUN_SHELLS = ITEMS.register("shotgun_shells",
-			() -> new ShellAmmo(new Item.Properties().group(DoomMod.DoomItemGroup)));
+			() -> new ShellAmmo(new Item.Properties().group(DoomMod.DoomItemGroup), 2.0F));
 	public static final RegistryObject<Item> ARGENT_BOLT = ITEMS.register("argent_bolt",
-			() -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup)));
+			() -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup), 2.7F));
 	// MISC
 	public static final RegistryObject<Item> ARGENT_ENERGY = ITEMS.register("argent_energy",
 			() -> new ArgentEnergyItem());
