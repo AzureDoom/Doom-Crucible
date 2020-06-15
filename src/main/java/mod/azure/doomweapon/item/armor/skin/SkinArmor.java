@@ -1,13 +1,11 @@
 package mod.azure.doomweapon.item.armor.skin;
 
-import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.client.models.BipedModelSkin;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraftforge.api.distmarker.Dist;
@@ -17,7 +15,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class SkinArmor extends ArmorItem {
 
 	public SkinArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
-		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
+		super(materialIn, slot, builder);
 	}
 
 	@Override
