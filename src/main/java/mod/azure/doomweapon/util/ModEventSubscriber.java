@@ -1,8 +1,9 @@
-package mod.azure.doomweapon;
+package mod.azure.doomweapon.util;
 
+import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ammo.ArgentBolt;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
-import mod.azure.doomweapon.util.DoomItems;
+import mod.azure.doomweapon.util.registry.DoomItems;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.util.Config;
-import mod.azure.doomweapon.util.DoomTier;
+import mod.azure.doomweapon.util.enums.DoomTier;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;

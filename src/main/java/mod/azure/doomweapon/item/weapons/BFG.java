@@ -8,8 +8,8 @@ import com.google.common.collect.Lists;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
-import mod.azure.doomweapon.util.DoomItems;
-import mod.azure.doomweapon.util.ModSoundEvents;
+import mod.azure.doomweapon.util.registry.DoomItems;
+import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.renderer.Quaternion;
 import net.minecraft.client.renderer.Vector3f;

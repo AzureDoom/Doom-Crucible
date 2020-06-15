@@ -1,4 +1,4 @@
-package mod.azure.doomweapon.util;
+package mod.azure.doomweapon.util.registry;
 
 import mod.azure.doomweapon.DoomMod;
 import net.minecraft.util.ResourceLocation;

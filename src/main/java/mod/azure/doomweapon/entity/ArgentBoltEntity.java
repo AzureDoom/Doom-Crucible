@@ -1,6 +1,6 @@
 package mod.azure.doomweapon.entity;
 
-import mod.azure.doomweapon.util.ModEntityTypes;
+import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;

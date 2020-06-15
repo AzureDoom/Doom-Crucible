@@ -1,7 +1,8 @@
-package mod.azure.doomweapon.util;
+package mod.azure.doomweapon.util.enums;
 
 import java.util.function.Supplier;
 
+import mod.azure.doomweapon.util.registry.DoomItems;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;

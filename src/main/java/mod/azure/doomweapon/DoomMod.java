@@ -3,9 +3,9 @@ package mod.azure.doomweapon;
 import java.util.UUID;
 
 import mod.azure.doomweapon.util.Config;
-import mod.azure.doomweapon.util.DoomItems;
-import mod.azure.doomweapon.util.ModEntityTypes;
-import mod.azure.doomweapon.util.ModSoundEvents;
+import mod.azure.doomweapon.util.registry.DoomItems;
+import mod.azure.doomweapon.util.registry.ModEntityTypes;
+import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

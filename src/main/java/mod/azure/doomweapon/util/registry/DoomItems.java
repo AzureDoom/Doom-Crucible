@@ -1,4 +1,4 @@
-package mod.azure.doomweapon.util;
+package mod.azure.doomweapon.util.registry;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ArgentEnergyItem;
@@ -34,6 +34,7 @@ import mod.azure.doomweapon.item.weapons.Ballista;
 import mod.azure.doomweapon.item.weapons.Shotgun;
 import mod.azure.doomweapon.item.weapons.SuperShotgun;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
+import mod.azure.doomweapon.util.enums.DoomArmorMaterial;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
