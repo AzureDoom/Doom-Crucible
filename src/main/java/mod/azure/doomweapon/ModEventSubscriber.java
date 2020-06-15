@@ -16,6 +16,7 @@ public class ModEventSubscriber {
 
 	@SubscribeEvent
 	public static void onRegisterItems(RegistryEvent.Register<Item> event) {
+		@SuppressWarnings("unused")
 		final IForgeRegistry<Item> registry = event.getRegistry();
 		((ArgentBolt) (DoomItems.ARGENT_BOLT.get())).setItemReference(DoomItems.ARGENT_BOLT);
 		((ShellAmmo) (DoomItems.SHOTGUN_SHELLS.get())).setItemReference(DoomItems.SHOTGUN_SHELLS);
