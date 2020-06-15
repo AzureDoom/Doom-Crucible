@@ -134,7 +134,7 @@ public class Ballista extends CrossbowItem {
 		if (!worldIn.isRemote) {
 			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.QUICK_CHARGE, stack);
 			SoundEvent soundevent = this.getSoundEvent(i);
-			SoundEvent soundevent1 = i == 0 ? ModSoundEvents.LOADING_MIDDLE1 : null;
+			SoundEvent soundevent1 = i == 0 ? ModSoundEvents.LOADING_MIDDLE1.get() : null;
 			float f = (float) (stack.getUseDuration() - count) / (float) getChargeTime(stack);
 			if (f < 0.2F) {
 				this.isLoadingStart = false;
@@ -339,7 +339,7 @@ public class Ballista extends CrossbowItem {
 			SoundCategory soundcategory = entityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS
 					: SoundCategory.HOSTILE;
 			worldIn.playSound((PlayerEntity) null, entityLiving.getPosX(), entityLiving.getPosY(),
-					entityLiving.getPosZ(), ModSoundEvents.LOADING_END, soundcategory, 1.0F,
+					entityLiving.getPosZ(), ModSoundEvents.LOADING_END.get(), soundcategory, 1.0F,
 					1.0F / (random.nextFloat() * 0.5F + 1.0F) + 0.2F);
 		}
 	}
@@ -376,13 +376,13 @@ public class Ballista extends CrossbowItem {
 	public SoundEvent getSoundEvent(int enchantmentLevel) {
 		switch (enchantmentLevel) {
 		case 1:
-			return ModSoundEvents.QUICK1_1;
+			return ModSoundEvents.QUICK1_1.get();
 		case 2:
-			return ModSoundEvents.QUICK2_1;
+			return ModSoundEvents.QUICK2_1.get();
 		case 3:
-			return ModSoundEvents.QUICK3_1;
+			return ModSoundEvents.QUICK3_1.get();
 		default:
-			return ModSoundEvents.LOADING_START;
+			return ModSoundEvents.LOADING_START.get();
 		}
 	}
 }

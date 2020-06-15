@@ -5,6 +5,7 @@ import java.util.UUID;
 import mod.azure.doomweapon.util.Config;
 import mod.azure.doomweapon.util.DoomItems;
 import mod.azure.doomweapon.util.ModEntityTypes;
+import mod.azure.doomweapon.util.ModSoundEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -33,6 +34,7 @@ public class DoomMod {
 		modLoadingContext.registerConfig(ModConfig.Type.CLIENT, Config.SERVER_SPEC, "doomweapon-config.toml");
 		Config.loadConfig(Config.SERVER_SPEC, FMLPaths.CONFIGDIR.get().resolve("doomweapon-config.toml").toString());
 		MinecraftForge.EVENT_BUS.register(this);
+		ModSoundEvents.MOD_SOUNDS.register(modEventBus);
 		DoomItems.ITEMS.register(modEventBus);
 		ModEntityTypes.ENTITY_TYPES.register(modEventBus);
 	}
