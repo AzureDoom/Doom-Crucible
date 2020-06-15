@@ -101,6 +101,8 @@ public class DoomItems {
 			() -> new UnopenedItem());
 	public static final RegistryObject<Item> SSG = ITEMS.register("supershotgun", () -> new SuperShotgun());
 	public static final RegistryObject<Item> SG = ITEMS.register("shotgun", () -> new Shotgun());
+	// public static final RegistryObject<Item> BFG = ITEMS.register("bfg9000", ()
+	// -> new BFG());
 	public static final RegistryObject<Item> BALLISTA = ITEMS.register("ballista", () -> new Ballista());
 	// ARMOR
 	public static final RegistryObject<Item> DOOM_HELMET = ITEMS.register("doom_helmet",
