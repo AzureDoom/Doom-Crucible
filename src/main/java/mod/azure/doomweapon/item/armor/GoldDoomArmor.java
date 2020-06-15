@@ -22,7 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class GoldDoomArmor extends SkinArmor {
 
 	public GoldDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot) {
-		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 		
 	}
 

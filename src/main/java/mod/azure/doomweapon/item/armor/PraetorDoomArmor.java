@@ -22,7 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class PraetorDoomArmor extends SkinArmor {
 
 	public PraetorDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot) {
-		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 		
 	}
 

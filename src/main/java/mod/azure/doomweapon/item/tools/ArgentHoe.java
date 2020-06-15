@@ -17,9 +17,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class ArgentHoe extends HoeItem {
 
 	public ArgentHoe() {
-		super(DoomTier.DOOM, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(DoomTier.DOOM, -2.4F, new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 	}
-	
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {

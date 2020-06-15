@@ -47,7 +47,7 @@ public class Ballista extends CrossbowItem {
 	private boolean isLoadingMiddle = false;
 
 	public Ballista() {
-		super(new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 	}
 
 	@Override

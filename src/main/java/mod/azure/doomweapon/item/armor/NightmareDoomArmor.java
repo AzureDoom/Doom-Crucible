@@ -22,7 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class NightmareDoomArmor extends SkinArmor {
 
 	public NightmareDoomArmor(IArmorMaterial materialIn, EquipmentSlotType slot) {
-		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 		
 	}
 

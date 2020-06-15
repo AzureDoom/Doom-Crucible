@@ -47,7 +47,7 @@ public class BFG extends CrossbowItem {
 	private boolean isLoadingMiddle = false;
 
 	public BFG() {
-		super(new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 	}
 
 	@Override

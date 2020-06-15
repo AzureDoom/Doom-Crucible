@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 public class SkinArmor extends ArmorItem {
 
 	public SkinArmor(IArmorMaterial materialIn, EquipmentSlotType slot, Properties builder) {
-		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup));
+		super(materialIn, slot, new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 	}
 
 	@Override
