@@ -1,8 +1,17 @@
 package mod.azure.doomweapon.client;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.client.render.ArgentBoltRender;
-import mod.azure.doomweapon.client.render.ShotgunShellRender;
+import mod.azure.doomweapon.client.render.ArchvileRender;
+import mod.azure.doomweapon.client.render.BaronRender;
+import mod.azure.doomweapon.client.render.CacodemonRender;
+import mod.azure.doomweapon.client.render.CyberdemonRender;
+import mod.azure.doomweapon.client.render.ImpRender;
+import mod.azure.doomweapon.client.render.LostSoulRender;
+import mod.azure.doomweapon.client.render.PinkyRender;
+import mod.azure.doomweapon.client.render.SpiderdemonRender;
+import mod.azure.doomweapon.client.render.ZombiemanRender;
+import mod.azure.doomweapon.client.render.projectiles.ArgentBoltRender;
+import mod.azure.doomweapon.client.render.projectiles.ShotgunShellRender;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,6 +26,15 @@ public class ClientModEventSubscriber {
 	public static void onClientSetup(final FMLClientSetupEvent event) {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SHOTGUN_SHELL.get(), ShotgunShellRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ARGENT_BOLT.get(), ArgentBoltRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.IMP.get(), ImpRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PINKY.get(), PinkyRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.LOST_SOUL.get(), LostSoulRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CACODEMON.get(), CacodemonRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ARCHVILE.get(), ArchvileRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BARON.get(), BaronRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CYBERDEMON.get(), CyberdemonRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SPIDERDEMON.get(), SpiderdemonRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ZOMBIEMAN.get(), ZombiemanRender::new);
 	}
 
 }
