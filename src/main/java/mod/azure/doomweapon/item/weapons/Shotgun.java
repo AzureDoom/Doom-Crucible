@@ -3,7 +3,7 @@ package mod.azure.doomweapon.item.weapons;
 import java.util.function.Predicate;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.entity.ShotgunShellEntity;
+import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
 import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;

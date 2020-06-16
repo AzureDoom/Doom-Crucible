@@ -2,7 +2,7 @@ package mod.azure.doomweapon.item.ammo;
 
 import java.util.List;
 
-import mod.azure.doomweapon.entity.ShotgunShellEntity;
+import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ArrowItem;
