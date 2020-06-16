@@ -1,10 +1,15 @@
 package mod.azure.doomweapon.entity;
 
+import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
+import mod.azure.doomweapon.item.weapons.Shotgun;
+import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.CreatureAttribute;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
@@ -15,17 +20,21 @@ import net.minecraft.entity.monster.AbstractIllagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.AbstractArrowEntity;
+import net.minecraft.entity.projectile.ProjectileHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class ZombiemanEntity extends ZombieEntity {
+public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 
 	public ZombiemanEntity(EntityType<ZombiemanEntity> entityType, World worldIn) {
 		super(entityType, worldIn);
@@ -110,5 +119,25 @@ public class ZombiemanEntity extends ZombieEntity {
 	@OnlyIn(Dist.CLIENT)
 	public AbstractIllagerEntity.ArmPose getArmPose() {
 		return AbstractIllagerEntity.ArmPose.CROSSED;
+	}
+
+	@Override
+	public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+		ItemStack itemstack = this.findAmmo(this.getHeldItem(ProjectileHelper.getHandWith(this, DoomItems.SG.get())));
+		ShotgunShellEntity abstractarrowentity = this.fireArrow(itemstack, distanceFactor);
+		if (this.getHeldItemMainhand().getItem() instanceof Shotgun)
+			abstractarrowentity = ((Shotgun) this.getHeldItemMainhand().getItem()).customeArrow(abstractarrowentity);
+		double d0 = target.getPosX() - this.getPosX();
+		double d1 = target.getPosYHeight(0.3333333333333333D) - abstractarrowentity.getPosY();
+		double d2 = target.getPosZ() - this.getPosZ();
+		double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+		abstractarrowentity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F,
+				(float) (14 - this.world.getDifficulty().getId() * 4));
+		this.playSound(ModSoundEvents.SHOOT1.get(), 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.world.addEntity(abstractarrowentity);
+	}
+
+	protected ShotgunShellEntity fireArrow(ItemStack arrowStack, float distanceFactor) {
+		return (ShotgunShellEntity) ProjectileHelper.fireArrow(this, arrowStack, distanceFactor);
 	}
 }

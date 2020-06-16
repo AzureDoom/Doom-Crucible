@@ -70,4 +70,16 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.<ZombiemanEntity>create(ZombiemanEntity::new, EntityClassification.MONSTER)
 					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "zombieman").toString()));
 
+//	public static void registerEntityWorldSpawns() {
+//		registerEntityWorldSpawn(IMP, Biomes.PLAINS, Biomes.BEACH, Biomes.JUNGLE);
+//	}
+//
+//	public static void registerEntityWorldSpawn(EntityType<?> entity, Biome... biomes) {
+//		for (Biome biome : biomes) {
+//			if (biome != null) {
+//				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, 10, 1, 10));
+//			}
+//		}
+//	}
+
 }
