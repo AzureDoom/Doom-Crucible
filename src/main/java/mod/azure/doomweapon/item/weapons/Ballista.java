@@ -130,7 +130,8 @@ public class Ballista extends CrossbowItem {
 		fireProjectilesAfter(worldIn, shooter, stack);
 	}
 
-	public void func_219972_a(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
+	@Override
+	public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
 		if (!worldIn.isRemote) {
 			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.QUICK_CHARGE, stack);
 			SoundEvent soundevent = this.getSoundEvent(i);
@@ -214,8 +215,9 @@ public class Ballista extends CrossbowItem {
 		return list;
 	}
 
+	@Override
 	public int getUseDuration(ItemStack stack) {
-		return getChargeTime(stack) + 3;
+		return getChargeTime(stack) + 128;
 	}
 
 	private static void clearProjectiles(ItemStack stack) {
@@ -363,14 +365,14 @@ public class Ballista extends CrossbowItem {
 		compoundnbt.putBoolean("Charged", chargedIn);
 	}
 
+	@Override
 	public UseAction getUseAction(ItemStack stack) {
 		return UseAction.CROSSBOW;
 	}
 
 	private static float func_220013_l(ItemStack p_220013_0_) {
-		return p_220013_0_.getItem() == DoomItems.BALLISTA.get() && hasChargedProjectile(p_220013_0_, Items.FIREWORK_ROCKET)
-				? 1.6F
-				: 3.15F;
+		return p_220013_0_.getItem() == DoomItems.BALLISTA.get()
+				&& hasChargedProjectile(p_220013_0_, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
 	}
 
 	public SoundEvent getSoundEvent(int enchantmentLevel) {

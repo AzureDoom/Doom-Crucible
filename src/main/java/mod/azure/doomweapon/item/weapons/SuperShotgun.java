@@ -129,32 +129,6 @@ public class SuperShotgun extends CrossbowItem {
 		fireProjectilesAfter(worldIn, shooter, stack);
 	}
 
-	public void func_219972_a(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
-		if (!worldIn.isRemote) {
-			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.QUICK_CHARGE, stack);
-			SoundEvent soundevent = this.getSoundEvent(i);
-			SoundEvent soundevent1 = i == 0 ? ModSoundEvents.LOADING_MIDDLE1.get() : null;
-			float f = (float) (stack.getUseDuration() - count) / (float) getChargeTime(stack);
-			if (f < 0.2F) {
-				this.isLoadingStart = false;
-				this.isLoadingMiddle = false;
-			}
-
-			if (f >= 0.2F && !this.isLoadingStart) {
-				this.isLoadingStart = true;
-				worldIn.playSound((PlayerEntity) null, livingEntityIn.getPosX(), livingEntityIn.getPosY(),
-						livingEntityIn.getPosZ(), soundevent, SoundCategory.PLAYERS, 0.5F, 1.0F);
-			}
-
-			if (f >= 0.5F && soundevent1 != null && !this.isLoadingMiddle) {
-				this.isLoadingMiddle = true;
-				worldIn.playSound((PlayerEntity) null, livingEntityIn.getPosX(), livingEntityIn.getPosY(),
-						livingEntityIn.getPosZ(), soundevent1, SoundCategory.PLAYERS, 0.5F, 1.0F);
-			}
-		}
-
-	}
-
 	private static void fireProjectilesAfter(World worldIn, LivingEntity shooter, ItemStack stack) {
 		if (shooter instanceof ServerPlayerEntity) {
 			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) shooter;
@@ -197,6 +171,33 @@ public class SuperShotgun extends CrossbowItem {
 		}
 	}
 
+	@Override
+	public void onUse(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
+		if (!worldIn.isRemote) {
+			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.QUICK_CHARGE, stack);
+			SoundEvent soundevent = this.getSoundEvent(i);
+			SoundEvent soundevent1 = i == 0 ? ModSoundEvents.LOADING_MIDDLE1.get() : null;
+			float f = (float) (stack.getUseDuration() - count) / (float) getChargeTime(stack);
+			if (f < 0.2F) {
+				this.isLoadingStart = false;
+				this.isLoadingMiddle = false;
+			}
+
+			if (f >= 0.2F && !this.isLoadingStart) {
+				this.isLoadingStart = true;
+				worldIn.playSound((PlayerEntity) null, livingEntityIn.getPosX(), livingEntityIn.getPosY(),
+						livingEntityIn.getPosZ(), soundevent, SoundCategory.PLAYERS, 0.5F, 1.0F);
+			}
+
+			if (f >= 0.5F && soundevent1 != null && !this.isLoadingMiddle) {
+				this.isLoadingMiddle = true;
+				worldIn.playSound((PlayerEntity) null, livingEntityIn.getPosX(), livingEntityIn.getPosY(),
+						livingEntityIn.getPosZ(), soundevent1, SoundCategory.PLAYERS, 0.5F, 1.0F);
+			}
+		}
+
+	}
+
 	private static List<ItemStack> getChargedProjectiles(ItemStack stack) {
 		List<ItemStack> list = Lists.newArrayList();
 		CompoundNBT compoundnbt = stack.getTag();
@@ -213,8 +214,9 @@ public class SuperShotgun extends CrossbowItem {
 		return list;
 	}
 
+	@Override
 	public int getUseDuration(ItemStack stack) {
-		return getChargeTime(stack) + 3;
+		return getChargeTime(stack) + 128;
 	}
 
 	private static void clearProjectiles(ItemStack stack) {
@@ -333,7 +335,9 @@ public class SuperShotgun extends CrossbowItem {
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-		if (!isCharged(stack) && hasAmmo(entityLiving, stack)) {
+		int i = this.getUseDuration(stack) - timeLeft;
+		float f = getCharge(i, stack);
+		if (f >= 1.0F && !isCharged(stack) && hasAmmo(entityLiving, stack)) {
 			setCharged(stack, true);
 			SoundCategory soundcategory = entityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS
 					: SoundCategory.HOSTILE;
@@ -341,6 +345,7 @@ public class SuperShotgun extends CrossbowItem {
 					entityLiving.getPosZ(), ModSoundEvents.LOADING_END.get(), soundcategory, 1.0F,
 					1.0F / (random.nextFloat() * 0.5F + 1.0F) + 0.2F);
 		}
+
 	}
 
 	public static float getCharge(int useTime, ItemStack stack) {
@@ -362,6 +367,7 @@ public class SuperShotgun extends CrossbowItem {
 		compoundnbt.putBoolean("Charged", chargedIn);
 	}
 
+	@Override
 	public UseAction getUseAction(ItemStack stack) {
 		return UseAction.CROSSBOW;
 	}
