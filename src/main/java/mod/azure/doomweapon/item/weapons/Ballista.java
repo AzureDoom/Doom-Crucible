@@ -336,7 +336,9 @@ public class Ballista extends CrossbowItem {
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-		if (!isCharged(stack) && hasAmmo(entityLiving, stack)) {
+		int i = this.getUseDuration(stack) - timeLeft;
+		float f = getCharge(i, stack);
+		if (f >= 1.0F && !isCharged(stack) && hasAmmo(entityLiving, stack)) {
 			setCharged(stack, true);
 			SoundCategory soundcategory = entityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS
 					: SoundCategory.HOSTILE;
@@ -344,6 +346,7 @@ public class Ballista extends CrossbowItem {
 					entityLiving.getPosZ(), ModSoundEvents.LOADING_END.get(), soundcategory, 1.0F,
 					1.0F / (random.nextFloat() * 0.5F + 1.0F) + 0.2F);
 		}
+
 	}
 
 	public static float getCharge(int useTime, ItemStack stack) {
