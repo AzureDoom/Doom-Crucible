@@ -35,8 +35,8 @@ public class DoomMod {
 		Config.loadConfig(Config.SERVER_SPEC, FMLPaths.CONFIGDIR.get().resolve("doomweapon-config.toml").toString());
 		MinecraftForge.EVENT_BUS.register(this);
 		ModSoundEvents.MOD_SOUNDS.register(modEventBus);
-		DoomItems.ITEMS.register(modEventBus);
 		ModEntityTypes.ENTITY_TYPES.register(modEventBus);
+		DoomItems.ITEMS.register(modEventBus);
 	}
 
 	public static final ItemGroup DoomItemGroup = (new ItemGroup("doomweapon") {

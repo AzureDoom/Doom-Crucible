@@ -25,6 +25,15 @@ import mod.azure.doomweapon.item.armor.PraetorDoomArmor;
 import mod.azure.doomweapon.item.armor.PurplePonyDoomArmor;
 import mod.azure.doomweapon.item.armor.SentinelDoomArmor;
 import mod.azure.doomweapon.item.armor.ZombieDoomArmor;
+import mod.azure.doomweapon.item.eggs.ArchvileSpawnEgg;
+import mod.azure.doomweapon.item.eggs.BaronSpawnEgg;
+import mod.azure.doomweapon.item.eggs.CacodemonSpawnEgg;
+import mod.azure.doomweapon.item.eggs.CyberdemonSpawnEgg;
+import mod.azure.doomweapon.item.eggs.ImpSpawnEgg;
+import mod.azure.doomweapon.item.eggs.LostSoulSpawnEgg;
+import mod.azure.doomweapon.item.eggs.PinkySpawnEgg;
+import mod.azure.doomweapon.item.eggs.SpiderdemonSpawnEgg;
+import mod.azure.doomweapon.item.eggs.ZombiemanSpawnEgg;
 import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
@@ -57,6 +66,24 @@ public class DoomItems {
 			() -> new ArgentEnergyItem());
 	public static final RegistryObject<Item> E1M1_MUSIC_DISC = ITEMS.register("e1m1_music_disc",
 			() -> new E1M1MusicDisc());
+	public static final RegistryObject<Item> IMP_SPAWN_EGG = ITEMS.register("imp_spawn_egg",
+			() -> new ImpSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> PINKY_SPAWN_EGG = ITEMS.register("pinky_spawn_egg",
+			() -> new PinkySpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> ARCHVILE_SPAWN_EGG = ITEMS.register("archvile_spawn_egg",
+			() -> new ArchvileSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> BARON_SPAWN_EGG = ITEMS.register("baron_spawn_egg",
+			() -> new BaronSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> CACODEMON_SPAWN_EGG = ITEMS.register("cacodemon_spawn_egg",
+			() -> new CacodemonSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> CYBERDEMON_SPAWN_EGG = ITEMS.register("cyberdemon_spawn_egg",
+			() -> new CyberdemonSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> LOST_SOUL_SPAWN_EGG = ITEMS.register("lost_soul_spawn_egg",
+			() -> new LostSoulSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> SPIDERDEMON_SPAWN_EGG = ITEMS.register("spiderdemon_spawn_egg",
+			() -> new SpiderdemonSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> ZOMBIEMAN_SPAWN_EGG = ITEMS.register("zombieman_spawn_egg",
+			() -> new ZombiemanSpawnEgg(16500000, 11998228));
 	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());
