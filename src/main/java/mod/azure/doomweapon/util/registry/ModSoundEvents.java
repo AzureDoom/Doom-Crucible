@@ -3,8 +3,6 @@ package mod.azure.doomweapon.util.registry;
 import mod.azure.doomweapon.DoomMod;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -58,9 +56,4 @@ public class ModSoundEvents {
 
 	public static final RegistryObject<SoundEvent> E1M1 = MOD_SOUNDS.register("doom.e1m1",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.e1m1")));
-	
-	@SubscribeEvent
-	public static void onRegisterSoundEvent(RegistryEvent.Register<SoundEvent> event) {
-		event.getRegistry().registerAll();
-	}
 }

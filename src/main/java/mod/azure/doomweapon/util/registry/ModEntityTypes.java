@@ -12,6 +12,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModEntityTypes {
 
+	@SuppressWarnings("deprecation")
 	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = new DeferredRegister<>(ForgeRegistries.ENTITIES, DoomMod.MODID);
 	
 	public static final String SHOTGUN_SHELLS = "shotgun_shell";
