@@ -2,11 +2,11 @@ package mod.azure.doomweapon.client.models;
 
 import com.google.common.collect.ImmutableList;
 
-import mod.azure.doomweapon.entity.CyberdemonEntity;
+import mod.azure.doomweapon.entity.MancubusEntity;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 
-public class CyberdemonModel<T extends CyberdemonEntity> extends SegmentedModel<T> {
+public class MancubusModel<T extends MancubusEntity> extends SegmentedModel<T> {
 	private final ModelRenderer ironGolemHead;
 	private final ModelRenderer ironGolemBody;
 	private final ModelRenderer ironGolemRightArm;
@@ -14,7 +14,7 @@ public class CyberdemonModel<T extends CyberdemonEntity> extends SegmentedModel<
 	private final ModelRenderer ironGolemLeftLeg;
 	private final ModelRenderer ironGolemRightLeg;
 
-	public CyberdemonModel() {
+	public MancubusModel() {
 		this.ironGolemHead = (new ModelRenderer(this)).setTextureSize(128, 128);
 		this.ironGolemHead.setRotationPoint(0.0F, -7.0F, -2.0F);
 		this.ironGolemHead.setTextureOffset(0, 0).addBox(-4.0F, -12.0F, -5.5F, 8.0F, 10.0F, 8.0F, 0.0F);

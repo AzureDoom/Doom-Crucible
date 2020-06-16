@@ -23,16 +23,16 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class CyberdemonEntity extends ZombieEntity {
+public class MancubusEntity extends ZombieEntity {
 
 	private int attackTimer;
 
-	public CyberdemonEntity(EntityType<CyberdemonEntity> entityType, World worldIn) {
+	public MancubusEntity(EntityType<MancubusEntity> entityType, World worldIn) {
 		super(entityType, worldIn);
 	}
 
-	public CyberdemonEntity(World worldIn) {
-		this(ModEntityTypes.CYBERDEMON.get(), worldIn);
+	public MancubusEntity(World worldIn) {
+		this(ModEntityTypes.MANCUBUS.get(), worldIn);
 	}
 
 	@Override

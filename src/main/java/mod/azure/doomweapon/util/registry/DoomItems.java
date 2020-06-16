@@ -28,9 +28,9 @@ import mod.azure.doomweapon.item.armor.ZombieDoomArmor;
 import mod.azure.doomweapon.item.eggs.ArchvileSpawnEgg;
 import mod.azure.doomweapon.item.eggs.BaronSpawnEgg;
 import mod.azure.doomweapon.item.eggs.CacodemonSpawnEgg;
-import mod.azure.doomweapon.item.eggs.CyberdemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ImpSpawnEgg;
 import mod.azure.doomweapon.item.eggs.LostSoulSpawnEgg;
+import mod.azure.doomweapon.item.eggs.MancubusSpawnEgg;
 import mod.azure.doomweapon.item.eggs.PinkySpawnEgg;
 import mod.azure.doomweapon.item.eggs.SpiderdemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ZombiemanSpawnEgg;
@@ -76,8 +76,8 @@ public class DoomItems {
 			() -> new BaronSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> CACODEMON_SPAWN_EGG = ITEMS.register("cacodemon_spawn_egg",
 			() -> new CacodemonSpawnEgg(16500000, 11998228));
-	public static final RegistryObject<Item> CYBERDEMON_SPAWN_EGG = ITEMS.register("cyberdemon_spawn_egg",
-			() -> new CyberdemonSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> CYBERDEMON_SPAWN_EGG = ITEMS.register("mancubus_spawn_egg",
+			() -> new MancubusSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> LOST_SOUL_SPAWN_EGG = ITEMS.register("lost_soul_spawn_egg",
 			() -> new LostSoulSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> SPIDERDEMON_SPAWN_EGG = ITEMS.register("spiderdemon_spawn_egg",

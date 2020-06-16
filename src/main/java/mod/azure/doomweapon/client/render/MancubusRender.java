@@ -3,28 +3,28 @@ package mod.azure.doomweapon.client.render;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.client.models.CyberdemonModel;
-import mod.azure.doomweapon.entity.CyberdemonEntity;
+import mod.azure.doomweapon.client.models.MancubusModel;
+import mod.azure.doomweapon.entity.MancubusEntity;
 import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class CyberdemonRender extends MobRenderer<CyberdemonEntity, CyberdemonModel<CyberdemonEntity>> {
+public class MancubusRender extends MobRenderer<MancubusEntity, MancubusModel<MancubusEntity>> {
 
 	protected static final ResourceLocation TEXTURE = new ResourceLocation(DoomMod.MODID,
-			"textures/entity/cyberdemon.png");
+			"textures/entity/mancubus.png");
 
-	public CyberdemonRender(EntityRendererManager renderManagerIn) {
-		super(renderManagerIn, new CyberdemonModel<>(), 0.7F);
+	public MancubusRender(EntityRendererManager renderManagerIn) {
+		super(renderManagerIn, new MancubusModel<>(), 0.7F);
 	}
 
 	@Override
-	public ResourceLocation getEntityTexture(CyberdemonEntity entity) {
+	public ResourceLocation getEntityTexture(MancubusEntity entity) {
 		return TEXTURE;
 	}
 
-	protected void applyRotations(CyberdemonEntity entityLiving, MatrixStack matrixStackIn, float ageInTicks,
+	protected void applyRotations(MancubusEntity entityLiving, MatrixStack matrixStackIn, float ageInTicks,
 			float rotationYaw, float partialTicks) {
 		super.applyRotations(entityLiving, matrixStackIn, ageInTicks, rotationYaw, partialTicks);
 		if (!((double) entityLiving.limbSwingAmount < 0.01D)) {
@@ -33,8 +33,8 @@ public class CyberdemonRender extends MobRenderer<CyberdemonEntity, CyberdemonMo
 			matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(6.5F * f2));
 		}
 	}
-	
-	protected void preRenderCallback(CyberdemonEntity entitylivingbaseIn, MatrixStack matrixStackIn,
+
+	protected void preRenderCallback(MancubusEntity entitylivingbaseIn, MatrixStack matrixStackIn,
 			float partialTickTime) {
 		matrixStackIn.scale(2.0F, 2.0F, 2.0F);
 	}

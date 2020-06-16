@@ -17,9 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.spawner.AbstractSpawner;
 
-public class CyberdemonSpawnEgg extends DoomSpawnEgg {
+public class MancubusSpawnEgg extends DoomSpawnEgg {
 
-	public CyberdemonSpawnEgg(int primaryColorIn, int secondaryColorIn) {
+	public MancubusSpawnEgg(int primaryColorIn, int secondaryColorIn) {
 		super(secondaryColorIn, secondaryColorIn);
 	}
 
@@ -38,7 +38,7 @@ public class CyberdemonSpawnEgg extends DoomSpawnEgg {
 				TileEntity tileentity = world.getTileEntity(blockpos);
 				if (tileentity instanceof MobSpawnerTileEntity) {
 					AbstractSpawner abstractspawner = ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic();
-					abstractspawner.setEntityType(ModEntityTypes.CYBERDEMON.get());
+					abstractspawner.setEntityType(ModEntityTypes.MANCUBUS.get());
 					tileentity.markDirty();
 					world.notifyBlockUpdate(blockpos, blockstate, blockstate, 3);
 					itemstack.shrink(1);
@@ -53,7 +53,7 @@ public class CyberdemonSpawnEgg extends DoomSpawnEgg {
 				blockpos1 = blockpos.offset(direction);
 			}
 
-			if (ModEntityTypes.CYBERDEMON.get().spawn(world, itemstack, context.getPlayer(), blockpos1,
+			if (ModEntityTypes.MANCUBUS.get().spawn(world, itemstack, context.getPlayer(), blockpos1,
 					SpawnReason.SPAWN_EGG, true,
 					!Objects.equals(blockpos, blockpos1) && direction == Direction.UP) != null) {
 				itemstack.shrink(1);
