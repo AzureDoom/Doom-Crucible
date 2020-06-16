@@ -2,6 +2,7 @@ package mod.azure.doomweapon.util.registry;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ArgentEnergyItem;
+import mod.azure.doomweapon.item.E1M1MusicDisc;
 import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.ammo.ArgentBolt;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
@@ -43,6 +44,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class DoomItems {
 
+	@SuppressWarnings("deprecation")
 	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, DoomMod.MODID);
 
 	// AMMO
@@ -53,6 +55,8 @@ public class DoomItems {
 	// MISC
 	public static final RegistryObject<Item> ARGENT_ENERGY = ITEMS.register("argent_energy",
 			() -> new ArgentEnergyItem());
+	public static final RegistryObject<Item> E1M1_MUSIC_DISC = ITEMS.register("e1m1_music_disc",
+			() -> new E1M1MusicDisc());
 	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());

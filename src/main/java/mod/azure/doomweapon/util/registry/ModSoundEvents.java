@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModSoundEvents {
 
+	@SuppressWarnings("deprecation")
 	public static final DeferredRegister<SoundEvent> MOD_SOUNDS = new DeferredRegister<>(ForgeRegistries.SOUND_EVENTS,
 			DoomMod.MODID);
 
@@ -55,6 +56,9 @@ public class ModSoundEvents {
 	public static final RegistryObject<SoundEvent> QUICK3_3 = MOD_SOUNDS.register("doom.quick3_3",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.quick3_3")));
 
+	public static final RegistryObject<SoundEvent> E1M1 = MOD_SOUNDS.register("doom.e1m1",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.e1m1")));
+	
 	@SubscribeEvent
 	public static void onRegisterSoundEvent(RegistryEvent.Register<SoundEvent> event) {
 		event.getRegistry().registerAll();

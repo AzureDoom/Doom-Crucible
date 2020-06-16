@@ -2,6 +2,9 @@
 	"doom.loading_end": {
 		"category": "music", "sounds": [{"name": "doomweapon:loading_end", "stream": true}]
 	},
+	"doom.e1m1": {
+		"category": "music", "sounds": [{"name": "doomweapon:e1m1", "stream": true}]
+	},
 	"doom.loading_middle1": {
 		"category": "music", "sounds": [{"name": "doomweapon:loading_middle1", "stream": true}]
 	},
