@@ -14,11 +14,14 @@ import mod.azure.doomweapon.entity.projectiles.ArgentBoltEntity;
 import mod.azure.doomweapon.entity.projectiles.EnergyCellEntity;
 import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biome.SpawnListEntry;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -80,15 +83,39 @@ public class ModEntityTypes {
 					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "zombieman").toString()));
 
 	public static void registerEntityWorldSpawns() {
-		registerEntityWorldSpawn(IMP.get(), 14, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(PINKY.get(), 14, 2, 4, Biomes.NETHER);
-		registerEntityWorldSpawn(LOST_SOUL.get(), 2, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(CACODEMON.get(), 2, 1, 2, Biomes.NETHER);
-		registerEntityWorldSpawn(ARCHVILE.get(), 2, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(IMP.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(PINKY.get(), 12, 2, 4, Biomes.NETHER);
+		registerEntityWorldSpawn(LOST_SOUL.get(), 1, 1, 3, Biomes.NETHER);
+		registerEntityWorldSpawn(CACODEMON.get(), 1, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(ARCHVILE.get(), 9, 1, 2, Biomes.NETHER);
 		registerEntityWorldSpawn(BARON.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(MANCUBUS.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(SPIDERDEMON.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(ZOMBIEMAN.get(), 14, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ZOMBIEMAN.get(), 12, 2, 7, Biomes.NETHER);
+	}
+
+	public static void EntitySpawnPlacementRegistry() {
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.ARCHVILE.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.ZOMBIEMAN.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.SPIDERDEMON.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.MANCUBUS.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.BARON.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.IMP.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.PINKY.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				MonsterEntity::canMonsterSpawnInLight);
 	}
 
 	public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup,
