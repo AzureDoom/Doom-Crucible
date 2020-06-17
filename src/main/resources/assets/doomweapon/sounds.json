@@ -163,5 +163,11 @@
 	},
 	"doom.quick3_3": {
 		"category": "music", "sounds": [{"name": "doomweapon:quick3_3", "stream": true}]
+	},
+	"doom.bfg_hit": {
+		"category": "music", "sounds": [{"name": "doomweapon:bfg_hit", "stream": true}]
+	},
+	"doom.bfg_firing": {
+		"category": "music", "sounds": [{"name": "doomweapon:bfg_firing", "stream": true}]
 	}
 }

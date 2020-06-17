@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 import com.google.common.collect.Lists;
 
 import mod.azure.doomweapon.DoomMod;
-import mod.azure.doomweapon.item.ammo.ShellAmmo;
+import mod.azure.doomweapon.item.ammo.EnergyCell;
 import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -37,7 +37,6 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -57,7 +56,7 @@ public class BFG extends CrossbowItem {
 
 	@Override
 	public Predicate<ItemStack> getAmmoPredicate() {
-		return itemStack -> itemStack.getItem() instanceof ShellAmmo;
+		return itemStack -> itemStack.getItem() instanceof EnergyCell;
 	}
 
 	public static int getChargeTime(ItemStack stack) {
@@ -67,14 +66,14 @@ public class BFG extends CrossbowItem {
 
 	private static AbstractArrowEntity createArrow(World worldIn, LivingEntity shooter, ItemStack crossbow,
 			ItemStack ammo) {
-		ShellAmmo arrowitem = (ShellAmmo) (ammo.getItem() instanceof ShellAmmo ? ammo.getItem()
-				: DoomItems.SHOTGUN_SHELLS.get());
+		EnergyCell arrowitem = (EnergyCell) (ammo.getItem() instanceof EnergyCell ? ammo.getItem()
+				: DoomItems.ENERGY_CELLS.get());
 		AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, ammo, shooter);
 		if (shooter instanceof PlayerEntity) {
 			abstractarrowentity.setIsCritical(true);
 		}
 
-		abstractarrowentity.setHitSound(SoundEvents.ITEM_CROSSBOW_HIT);
+		abstractarrowentity.setHitSound(ModSoundEvents.BFG_HIT.get());
 		abstractarrowentity.setShotFromCrossbow(true);
 		int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.PIERCING, crossbow);
 		if (i > 0) {
@@ -193,8 +192,9 @@ public class BFG extends CrossbowItem {
 		return list;
 	}
 
+	@Override
 	public int getUseDuration(ItemStack stack) {
-		return getChargeTime(stack) + 3;
+		return getChargeTime(stack) + 300;
 	}
 
 	private static void clearProjectiles(ItemStack stack) {
@@ -247,7 +247,7 @@ public class BFG extends CrossbowItem {
 			});
 			worldIn.addEntity((Entity) iprojectile);
 			worldIn.playSound((PlayerEntity) null, shooter.getPosX(), shooter.getPosY(), shooter.getPosZ(),
-					SoundEvents.ITEM_CROSSBOW_SHOOT, SoundCategory.PLAYERS, 1.0F, soundPitch);
+					ModSoundEvents.BFG_FIRING.get(), SoundCategory.PLAYERS, 1.0F, soundPitch);
 		}
 	}
 
@@ -263,7 +263,7 @@ public class BFG extends CrossbowItem {
 				itemstack = itemstack1.copy();
 			}
 			if (itemstack.isEmpty() && flag) {
-				itemstack = new ItemStack(DoomItems.SHOTGUN_SHELLS.get());
+				itemstack = new ItemStack(DoomItems.ENERGY_CELLS.get());
 				itemstack1 = itemstack.copy();
 			}
 
@@ -280,7 +280,7 @@ public class BFG extends CrossbowItem {
 		if (p_220023_2_.isEmpty()) {
 			return false;
 		} else {
-			boolean flag = p_220023_4_ && p_220023_2_.getItem() instanceof ShellAmmo;
+			boolean flag = p_220023_4_ && p_220023_2_.getItem() instanceof EnergyCell;
 			ItemStack itemstack;
 			if (!flag && !p_220023_4_ && !p_220023_3_) {
 				itemstack = p_220023_2_.split(1);
@@ -313,7 +313,9 @@ public class BFG extends CrossbowItem {
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-		if (!isCharged(stack) && hasAmmo(entityLiving, stack)) {
+		int i = this.getUseDuration(stack) - timeLeft;
+		float f = getCharge(i, stack);
+		if (f >= 1.0F && !isCharged(stack) && hasAmmo(entityLiving, stack)) {
 			setCharged(stack, true);
 			SoundCategory soundcategory = entityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS
 					: SoundCategory.HOSTILE;
@@ -321,6 +323,7 @@ public class BFG extends CrossbowItem {
 					entityLiving.getPosZ(), ModSoundEvents.LOADING_END.get(), soundcategory, 1.0F,
 					1.0F / (random.nextFloat() * 0.5F + 1.0F) + 0.2F);
 		}
+
 	}
 
 	public static float getCharge(int useTime, ItemStack stack) {

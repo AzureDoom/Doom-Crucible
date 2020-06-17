@@ -13,6 +13,11 @@ public class ModSoundEvents {
 	public static final DeferredRegister<SoundEvent> MOD_SOUNDS = new DeferredRegister<>(ForgeRegistries.SOUND_EVENTS,
 			DoomMod.MODID);
 
+	public static final RegistryObject<SoundEvent> BFG_FIRING = MOD_SOUNDS.register("doom.bfg_firing",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.bfg_firing")));
+	public static final RegistryObject<SoundEvent> BFG_HIT = MOD_SOUNDS.register("doom.bfg_hit",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.bfg_hit")));
+
 	public static final RegistryObject<SoundEvent> SHOOT1 = MOD_SOUNDS.register("doom.shoot1",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.shoot1")));
 	public static final RegistryObject<SoundEvent> SHOOT2 = MOD_SOUNDS.register("doom.shoot2",
