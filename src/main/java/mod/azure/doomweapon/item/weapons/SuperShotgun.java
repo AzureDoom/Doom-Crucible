@@ -38,6 +38,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -94,7 +95,7 @@ public class SuperShotgun extends CrossbowItem {
 			abstractarrowentity.setIsCritical(true);
 		}
 
-		abstractarrowentity.setHitSound(ModSoundEvents.SHOOT3.get());
+		abstractarrowentity.setHitSound(SoundEvents.BLOCK_ANVIL_HIT);
 		abstractarrowentity.setShotFromCrossbow(true);
 		int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.PIERCING, crossbow);
 		if (i > 0) {
