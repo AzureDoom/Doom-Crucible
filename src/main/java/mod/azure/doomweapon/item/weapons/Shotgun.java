@@ -83,7 +83,7 @@ public class Shotgun extends BowItem {
 
 			if (!itemstack.isEmpty() || flag) {
 				if (itemstack.isEmpty()) {
-					itemstack = new ItemStack(DoomItems.ARGENT_BOLT.get());
+					itemstack = new ItemStack(DoomItems.SHOTGUN_SHELLS.get());
 				}
 
 				float f = getArrowVelocity(i);
@@ -93,7 +93,7 @@ public class Shotgun extends BowItem {
 					if (!worldIn.isRemote) {
 						ShellAmmo arrowitem = (ShellAmmo) (itemstack.getItem() instanceof ShellAmmo
 								? itemstack.getItem()
-								: DoomItems.ARGENT_BOLT);
+								: DoomItems.SHOTGUN_SHELLS.get());
 						ShotgunShellEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack,
 								playerentity);
 						abstractarrowentity = customeArrow(abstractarrowentity);
