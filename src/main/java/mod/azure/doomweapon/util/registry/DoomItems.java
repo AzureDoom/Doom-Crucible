@@ -47,8 +47,10 @@ import mod.azure.doomweapon.item.weapons.Shotgun;
 import mod.azure.doomweapon.item.weapons.SuperShotgun;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
 import mod.azure.doomweapon.util.enums.DoomArmorMaterial;
+import mod.azure.doomweapon.util.enums.DoomTier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Item;
+import net.minecraft.item.SwordItem;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -96,6 +98,8 @@ public class DoomItems {
 			() -> new ArgentPickaxe());
 	public static final RegistryObject<Item> ARGENT_SHOVEL = ITEMS.register("argent_shovel", () -> new ArgentShovel());
 	public static final RegistryObject<Item> ARGENT_SWORD = ITEMS.register("argent_sword", () -> new ArgentSword());
+	public static final RegistryObject<Item> CHAINSAW = ITEMS.register("chainsaw", () -> new SwordItem(DoomTier.DOOM, 6,
+			-2.4F, new Item.Properties().group(DoomMod.DoomItemGroup).maxDamage(1)));
 	public static final RegistryObject<Item> SWORD_CLOSED = ITEMS.register("doomcrucible_closed",
 			() -> new UnopenedItem());
 	public static final RegistryObject<Item> AXE_OPEN = ITEMS.register("axe_marauder_open",
