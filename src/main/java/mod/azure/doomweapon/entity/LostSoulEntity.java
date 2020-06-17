@@ -176,10 +176,6 @@ public class LostSoulEntity extends GhastEntity {
 		}
 	}
 
-	protected boolean shouldBurnInDay() {
-		return false;
-	}
-
 	@Override
 	protected SoundEvent getAmbientSound() {
 		return ModSoundEvents.LOST_SOUL_AMBIENT.get();
