@@ -35,6 +35,11 @@ import mod.azure.doomweapon.item.eggs.MancubusSpawnEgg;
 import mod.azure.doomweapon.item.eggs.PinkySpawnEgg;
 import mod.azure.doomweapon.item.eggs.SpiderdemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ZombiemanSpawnEgg;
+import mod.azure.doomweapon.item.powerup.InmortalSphereItem;
+import mod.azure.doomweapon.item.powerup.InvisibleSphereItem;
+import mod.azure.doomweapon.item.powerup.MegaSphereItem;
+import mod.azure.doomweapon.item.powerup.PowerSphereItem;
+import mod.azure.doomweapon.item.powerup.SoulCubeItem;
 import mod.azure.doomweapon.item.tools.ArgentAxe;
 import mod.azure.doomweapon.item.tools.ArgentHoe;
 import mod.azure.doomweapon.item.tools.ArgentPickaxe;
@@ -72,6 +77,13 @@ public class DoomItems {
 			() -> new ArgentEnergyItem());
 	public static final RegistryObject<Item> E1M1_MUSIC_DISC = ITEMS.register("e1m1_music_disc",
 			() -> new E1M1MusicDisc());
+	public static final RegistryObject<Item> INMORTAL = ITEMS.register("inmortalsphere",
+			() -> new InmortalSphereItem());
+	public static final RegistryObject<Item> INVISIBLE = ITEMS.register("invisiblesphere",
+			() -> new InvisibleSphereItem());
+	public static final RegistryObject<Item> MEGA = ITEMS.register("megasphere", () -> new MegaSphereItem());
+	public static final RegistryObject<Item> POWER = ITEMS.register("powersphere", () -> new PowerSphereItem());
+	public static final RegistryObject<Item> SOULCUBE = ITEMS.register("soulcube", () -> new SoulCubeItem());
 	public static final RegistryObject<Item> IMP_SPAWN_EGG = ITEMS.register("imp_spawn_egg",
 			() -> new ImpSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> PINKY_SPAWN_EGG = ITEMS.register("pinky_spawn_egg",
