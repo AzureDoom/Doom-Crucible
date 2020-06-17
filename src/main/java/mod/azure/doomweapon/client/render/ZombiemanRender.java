@@ -14,6 +14,7 @@ public class ZombiemanRender extends BipedRenderer<ZombiemanEntity, ZombiemanMod
 	protected static final ResourceLocation TEXTURE = new ResourceLocation(DoomMod.MODID,
 			"textures/entity/zombieman.png");
 
+	@SuppressWarnings("rawtypes")
 	public ZombiemanRender(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new ZombiemanModel<>(), 0.5F);
 		this.addLayer(new HeldItemLayer<>(this));

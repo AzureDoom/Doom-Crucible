@@ -16,6 +16,9 @@ import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.SpawnListEntry;
+import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -76,16 +79,25 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.<ZombiemanEntity>create(ZombiemanEntity::new, EntityClassification.MONSTER)
 					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "zombieman").toString()));
 
-//	public static void registerEntityWorldSpawns() {
-//		registerEntityWorldSpawn(IMP, Biomes.PLAINS, Biomes.BEACH, Biomes.JUNGLE);
-//	}
-//
-//	public static void registerEntityWorldSpawn(EntityType<?> entity, Biome... biomes) {
-//		for (Biome biome : biomes) {
-//			if (biome != null) {
-//				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, 10, 1, 10));
-//			}
-//		}
-//	}
+	public static void registerEntityWorldSpawns() {
+		registerEntityWorldSpawn(IMP.get(), 14, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(PINKY.get(), 14, 2, 4, Biomes.NETHER);
+		registerEntityWorldSpawn(LOST_SOUL.get(), 2, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(CACODEMON.get(), 2, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(ARCHVILE.get(), 2, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(BARON.get(), 2, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(MANCUBUS.get(), 2, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(SPIDERDEMON.get(), 2, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(ZOMBIEMAN.get(), 14, 2, 7, Biomes.NETHER);
+	}
+
+	public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup,
+			Biome... biomes) {
+		for (Biome biome : biomes) {
+			if (biome != null) {
+				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, weight, minGroup, maxGroup));
+			}
+		}
+	}
 
 }
