@@ -34,6 +34,7 @@ public class ModEventSubscriber {
 				ModEntityTypes.MANCUBUS.get(), ModEntityTypes.PINKY.get(), ModEntityTypes.SPIDERDEMON.get(),
 				ModEntityTypes.ZOMBIEMAN.get());
 		ModEntityTypes.registerEntityWorldSpawns();
+		ModEntityTypes.EntitySpawnPlacementRegistry();
 	}
 
 	public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) {
