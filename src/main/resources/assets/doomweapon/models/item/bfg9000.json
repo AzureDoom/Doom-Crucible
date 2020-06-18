@@ -45,19 +45,6 @@
                 "pull": 1.0
             },
             "model": "doomweapon:item/bfg9000_pulling_2"
-        },
-        {
-            "predicate": {
-                "charged": 1
-            },
-            "model": "doomweapon:item/bfg9000_arrow"
-        },
-        {
-            "predicate": {
-                "charged": 1,
-                "firework": 1
-            },
-            "model": "doomweapon:item/bfg9000_firework"
         }
     ]
 }

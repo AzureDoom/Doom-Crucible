@@ -1,33 +1,21 @@
 package mod.azure.doomweapon.item.weapons;
 
-import java.util.List;
-import java.util.Random;
 import java.util.function.Predicate;
 
-import com.google.common.collect.Lists;
-
 import mod.azure.doomweapon.DoomMod;
+import mod.azure.doomweapon.entity.projectiles.EnergyCellEntity;
 import mod.azure.doomweapon.item.ammo.EnergyCell;
 import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
-import net.minecraft.advancements.CriteriaTriggers;
-import net.minecraft.client.renderer.Quaternion;
-import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ICrossbowUser;
-import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.FireworkRocketEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.CrossbowItem;
+import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.nbt.ListNBT;
@@ -36,218 +24,110 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class BFG extends CrossbowItem {
-
-	private boolean isLoadingStart = false;
-	private boolean isLoadingMiddle = false;
+public class BFG extends BowItem {
 
 	public BFG() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
 	}
 
 	@Override
-	public Predicate<ItemStack> getInventoryAmmoPredicate() {
-		return getAmmoPredicate();
+	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
+		ItemStack stack = new ItemStack(this);
+		stack.hasTag();
+		stack.addEnchantment(Enchantments.PUNCH, 2);
+		stack.addEnchantment(Enchantments.POWER, 3);
+		stack.addEnchantment(Enchantments.MULTISHOT, 1);
+		if (group == DoomMod.DoomItemGroup) {
+			items.add(stack);
+		}
 	}
 
 	@Override
-	public Predicate<ItemStack> getAmmoPredicate() {
-		return itemStack -> itemStack.getItem() instanceof EnergyCell;
-	}
-
-	public static int getChargeTime(ItemStack stack) {
-		int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.QUICK_CHARGE, stack);
-		return i == 0 ? 25 : 25 - 5 * i;
-	}
-
-	private static AbstractArrowEntity createArrow(World worldIn, LivingEntity shooter, ItemStack crossbow,
-			ItemStack ammo) {
-		EnergyCell arrowitem = (EnergyCell) (ammo.getItem() instanceof EnergyCell ? ammo.getItem()
-				: DoomItems.ENERGY_CELLS.get());
-		AbstractArrowEntity abstractarrowentity = arrowitem.createArrow(worldIn, ammo, shooter);
-		if (shooter instanceof PlayerEntity) {
-			abstractarrowentity.setIsCritical(true);
-		}
-
-		abstractarrowentity.setHitSound(ModSoundEvents.BFG_HIT.get());
-		abstractarrowentity.setShotFromCrossbow(true);
-		int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.PIERCING, crossbow);
-		if (i > 0) {
-			abstractarrowentity.setPierceLevel((byte) i);
-		}
-
-		return abstractarrowentity;
-	}
-
-	public static void fireProjectiles(World worldIn, LivingEntity shooter, Hand handIn, ItemStack stack,
-			float velocityIn, float inaccuracyIn) {
-		List<ItemStack> list = getChargedProjectiles(stack);
-		float[] afloat = getRandomSoundPitches(shooter.getRNG());
-
-		for (int i = 0; i < list.size(); ++i) {
-			ItemStack itemstack = list.get(i);
-			boolean flag = shooter instanceof PlayerEntity && ((PlayerEntity) shooter).abilities.isCreativeMode;
-			if (!itemstack.isEmpty()) {
-				if (i == 0) {
-					fireProjectile(worldIn, shooter, handIn, stack, itemstack, afloat[i], flag, velocityIn,
-							inaccuracyIn, 0.0F);
-				} else if (i == 1) {
-					fireProjectile(worldIn, shooter, handIn, stack, itemstack, afloat[i], flag, velocityIn,
-							inaccuracyIn, -10.0F);
-				} else if (i == 2) {
-					fireProjectile(worldIn, shooter, handIn, stack, itemstack, afloat[i], flag, velocityIn,
-							inaccuracyIn, 10.0F);
-				}
-			}
-		}
-
-		fireProjectilesAfter(worldIn, shooter, stack);
-	}
-
-	public void func_219972_a(World worldIn, LivingEntity livingEntityIn, ItemStack stack, int count) {
-		if (!worldIn.isRemote) {
-			int i = EnchantmentHelper.getEnchantmentLevel(Enchantments.QUICK_CHARGE, stack);
-			SoundEvent soundevent = this.getSoundEvent(i);
-			SoundEvent soundevent1 = i == 0 ? ModSoundEvents.LOADING_MIDDLE1.get() : null;
-			float f = (float) (stack.getUseDuration() - count) / (float) getChargeTime(stack);
-			if (f < 0.2F) {
-				this.isLoadingStart = false;
-				this.isLoadingMiddle = false;
-			}
-
-			if (f >= 0.2F && !this.isLoadingStart) {
-				this.isLoadingStart = true;
-				worldIn.playSound((PlayerEntity) null, livingEntityIn.getPosX(), livingEntityIn.getPosY(),
-						livingEntityIn.getPosZ(), soundevent, SoundCategory.PLAYERS, 0.5F, 1.0F);
-			}
-
-			if (f >= 0.5F && soundevent1 != null && !this.isLoadingMiddle) {
-				this.isLoadingMiddle = true;
-				worldIn.playSound((PlayerEntity) null, livingEntityIn.getPosX(), livingEntityIn.getPosY(),
-						livingEntityIn.getPosZ(), soundevent1, SoundCategory.PLAYERS, 0.5F, 1.0F);
-			}
-		}
-
-	}
-
-	private static void fireProjectilesAfter(World worldIn, LivingEntity shooter, ItemStack stack) {
-		if (shooter instanceof ServerPlayerEntity) {
-			ServerPlayerEntity serverplayerentity = (ServerPlayerEntity) shooter;
-			if (!worldIn.isRemote) {
-				CriteriaTriggers.SHOT_CROSSBOW.func_215111_a(serverplayerentity, stack);
-			}
-
-			serverplayerentity.addStat(Stats.ITEM_USED.get(stack.getItem()));
-		}
-
-		clearProjectiles(stack);
-	}
-
-	private static float[] getRandomSoundPitches(Random rand) {
-		boolean flag = rand.nextBoolean();
-		return new float[] { 1.0F, getRandomSoundPitch(flag), getRandomSoundPitch(!flag) };
-	}
-
-	private static float getRandomSoundPitch(boolean flagIn) {
-		float f = flagIn ? 0.63F : 0.43F;
-		return 1.0F / (random.nextFloat() * 0.5F + 1.8F) + f;
-	}
-
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		ItemStack itemstack = playerIn.getHeldItem(handIn);
-		if (isCharged(itemstack)) {
-			fireProjectiles(worldIn, playerIn, handIn, itemstack, func_220013_l(itemstack), 1.0F);
-			setCharged(itemstack, false);
-			return ActionResult.resultConsume(itemstack);
-		} else if (!playerIn.findAmmo(itemstack).isEmpty()) {
-			if (!isCharged(itemstack)) {
-				this.isLoadingStart = false;
-				this.isLoadingMiddle = false;
-				playerIn.setActiveHand(handIn);
-			}
-
-			return ActionResult.resultConsume(itemstack);
-		} else {
-			return ActionResult.resultFail(itemstack);
-		}
-	}
-
-	private static List<ItemStack> getChargedProjectiles(ItemStack stack) {
-		List<ItemStack> list = Lists.newArrayList();
-		CompoundNBT compoundnbt = stack.getTag();
-		if (compoundnbt != null && compoundnbt.contains("ChargedProjectiles", 9)) {
-			ListNBT listnbt = compoundnbt.getList("ChargedProjectiles", 10);
-			if (listnbt != null) {
-				for (int i = 0; i < listnbt.size(); ++i) {
-					CompoundNBT compoundnbt1 = listnbt.getCompound(i);
-					list.add(ItemStack.read(compoundnbt1));
-				}
-			}
-		}
-
-		return list;
+	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
+		stack.hasTag();
+		stack.addEnchantment(Enchantments.PUNCH, 2);
+		stack.addEnchantment(Enchantments.POWER, 3);
+		stack.addEnchantment(Enchantments.MULTISHOT, 1);
 	}
 
 	@Override
-	public int getUseDuration(ItemStack stack) {
-		return getChargeTime(stack) + 300;
+	public boolean hasEffect(ItemStack stack) {
+		return false;
 	}
 
-	private static void clearProjectiles(ItemStack stack) {
-		CompoundNBT compoundnbt = stack.getTag();
-		if (compoundnbt != null) {
-			ListNBT listnbt = compoundnbt.getList("ChargedProjectiles", 9);
-			listnbt.clear();
-			compoundnbt.put("ChargedProjectiles", listnbt);
-		}
+	@Override
+	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
+		if (entityLiving instanceof PlayerEntity && hasAmmo(entityLiving, stack)) {
+			PlayerEntity playerentity = (PlayerEntity) entityLiving;
+			boolean flag = playerentity.abilities.isCreativeMode
+					|| EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
+			ItemStack itemstack = playerentity.findAmmo(stack);
 
-	}
+			int i = this.getUseDuration(stack) - timeLeft;
+			i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, playerentity, i,
+					!itemstack.isEmpty() || flag);
+			if (i < 0)
+				return;
 
-	private static boolean hasChargedProjectile(ItemStack stack, Item ammoItem) {
-		return getChargedProjectiles(stack).stream().anyMatch((p_220010_1_) -> {
-			return p_220010_1_.getItem() == ammoItem;
-		});
-	}
+			if (!itemstack.isEmpty() || flag) {
+				if (itemstack.isEmpty()) {
+					itemstack = new ItemStack(DoomItems.ENERGY_CELLS.get());
+				}
 
-	private static void fireProjectile(World worldIn, LivingEntity shooter, Hand handIn, ItemStack crossbow,
-			ItemStack projectile, float soundPitch, boolean isCreativeMode, float velocity, float inaccuracy,
-			float projectileAngle) {
-		if (!worldIn.isRemote) {
-			boolean flag = projectile.getItem() == Items.FIREWORK_ROCKET;
-			IProjectile iprojectile;
-			if (flag) {
-				iprojectile = new FireworkRocketEntity(worldIn, projectile, shooter.getPosX(),
-						shooter.getPosYEye() - (double) 0.15F, shooter.getPosZ(), true);
-			} else {
-				iprojectile = createArrow(worldIn, shooter, crossbow, projectile);
-				if (isCreativeMode || projectileAngle != 0.0F) {
-					((AbstractArrowEntity) iprojectile).pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
+				float f = getArrowVelocity(i);
+				if (!((double) f < 0.1D)) {
+					boolean flag1 = playerentity.abilities.isCreativeMode || (itemstack.getItem() instanceof EnergyCell
+							&& ((EnergyCell) itemstack.getItem()).isInfinite(itemstack, stack, playerentity));
+					if (!worldIn.isRemote) {
+						EnergyCell arrowitem = (EnergyCell) (itemstack.getItem() instanceof EnergyCell
+								? itemstack.getItem()
+								: DoomItems.ENERGY_CELLS.get());
+						EnergyCellEntity abstractarrowentity = arrowitem.createArrow(worldIn, itemstack, playerentity);
+						abstractarrowentity = customeArrow(abstractarrowentity);
+						abstractarrowentity.shoot(playerentity, playerentity.rotationPitch, playerentity.rotationYaw,
+								0.0F, f * 3.0F, 1.0F);
+						if (f == 1.0F) {
+							abstractarrowentity.setIsCritical(true);
+						}
+
+						int j = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);
+						if (j > 0) {
+							abstractarrowentity.setDamage(abstractarrowentity.getDamage() + (double) j * 0.5D + 0.5D);
+						}
+
+						int k = EnchantmentHelper.getEnchantmentLevel(Enchantments.PUNCH, stack);
+						if (k > 0) {
+							abstractarrowentity.setKnockbackStrength(k);
+						}
+
+						if (EnchantmentHelper.getEnchantmentLevel(Enchantments.FLAME, stack) > 0) {
+							abstractarrowentity.setFire(100);
+						}
+
+						stack.damageItem(1, playerentity, (p_220009_1_) -> {
+							p_220009_1_.sendBreakAnimation(playerentity.getActiveHand());
+						});
+						if (flag1 || playerentity.abilities.isCreativeMode
+								&& (itemstack.getItem() == DoomItems.ENERGY_CELLS.get()
+										|| itemstack.getItem() == DoomItems.ENERGY_CELLS.get())) {
+							abstractarrowentity.pickupStatus = AbstractArrowEntity.PickupStatus.DISALLOWED;
+						}
+						worldIn.addEntity(abstractarrowentity);
+					}
+					worldIn.playSound((PlayerEntity) null, playerentity.getPosX(), playerentity.getPosY(),
+							playerentity.getPosZ(), ModSoundEvents.BFG_FIRING.get(), SoundCategory.PLAYERS, 1.0F,
+							1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
+					if (!flag1 && !playerentity.abilities.isCreativeMode) {
+						itemstack.shrink(1);
+						if (itemstack.isEmpty()) {
+							playerentity.inventory.deleteStack(itemstack);
+						}
+					}
+					playerentity.addStat(Stats.ITEM_USED.get(this));
 				}
 			}
-
-			if (shooter instanceof ICrossbowUser) {
-				ICrossbowUser icrossbowuser = (ICrossbowUser) shooter;
-				icrossbowuser.shoot(icrossbowuser.getAttackTarget(), crossbow, iprojectile, projectileAngle);
-			} else {
-				Vec3d vec3d1 = shooter.getUpVector(1.0F);
-				Quaternion quaternion = new Quaternion(new Vector3f(vec3d1), projectileAngle, true);
-				Vec3d vec3d = shooter.getLook(1.0F);
-				Vector3f vector3f = new Vector3f(vec3d);
-				vector3f.transform(quaternion);
-				iprojectile.shoot((double) vector3f.getX(), (double) vector3f.getY(), (double) vector3f.getZ(),
-						velocity, inaccuracy);
-			}
-
-			crossbow.damageItem(flag ? 3 : 1, shooter, (p_220017_1_) -> {
-				p_220017_1_.sendBreakAnimation(handIn);
-			});
-			worldIn.addEntity((Entity) iprojectile);
-			worldIn.playSound((PlayerEntity) null, shooter.getPosX(), shooter.getPosY(), shooter.getPosZ(),
-					ModSoundEvents.BFG_FIRING.get(), SoundCategory.PLAYERS, 1.0F, soundPitch);
 		}
 	}
 
@@ -311,23 +191,9 @@ public class BFG extends CrossbowItem {
 		compoundnbt.put("ChargedProjectiles", listnbt);
 	}
 
-	@Override
-	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-		int i = this.getUseDuration(stack) - timeLeft;
-		float f = getCharge(i, stack);
-		if (f >= 1.0F && !isCharged(stack) && hasAmmo(entityLiving, stack)) {
-			setCharged(stack, true);
-			SoundCategory soundcategory = entityLiving instanceof PlayerEntity ? SoundCategory.PLAYERS
-					: SoundCategory.HOSTILE;
-			worldIn.playSound((PlayerEntity) null, entityLiving.getPosX(), entityLiving.getPosY(),
-					entityLiving.getPosZ(), ModSoundEvents.LOADING_END.get(), soundcategory, 1.0F,
-					1.0F / (random.nextFloat() * 0.5F + 1.0F) + 0.2F);
-		}
-
-	}
-
-	public static float getCharge(int useTime, ItemStack stack) {
-		float f = (float) useTime / (float) getChargeTime(stack);
+	public static float getArrowVelocity(int charge) {
+		float f = (float) charge / 20.0F;
+		f = (f * f + f * 2.0F) / 3.0F;
 		if (f > 1.0F) {
 			f = 1.0F;
 		}
@@ -335,60 +201,45 @@ public class BFG extends CrossbowItem {
 		return f;
 	}
 
-	public static boolean isCharged(ItemStack stack) {
-		CompoundNBT compoundnbt = stack.getTag();
-		return compoundnbt != null && compoundnbt.getBoolean("Charged");
+	@Override
+	public int getUseDuration(ItemStack stack) {
+		return 72000;
 	}
 
-	public static void setCharged(ItemStack stack, boolean chargedIn) {
-		CompoundNBT compoundnbt = stack.getOrCreateTag();
-		compoundnbt.putBoolean("Charged", chargedIn);
-	}
-
+	@Override
 	public UseAction getUseAction(ItemStack stack) {
-		return UseAction.CROSSBOW;
+		return UseAction.BOW;
 	}
 
-	private static float func_220013_l(ItemStack p_220013_0_) {
-		return p_220013_0_.getItem() == DoomItems.BALLISTA.get()
-				&& hasChargedProjectile(p_220013_0_, Items.FIREWORK_ROCKET) ? 1.6F : 3.15F;
-	}
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+		ItemStack itemstack = playerIn.getHeldItem(handIn);
+		boolean flag = !playerIn.findAmmo(itemstack).isEmpty();
 
-	public SoundEvent getSoundEvent(int enchantmentLevel) {
-		switch (enchantmentLevel) {
-		case 1:
-			return ModSoundEvents.QUICK1_1.get();
-		case 2:
-			return ModSoundEvents.QUICK2_1.get();
-		case 3:
-			return ModSoundEvents.QUICK3_1.get();
-		default:
-			return ModSoundEvents.LOADING_START.get();
+		ActionResult<ItemStack> ret = net.minecraftforge.event.ForgeEventFactory.onArrowNock(itemstack, worldIn,
+				playerIn, handIn, flag);
+		if (ret != null)
+			return ret;
+
+		if (!playerIn.abilities.isCreativeMode && !flag) {
+			return ActionResult.resultFail(itemstack);
+		} else {
+			playerIn.setActiveHand(handIn);
+			return ActionResult.resultConsume(itemstack);
 		}
 	}
 
 	@Override
-	public void fillItemGroup(ItemGroup group, NonNullList<ItemStack> items) {
-		ItemStack stack = new ItemStack(this);
-		stack.hasTag();
-		stack.addEnchantment(Enchantments.MULTISHOT, 1);
-		stack.addEnchantment(Enchantments.PIERCING, 10);
-		stack.addEnchantment(Enchantments.QUICK_CHARGE, 1);
-		if (group == DoomMod.DoomItemGroup) {
-			items.add(stack);
-		}
+	public Predicate<ItemStack> getInventoryAmmoPredicate() {
+		return getAmmoPredicate();
 	}
 
 	@Override
-	public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
-		stack.hasTag();
-		stack.addEnchantment(Enchantments.MULTISHOT, 1);
-		stack.addEnchantment(Enchantments.PIERCING, 10);
-		stack.addEnchantment(Enchantments.QUICK_CHARGE, 1);
+	public Predicate<ItemStack> getAmmoPredicate() {
+		return itemStack -> itemStack.getItem() instanceof EnergyCell;
 	}
 
-	@Override
-	public boolean hasEffect(ItemStack stack) {
-		return false;
+	public EnergyCellEntity customeArrow(EnergyCellEntity arrow) {
+		return arrow;
 	}
 }
