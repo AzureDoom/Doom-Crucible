@@ -113,6 +113,18 @@
 	"doom.imp_step": {
 		"category": "music", "sounds": [{"name": "doomweapon:imp_step", "stream": true}]
 	},
+	"doom.mancubus_death": {
+		"category": "music", "sounds": [{"name": "doomweapon:mancubus_death", "stream": true}]
+	},
+	"doom.mancubus_hit": {
+		"category": "music", "sounds": [{"name": "doomweapon:mancubus_hit", "stream": true}]
+	},
+	"doom.mancubus_say": {
+		"category": "music", "sounds": [{"name": "doomweapon:mancubus_say", "stream": true}]
+	},
+	"doom.mancubus_walk": {
+		"category": "music", "sounds": [{"name": "doomweapon:mancubus_walk", "stream": true}]
+	},
 	"doom.loading_middle1": {
 		"category": "music", "sounds": [{"name": "doomweapon:loading_middle1", "stream": true}]
 	},

@@ -146,4 +146,13 @@ public class ModSoundEvents {
 	public static final RegistryObject<SoundEvent> CYBERDEMON_STEP = MOD_SOUNDS.register("doom.cyberdemon_walk",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.cyberdemon_walk")));
 
+	public static final RegistryObject<SoundEvent> MANCUBUS_AMBIENT = MOD_SOUNDS.register("doom.mancubus_say",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.mancubus_throw")));
+	public static final RegistryObject<SoundEvent> MANCUBUS_DEATH = MOD_SOUNDS.register("doom.mancubus_death",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.mancubus_death")));
+	public static final RegistryObject<SoundEvent> MANCUBUS_HURT = MOD_SOUNDS.register("doom.mancubus_hit",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.mancubus_hit")));
+	public static final RegistryObject<SoundEvent> MANCUBUS_STEP = MOD_SOUNDS.register("doom.mancubus_walk",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.mancubus_walk")));
+
 }
