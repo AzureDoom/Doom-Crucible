@@ -1,32 +1,31 @@
 package mod.azure.doomweapon.client.models;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableList.Builder;
 
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class LostSoulModel<T extends Entity> extends SegmentedModel<T> {
-	private final ModelRenderer head;
+	private final ImmutableList<ModelRenderer> field_228260_b_;
 
 	public LostSoulModel() {
-		this(0.0F);
+		Builder<ModelRenderer> builder = ImmutableList.builder();
+		ModelRenderer modelrenderer = new ModelRenderer(this, 0, 0);
+		modelrenderer.addBox(-8.0F, -8.0F, -8.0F, 16.0F, 16.0F, 16.0F);
+		modelrenderer.rotationPointY = 17.6F;
+		builder.add(modelrenderer);
+
+		this.field_228260_b_ = builder.build();
 	}
 
-	public LostSoulModel(float p_i46366_1_) {
-		this.head = new ModelRenderer(this, 0, 0);
-		this.head.addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, p_i46366_1_);
-		this.head.setRotationPoint(0.0F, 6.0F, 0.0F);
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
+			float netHeadYaw, float headPitch) {
+
 	}
 
 	public Iterable<ModelRenderer> getParts() {
-		return ImmutableList.of(this.head);
-	}
-
-	@Override
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
-		this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
-		this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
+		return this.field_228260_b_;
 	}
 }

@@ -5,6 +5,7 @@ import mod.azure.doomweapon.item.ammo.ArgentBolt;
 import mod.azure.doomweapon.item.ammo.EnergyCell;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
 import mod.azure.doomweapon.util.registry.DoomItems;
+import mod.azure.doomweapon.util.registry.ModEntitySpawn;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
@@ -33,8 +34,8 @@ public class ModEventSubscriber {
 				ModEntityTypes.BARON.get(), ModEntityTypes.CACODEMON.get(), ModEntityTypes.LOST_SOUL.get(),
 				ModEntityTypes.MANCUBUS.get(), ModEntityTypes.PINKY.get(), ModEntityTypes.SPIDERDEMON.get(),
 				ModEntityTypes.ZOMBIEMAN.get());
-		ModEntityTypes.registerEntityWorldSpawns();
-		ModEntityTypes.EntitySpawnPlacementRegistry();
+		ModEntitySpawn.registerEntityWorldSpawns();
+		ModEntitySpawn.EntitySpawnPlacementRegistry();
 	}
 
 	public static <T extends IForgeRegistryEntry<T>> T setup(final T entry, final String name) {

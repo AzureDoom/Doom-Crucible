@@ -14,14 +14,8 @@ import mod.azure.doomweapon.entity.projectiles.ArgentBoltEntity;
 import mod.azure.doomweapon.entity.projectiles.EnergyCellEntity;
 import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biome.SpawnListEntry;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -48,83 +42,42 @@ public class ModEntityTypes {
 
 	public static final RegistryObject<EntityType<ImpEntity>> IMP = ENTITY_TYPES.register("imp",
 			() -> EntityType.Builder.<ImpEntity>create(ImpEntity::new, EntityClassification.MONSTER).size(0.6f, 1.95F)
-					.build(new ResourceLocation(DoomMod.MODID, "imp").toString()));
+					.immuneToFire().build(new ResourceLocation(DoomMod.MODID, "imp").toString()));
 
 	public static final RegistryObject<EntityType<PinkyEntity>> PINKY = ENTITY_TYPES.register("pinky",
 			() -> EntityType.Builder.<PinkyEntity>create(PinkyEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "pinky").toString()));
+					.size(0.6f, 1.95F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "pinky").toString()));
 
 	public static final RegistryObject<EntityType<LostSoulEntity>> LOST_SOUL = ENTITY_TYPES.register("lost_soul",
 			() -> EntityType.Builder.<LostSoulEntity>create(LostSoulEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "lost_soul").toString()));
+					.size(1.0F, 1.0F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "lost_soul").toString()));
 
 	public static final RegistryObject<EntityType<CacodemonEntity>> CACODEMON = ENTITY_TYPES.register("cacodemon",
 			() -> EntityType.Builder.<CacodemonEntity>create(CacodemonEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "cacodemon").toString()));
+					.size(2.0F, 2.0F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "cacodemon").toString()));
 
 	public static final RegistryObject<EntityType<ArchvileEntity>> ARCHVILE = ENTITY_TYPES.register("archvile",
 			() -> EntityType.Builder.<ArchvileEntity>create(ArchvileEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "archvile").toString()));
+					.size(0.6F, 2.9F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "archvile").toString()));
 
 	public static final RegistryObject<EntityType<BaronEntity>> BARON = ENTITY_TYPES.register("baron",
 			() -> EntityType.Builder.<BaronEntity>create(BaronEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "baron").toString()));
+					.size(1.0f, 3.9F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "baron").toString()));
 
 	public static final RegistryObject<EntityType<MancubusEntity>> MANCUBUS = ENTITY_TYPES.register("mancubus",
 			() -> EntityType.Builder.<MancubusEntity>create(MancubusEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "mancubus").toString()));
+					.size(1.9F, 5.4F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "mancubus").toString()));
 
 	public static final RegistryObject<EntityType<SpiderdemonEntity>> SPIDERDEMON = ENTITY_TYPES.register("spiderdemon",
 			() -> EntityType.Builder.<SpiderdemonEntity>create(SpiderdemonEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "spiderdemon").toString()));
+					.size(3.5F, 2.2F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "spiderdemon").toString()));
 
 	public static final RegistryObject<EntityType<ZombiemanEntity>> ZOMBIEMAN = ENTITY_TYPES.register("zombieman",
 			() -> EntityType.Builder.<ZombiemanEntity>create(ZombiemanEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).build(new ResourceLocation(DoomMod.MODID, "zombieman").toString()));
-
-	public static void registerEntityWorldSpawns() {
-		registerEntityWorldSpawn(IMP.get(), 12, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(PINKY.get(), 12, 2, 4, Biomes.NETHER);
-		registerEntityWorldSpawn(LOST_SOUL.get(), 1, 1, 3, Biomes.NETHER);
-		registerEntityWorldSpawn(CACODEMON.get(), 1, 1, 2, Biomes.NETHER);
-		registerEntityWorldSpawn(ARCHVILE.get(), 9, 1, 2, Biomes.NETHER);
-		registerEntityWorldSpawn(BARON.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(MANCUBUS.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(SPIDERDEMON.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(ZOMBIEMAN.get(), 12, 2, 7, Biomes.NETHER);
-	}
-
-	public static void EntitySpawnPlacementRegistry() {
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.ARCHVILE.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.ZOMBIEMAN.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.SPIDERDEMON.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.MANCUBUS.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.BARON.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.IMP.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.PINKY.get(),
-				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				MonsterEntity::canMonsterSpawnInLight);
-	}
-
-	public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup,
-			Biome... biomes) {
-		for (Biome biome : biomes) {
-			if (biome != null) {
-				biome.getSpawns(entity.getClassification()).add(new SpawnListEntry(entity, weight, minGroup, maxGroup));
-			}
-		}
-	}
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "zombieman").toString()));
 
 }

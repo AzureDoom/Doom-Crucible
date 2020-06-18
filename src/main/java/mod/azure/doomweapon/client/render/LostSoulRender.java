@@ -1,5 +1,7 @@
 package mod.azure.doomweapon.client.render;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
+
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.client.models.LostSoulModel;
 import mod.azure.doomweapon.entity.LostSoulEntity;
@@ -21,4 +23,13 @@ public class LostSoulRender extends MobRenderer<LostSoulEntity, LostSoulModel<Lo
 		return TEXTURE;
 	}
 
+	@SuppressWarnings("unused")
+	@Override
+	protected void preRenderCallback(LostSoulEntity entitylivingbaseIn, MatrixStack matrixStackIn,
+			float partialTickTime) {
+		float f = 1.0F;
+		float f1 = 4.5F;
+		float f2 = 4.5F;
+		matrixStackIn.scale(1.0F, 1.0F, 1.0F);
+	}
 }

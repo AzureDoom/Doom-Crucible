@@ -24,9 +24,13 @@ public class CacodemonRender extends MobRenderer<CacodemonEntity, CacodemonModel
 		return entity.isAttacking() ? GHAST_SHOOTING_TEXTURES : GHAST_TEXTURES;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	protected void preRenderCallback(CacodemonEntity entitylivingbaseIn, MatrixStack matrixStackIn,
 			float partialTickTime) {
+		float f = 1.0F;
+		float f1 = 4.5F;
+		float f2 = 4.5F;
 		matrixStackIn.scale(2.0F, 2.0F, 2.0F);
 	}
 }
