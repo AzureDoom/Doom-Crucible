@@ -2,6 +2,7 @@ package mod.azure.doomweapon.entity;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -30,6 +31,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -48,6 +50,11 @@ public class SpiderdemonEntity extends ZombieEntity {
 	@Override
 	public IPacket<?> createSpawnPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
+	}
+
+	public static boolean spawning(EntityType<SpiderdemonEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason,
+			BlockPos p_223337_3_, Random p_223337_4_) {
+		return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
 	}
 
 	@Override
@@ -162,5 +169,10 @@ public class SpiderdemonEntity extends ZombieEntity {
 	@Override
 	public CreatureAttribute getCreatureAttribute() {
 		return CreatureAttribute.UNDEAD;
+	}
+
+	@Override
+	public int getMaxSpawnedInChunk() {
+		return 2;
 	}
 }

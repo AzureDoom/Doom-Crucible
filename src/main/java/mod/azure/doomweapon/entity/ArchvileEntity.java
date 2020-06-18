@@ -1,6 +1,7 @@
 package mod.azure.doomweapon.entity;
 
 import java.util.EnumSet;
+import java.util.Random;
 
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
@@ -11,6 +12,7 @@ import net.minecraft.entity.EntityPredicate;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -31,6 +33,8 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.Difficulty;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
 
@@ -50,6 +54,11 @@ public class ArchvileEntity extends MonsterEntity {
 	@Override
 	public IPacket<?> createSpawnPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
+	}
+
+	public static boolean spawning(EntityType<ArchvileEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason,
+			BlockPos p_223337_3_, Random p_223337_4_) {
+		return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
 	}
 
 	@Override
@@ -275,6 +284,11 @@ public class ArchvileEntity extends MonsterEntity {
 			this.enderman.getLookController().setLookPosition(this.targetPlayer.getPosX(),
 					this.targetPlayer.getPosYEye(), this.targetPlayer.getPosZ());
 		}
+	}
+
+	@Override
+	public int getMaxSpawnedInChunk() {
+		return 4;
 	}
 
 }

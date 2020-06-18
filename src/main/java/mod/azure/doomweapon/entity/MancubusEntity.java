@@ -2,6 +2,7 @@ package mod.azure.doomweapon.entity;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -29,6 +30,7 @@ import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
@@ -51,6 +53,11 @@ public class MancubusEntity extends ZombieEntity {
 	@Override
 	public IPacket<?> createSpawnPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
+	}
+
+	public static boolean spawning(EntityType<MancubusEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason,
+			BlockPos p_223337_3_, Random p_223337_4_) {
+		return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
 	}
 
 	@Override
@@ -142,21 +149,21 @@ public class MancubusEntity extends ZombieEntity {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return ModSoundEvents.CYBERDEMON_AMBIENT.get();
+		return ModSoundEvents.MANCUBUS_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ModSoundEvents.CYBERDEMON_HURT.get();
+		return ModSoundEvents.MANCUBUS_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return ModSoundEvents.CYBERDEMON_DEATH.get();
+		return ModSoundEvents.MANCUBUS_DEATH.get();
 	}
 
 	protected SoundEvent getStepSound() {
-		return ModSoundEvents.CYBERDEMON_STEP.get();
+		return ModSoundEvents.MANCUBUS_STEP.get();
 	}
 
 	@Override
