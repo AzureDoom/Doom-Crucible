@@ -206,7 +206,7 @@ public class CacodemonEntity extends GhastEntity {
 
 	@Override
 	public int getMaxSpawnedInChunk() {
-		return 10;
+		return 2;
 	}
 
 }
