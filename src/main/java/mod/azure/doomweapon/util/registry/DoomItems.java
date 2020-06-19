@@ -29,11 +29,17 @@ import mod.azure.doomweapon.item.armor.ZombieDoomArmor;
 import mod.azure.doomweapon.item.eggs.ArchvileSpawnEgg;
 import mod.azure.doomweapon.item.eggs.BaronSpawnEgg;
 import mod.azure.doomweapon.item.eggs.CacodemonSpawnEgg;
+import mod.azure.doomweapon.item.eggs.ChaingunnerSpawnEgg;
+import mod.azure.doomweapon.item.eggs.HellknightSpawnEgg;
+import mod.azure.doomweapon.item.eggs.Imp2016SpawnEgg;
 import mod.azure.doomweapon.item.eggs.ImpSpawnEgg;
 import mod.azure.doomweapon.item.eggs.LostSoulSpawnEgg;
 import mod.azure.doomweapon.item.eggs.MancubusSpawnEgg;
+import mod.azure.doomweapon.item.eggs.MarauderSpawnEgg;
+import mod.azure.doomweapon.item.eggs.PainSpawnEgg;
 import mod.azure.doomweapon.item.eggs.PinkySpawnEgg;
 import mod.azure.doomweapon.item.eggs.RevenantSpawnEgg;
+import mod.azure.doomweapon.item.eggs.ShotgunguySpawnEgg;
 import mod.azure.doomweapon.item.eggs.SpiderdemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ZombiemanSpawnEgg;
 import mod.azure.doomweapon.item.powerup.InmortalSphereItem;
@@ -95,7 +101,7 @@ public class DoomItems {
 			() -> new BaronSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> CACODEMON_SPAWN_EGG = ITEMS.register("cacodemon_spawn_egg",
 			() -> new CacodemonSpawnEgg(16500000, 11998228));
-	public static final RegistryObject<Item> CYBERDEMON_SPAWN_EGG = ITEMS.register("mancubus_spawn_egg",
+	public static final RegistryObject<Item> MANCUBUS_SPAWN_EGG = ITEMS.register("mancubus_spawn_egg",
 			() -> new MancubusSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> LOST_SOUL_SPAWN_EGG = ITEMS.register("lost_soul_spawn_egg",
 			() -> new LostSoulSpawnEgg(16500000, 11998228));
@@ -103,8 +109,20 @@ public class DoomItems {
 			() -> new SpiderdemonSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> ZOMBIEMAN_SPAWN_EGG = ITEMS.register("zombieman_spawn_egg",
 			() -> new ZombiemanSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> CHAINGUNNER_SPAWN_EGG = ITEMS.register("chaingunner_spawn_egg",
+			() -> new ChaingunnerSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> HELLKNIGHT_SPAWN_EGG = ITEMS.register("hellknight_spawn_egg",
+			() -> new HellknightSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> IMP2016_SPAWN_EGG = ITEMS.register("imp2016_spawn_egg",
+			() -> new Imp2016SpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> MARAUDER_SPAWN_EGG = ITEMS.register("marauder_spawn_egg",
+			() -> new MarauderSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> PAIN_SPAWN_EGG = ITEMS.register("pain_spawn_egg",
+			() -> new PainSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> REVENANT_SPAWN_EGG = ITEMS.register("revenant_spawn_egg",
 			() -> new RevenantSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> SHOTGUNGUY_SPAWN_EGG = ITEMS.register("shotgunguy_spawn_egg",
+			() -> new ShotgunguySpawnEgg(16500000, 11998228));
 	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());
