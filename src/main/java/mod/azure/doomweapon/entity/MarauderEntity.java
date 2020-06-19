@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.block.BlockState;
@@ -63,6 +64,7 @@ public class MarauderEntity extends ZombieEntity {
 		this.applyEntityAI();
 	}
 
+	@Override
 	protected void applyEntityAI() {
 		this.goalSelector.addGoal(2, new ZombieAttackGoal(this, 1.0D, false));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -126,14 +128,29 @@ public class MarauderEntity extends ZombieEntity {
 	}
 
 	@Override
+	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+		super.setEquipmentBasedOnDifficulty(difficulty);
+		if (this.rand.nextFloat() < (this.world.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
+			int i = this.rand.nextInt(3);
+			if (i == 0) {
+				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.AXE_OPEN.get()));
+			} else {
+				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.ARGENT_AXE.get()));
+			}
+		}
+	}
+
+	@Override
 	public boolean isChild() {
 		return false;
 	}
 
+	@Override
 	protected boolean shouldDrown() {
 		return false;
 	}
 
+	@Override
 	protected boolean shouldBurnInDay() {
 		return false;
 	}

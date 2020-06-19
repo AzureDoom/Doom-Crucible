@@ -2,6 +2,7 @@ package mod.azure.doomweapon.client.models;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 
+import mod.azure.doomweapon.item.weapons.Shotgun;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.IRangedAttackMob;
@@ -41,7 +42,7 @@ public class ZombiemanModel<T extends MobEntity & IRangedAttackMob> extends Bipe
 		this.rightArmPose = BipedModel.ArmPose.EMPTY;
 		this.leftArmPose = BipedModel.ArmPose.EMPTY;
 		ItemStack itemstack = entityIn.getHeldItem(Hand.MAIN_HAND);
-		if (itemstack.getItem() instanceof net.minecraft.item.BowItem && entityIn.isAggressive()) {
+		if (itemstack.getItem() instanceof Shotgun && entityIn.isAggressive()) {
 			if (entityIn.getPrimaryHand() == HandSide.RIGHT) {
 				this.rightArmPose = BipedModel.ArmPose.BOW_AND_ARROW;
 			} else {
@@ -59,8 +60,7 @@ public class ZombiemanModel<T extends MobEntity & IRangedAttackMob> extends Bipe
 			float netHeadYaw, float headPitch) {
 		super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
 		ItemStack itemstack = entityIn.getHeldItemMainhand();
-		if (entityIn.isAggressive()
-				&& (itemstack.isEmpty() || !(itemstack.getItem() instanceof net.minecraft.item.BowItem))) {
+		if (entityIn.isAggressive() && (itemstack.isEmpty() || !(itemstack.getItem() instanceof Shotgun))) {
 			float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
 			float f1 = MathHelper
 					.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);

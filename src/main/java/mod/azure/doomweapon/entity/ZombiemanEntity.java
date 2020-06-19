@@ -74,6 +74,7 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 		this.applyEntityAI();
 	}
 
+	@Override
 	protected void applyEntityAI() {
 		this.goalSelector.addGoal(2, new ZombieAttackGoal(this, 1.0D, false));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
@@ -139,14 +140,29 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 	}
 
 	@Override
+	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+		super.setEquipmentBasedOnDifficulty(difficulty);
+		if (this.rand.nextFloat() < (this.world.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
+			int i = this.rand.nextInt(3);
+			if (i == 0) {
+				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.SG.get()));
+			} else {
+				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.SG.get()));
+			}
+		}
+	}
+
+	@Override
 	public boolean isChild() {
 		return false;
 	}
 
+	@Override
 	protected boolean shouldDrown() {
 		return false;
 	}
 
+	@Override
 	protected boolean shouldBurnInDay() {
 		return false;
 	}
@@ -166,6 +182,7 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 		return ModSoundEvents.ZOMBIEMAN_DEATH.get();
 	}
 
+	@Override
 	protected SoundEvent getStepSound() {
 		return SoundEvents.ENTITY_ZOMBIE_STEP;
 	}
