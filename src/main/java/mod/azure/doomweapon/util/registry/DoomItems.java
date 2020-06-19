@@ -33,6 +33,7 @@ import mod.azure.doomweapon.item.eggs.ImpSpawnEgg;
 import mod.azure.doomweapon.item.eggs.LostSoulSpawnEgg;
 import mod.azure.doomweapon.item.eggs.MancubusSpawnEgg;
 import mod.azure.doomweapon.item.eggs.PinkySpawnEgg;
+import mod.azure.doomweapon.item.eggs.RevenantSpawnEgg;
 import mod.azure.doomweapon.item.eggs.SpiderdemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ZombiemanSpawnEgg;
 import mod.azure.doomweapon.item.powerup.InmortalSphereItem;
@@ -102,6 +103,8 @@ public class DoomItems {
 			() -> new SpiderdemonSpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> ZOMBIEMAN_SPAWN_EGG = ITEMS.register("zombieman_spawn_egg",
 			() -> new ZombiemanSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> REVENANT_SPAWN_EGG = ITEMS.register("revenant_spawn_egg",
+			() -> new RevenantSpawnEgg(16500000, 11998228));
 	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());

@@ -1,73 +1,81 @@
 package mod.azure.doomweapon.client.models;
 
-import java.util.Arrays;
+import com.mojang.blaze3d.matrix.MatrixStack;
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableList.Builder;
-
-import mod.azure.doomweapon.entity.RevenantEntity;
-import net.minecraft.client.renderer.entity.model.SegmentedModel;
+import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.entity.IRangedAttackMob;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 
-public class RevenantModel<T extends RevenantEntity> extends SegmentedModel<T> {
-	private final ModelRenderer[] upperBodyParts;
-	private final ModelRenderer[] heads;
-	private final ImmutableList<ModelRenderer> field_228297_f_;
-
-	public RevenantModel(float p_i46302_1_) {
-		this.textureWidth = 64;
-		this.textureHeight = 64;
-		this.upperBodyParts = new ModelRenderer[3];
-		this.upperBodyParts[0] = new ModelRenderer(this, 0, 16);
-		this.upperBodyParts[0].addBox(-10.0F, 3.9F, -0.5F, 20.0F, 3.0F, 3.0F, p_i46302_1_);
-		this.upperBodyParts[1] = (new ModelRenderer(this)).setTextureSize(this.textureWidth, this.textureHeight);
-		this.upperBodyParts[1].setRotationPoint(-2.0F, 6.9F, -0.5F);
-		this.upperBodyParts[1].setTextureOffset(0, 22).addBox(0.0F, 0.0F, 0.0F, 3.0F, 10.0F, 3.0F, p_i46302_1_);
-		this.upperBodyParts[1].setTextureOffset(24, 22).addBox(-4.0F, 1.5F, 0.5F, 11.0F, 2.0F, 2.0F, p_i46302_1_);
-		this.upperBodyParts[1].setTextureOffset(24, 22).addBox(-4.0F, 4.0F, 0.5F, 11.0F, 2.0F, 2.0F, p_i46302_1_);
-		this.upperBodyParts[1].setTextureOffset(24, 22).addBox(-4.0F, 6.5F, 0.5F, 11.0F, 2.0F, 2.0F, p_i46302_1_);
-		this.upperBodyParts[2] = new ModelRenderer(this, 12, 22);
-		this.upperBodyParts[2].addBox(0.0F, 0.0F, 0.0F, 3.0F, 6.0F, 3.0F, p_i46302_1_);
-		this.heads = new ModelRenderer[3];
-		this.heads[0] = new ModelRenderer(this, 0, 0);
-		this.heads[0].addBox(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, p_i46302_1_);
-		this.heads[1] = new ModelRenderer(this, 32, 0);
-		this.heads[1].addBox(-4.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, p_i46302_1_);
-		this.heads[1].rotationPointX = -8.0F;
-		this.heads[1].rotationPointY = 4.0F;
-		this.heads[2] = new ModelRenderer(this, 32, 0);
-		this.heads[2].addBox(-4.0F, -4.0F, -4.0F, 6.0F, 6.0F, 6.0F, p_i46302_1_);
-		this.heads[2].rotationPointX = 10.0F;
-		this.heads[2].rotationPointY = 4.0F;
-		Builder<ModelRenderer> builder = ImmutableList.builder();
-		builder.addAll(Arrays.asList(this.heads));
-		builder.addAll(Arrays.asList(this.upperBodyParts));
-		this.field_228297_f_ = builder.build();
+public class RevenantModel<T extends MobEntity & IRangedAttackMob> extends BipedModel<T> {
+	public RevenantModel() {
+		this(0.0F, false);
 	}
 
-	public ImmutableList<ModelRenderer> getParts() {
-		return this.field_228297_f_;
-	}
+	public RevenantModel(float modelSize, boolean p_i46303_2_) {
+		super(modelSize);
+		if (!p_i46303_2_) {
+			this.bipedRightArm = new ModelRenderer(this, 40, 16);
+			this.bipedRightArm.addBox(-1.0F, -2.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
+			this.bipedRightArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
+			this.bipedLeftArm = new ModelRenderer(this, 40, 16);
+			this.bipedLeftArm.mirror = true;
+			this.bipedLeftArm.addBox(-1.0F, -2.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
+			this.bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
+			this.bipedRightLeg = new ModelRenderer(this, 0, 16);
+			this.bipedRightLeg.addBox(-1.0F, 0.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
+			this.bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
+			this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
+			this.bipedLeftLeg.mirror = true;
+			this.bipedLeftLeg.addBox(-1.0F, 0.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
+			this.bipedLeftLeg.setRotationPoint(2.0F, 12.0F, 0.0F);
+		}
 
-	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
-			float netHeadYaw, float headPitch) {
-		float f = MathHelper.cos(ageInTicks * 0.1F);
-		this.upperBodyParts[1].rotateAngleX = (0.065F + 0.05F * f) * (float) Math.PI;
-		this.upperBodyParts[2].setRotationPoint(-2.0F,
-				6.9F + MathHelper.cos(this.upperBodyParts[1].rotateAngleX) * 10.0F,
-				-0.5F + MathHelper.sin(this.upperBodyParts[1].rotateAngleX) * 10.0F);
-		this.upperBodyParts[2].rotateAngleX = (0.265F + 0.1F * f) * (float) Math.PI;
-		this.heads[0].rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
-		this.heads[0].rotateAngleX = headPitch * ((float) Math.PI / 180F);
 	}
 
 	public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
-		for (int i = 1; i < 3; ++i) {
-			this.heads[i].rotateAngleY = (entityIn.getHeadYRotation(i - 1) - entityIn.renderYawOffset)
-					* ((float) Math.PI / 180F);
-			this.heads[i].rotateAngleX = entityIn.getHeadXRotation(i - 1) * ((float) Math.PI / 180F);
+		this.rightArmPose = BipedModel.ArmPose.EMPTY;
+		this.leftArmPose = BipedModel.ArmPose.EMPTY;
+
+		super.setLivingAnimations(entityIn, limbSwing, limbSwingAmount, partialTick);
+	}
+
+	/**
+	 * Sets this entity's model rotation angles
+	 */
+	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
+			float netHeadYaw, float headPitch) {
+		super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
+		ItemStack itemstack = entityIn.getHeldItemMainhand();
+		if (entityIn.isAggressive()
+				&& (itemstack.isEmpty() || !(itemstack.getItem() instanceof net.minecraft.item.BowItem))) {
+			float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
+			float f1 = MathHelper
+					.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
+			this.bipedRightArm.rotateAngleZ = 0.0F;
+			this.bipedLeftArm.rotateAngleZ = 0.0F;
+			this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
+			this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
+			this.bipedRightArm.rotateAngleX = (-(float) Math.PI / 2F);
+			this.bipedLeftArm.rotateAngleX = (-(float) Math.PI / 2F);
+			this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
+			this.bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
+			this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
+			this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+			this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
 		}
 
+	}
+
+	public void translateHand(HandSide sideIn, MatrixStack matrixStackIn) {
+		float f = sideIn == HandSide.RIGHT ? 1.0F : -1.0F;
+		ModelRenderer modelrenderer = this.getArmForSide(sideIn);
+		modelrenderer.rotationPointX += f;
+		modelrenderer.translateRotate(matrixStackIn);
+		modelrenderer.rotationPointX -= f;
 	}
 }

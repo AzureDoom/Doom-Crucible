@@ -89,7 +89,7 @@ public class ModEntityTypes {
 
 	public static final RegistryObject<EntityType<RevenantEntity>> REVENANT = ENTITY_TYPES.register("revenant",
 			() -> EntityType.Builder.<RevenantEntity>create(RevenantEntity::new, EntityClassification.MONSTER)
-					.size(0.9F, 3.5F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
+					.size(0.6f, 1.95F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
 
 	public static final RegistryObject<EntityType<Imp2016Entity>> IMP2016 = ENTITY_TYPES.register("imp2016",
 			() -> EntityType.Builder.<Imp2016Entity>create(Imp2016Entity::new, EntityClassification.MONSTER)
