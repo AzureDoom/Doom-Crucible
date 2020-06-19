@@ -4,7 +4,7 @@ import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
-import mod.azure.doomweapon.entity.CyberDemonEntity;
+import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ImpEntity;
 import mod.azure.doomweapon.entity.LostSoulEntity;
 import mod.azure.doomweapon.entity.MancubusEntity;
@@ -81,9 +81,9 @@ public class ModEntityTypes {
 					.size(0.6f, 1.95F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "zombieman").toString()));
 
-	public static final RegistryObject<EntityType<CyberDemonEntity>> CYBERDEMON = ENTITY_TYPES.register("cyberdemon",
-			() -> EntityType.Builder.<CyberDemonEntity>create(CyberDemonEntity::new, EntityClassification.MONSTER)
+	public static final RegistryObject<EntityType<RevenantEntity>> REVENANT = ENTITY_TYPES.register("revenant",
+			() -> EntityType.Builder.<RevenantEntity>create(RevenantEntity::new, EntityClassification.MONSTER)
 					.size(0.9F, 3.5F).immuneToFire()
-					.build(new ResourceLocation(DoomMod.MODID, "cyberdemon").toString()));
+					.build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
 
 }

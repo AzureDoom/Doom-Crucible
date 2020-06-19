@@ -155,4 +155,11 @@ public class ModSoundEvents {
 	public static final RegistryObject<SoundEvent> MANCUBUS_STEP = MOD_SOUNDS.register("doom.mancubus_walk",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.mancubus_walk")));
 
+	public static final RegistryObject<SoundEvent> REVENANT_AMBIENT = MOD_SOUNDS.register("doom.revenants_say",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.revenants_say")));
+	public static final RegistryObject<SoundEvent> REVENANT_DEATH = MOD_SOUNDS.register("doom.revenant_death",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.revenant_death")));
+	public static final RegistryObject<SoundEvent> REVENANT_HURT = MOD_SOUNDS.register("doom.revenant_hit",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.revenant_hit")));
+
 }

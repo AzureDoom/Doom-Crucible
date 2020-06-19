@@ -5,17 +5,17 @@ import java.util.Arrays;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 
-import mod.azure.doomweapon.entity.CyberDemonEntity;
+import mod.azure.doomweapon.entity.RevenantEntity;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class CyberDemonModel<T extends CyberDemonEntity> extends SegmentedModel<T> {
+public class RevenantModel<T extends RevenantEntity> extends SegmentedModel<T> {
 	private final ModelRenderer[] upperBodyParts;
 	private final ModelRenderer[] heads;
 	private final ImmutableList<ModelRenderer> field_228297_f_;
 
-	public CyberDemonModel(float p_i46302_1_) {
+	public RevenantModel(float p_i46302_1_) {
 		this.textureWidth = 64;
 		this.textureHeight = 64;
 		this.upperBodyParts = new ModelRenderer[3];

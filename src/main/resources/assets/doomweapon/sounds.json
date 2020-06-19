@@ -35,6 +35,15 @@
 	"doom.baron_say": {
 		"category": "music", "sounds": [{"name": "doomweapon:baron_say", "stream": true}]
 	},
+	"doom.revenant_death": {
+		"category": "music", "sounds": [{"name": "doomweapon:revenant_death", "stream": true}]
+	},
+	"doom.revenant_hurt": {
+		"category": "music", "sounds": [{"name": "doomweapon:revenant_hurt", "stream": true}]
+	},
+	"doom.revenant_say": {
+		"category": "music", "sounds": [{"name": "doomweapon:revenant_say", "stream": true}]
+	},
 	"doom.cacodemon_affectionate_scream": {
 		"category": "music", "sounds": [{"name": "doomweapon:cacodemon_affectionate_scream", "stream": true}]
 	},

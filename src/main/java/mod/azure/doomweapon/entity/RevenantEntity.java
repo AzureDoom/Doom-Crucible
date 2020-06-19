@@ -56,17 +56,17 @@ import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class CyberDemonEntity extends MonsterEntity implements IChargeableMob, IRangedAttackMob {
-	private static final DataParameter<Integer> FIRST_HEAD_TARGET = EntityDataManager.createKey(CyberDemonEntity.class,
+public class RevenantEntity extends MonsterEntity implements IChargeableMob, IRangedAttackMob {
+	private static final DataParameter<Integer> FIRST_HEAD_TARGET = EntityDataManager.createKey(RevenantEntity.class,
 			DataSerializers.VARINT);
-	private static final DataParameter<Integer> SECOND_HEAD_TARGET = EntityDataManager.createKey(CyberDemonEntity.class,
+	private static final DataParameter<Integer> SECOND_HEAD_TARGET = EntityDataManager.createKey(RevenantEntity.class,
 			DataSerializers.VARINT);
-	private static final DataParameter<Integer> THIRD_HEAD_TARGET = EntityDataManager.createKey(CyberDemonEntity.class,
+	private static final DataParameter<Integer> THIRD_HEAD_TARGET = EntityDataManager.createKey(RevenantEntity.class,
 			DataSerializers.VARINT);
 	private static final List<DataParameter<Integer>> HEAD_TARGETS = ImmutableList.of(FIRST_HEAD_TARGET,
 			SECOND_HEAD_TARGET, THIRD_HEAD_TARGET);
-	private static final DataParameter<Integer> INVULNERABILITY_TIME = EntityDataManager
-			.createKey(CyberDemonEntity.class, DataSerializers.VARINT);
+	private static final DataParameter<Integer> INVULNERABILITY_TIME = EntityDataManager.createKey(RevenantEntity.class,
+			DataSerializers.VARINT);
 	private final float[] xRotationHeads = new float[2];
 	private final float[] yRotationHeads = new float[2];
 	private final float[] xRotOHeads = new float[2];
@@ -80,20 +80,20 @@ public class CyberDemonEntity extends MonsterEntity implements IChargeableMob, I
 	private static final EntityPredicate field_213798_bB = (new EntityPredicate()).setDistance(20.0D)
 			.setCustomPredicate(NOT_UNDEAD);
 
-	public CyberDemonEntity(EntityType<? extends CyberDemonEntity> p_i50226_1_, World p_i50226_2_) {
+	public RevenantEntity(EntityType<? extends RevenantEntity> p_i50226_1_, World p_i50226_2_) {
 		super(p_i50226_1_, p_i50226_2_);
 		this.setHealth(this.getMaxHealth());
 		this.getNavigator().setCanSwim(true);
 		this.experienceValue = 50;
 	}
 
-	public static boolean spawning(EntityType<CyberDemonEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason,
+	public static boolean spawning(EntityType<RevenantEntity> p_223337_0_, IWorld p_223337_1_, SpawnReason reason,
 			BlockPos p_223337_3_, Random p_223337_4_) {
 		return p_223337_1_.getDifficulty() != Difficulty.PEACEFUL;
 	}
 
 	protected void registerGoals() {
-		this.goalSelector.addGoal(0, new CyberDemonEntity.DoNothingGoal());
+		this.goalSelector.addGoal(0, new RevenantEntity.DoNothingGoal());
 		this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 40, 20.0F));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
@@ -130,15 +130,15 @@ public class CyberDemonEntity extends MonsterEntity implements IChargeableMob, I
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return ModSoundEvents.CYBERDEMON_AMBIENT.get();
+		return ModSoundEvents.REVENANT_AMBIENT.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ModSoundEvents.CYBERDEMON_HURT.get();
+		return ModSoundEvents.REVENANT_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return ModSoundEvents.CYBERDEMON_DEATH.get();
+		return ModSoundEvents.REVENANT_DEATH.get();
 	}
 
 	/**
@@ -448,7 +448,7 @@ public class CyberDemonEntity extends MonsterEntity implements IChargeableMob, I
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (this.isInvulnerableTo(source)) {
 			return false;
-		} else if (source != DamageSource.DROWN && !(source.getTrueSource() instanceof CyberDemonEntity)) {
+		} else if (source != DamageSource.DROWN && !(source.getTrueSource() instanceof RevenantEntity)) {
 			if (this.getInvulTime() > 0 && source != DamageSource.OUT_OF_WORLD) {
 				return false;
 			} else {
@@ -565,7 +565,7 @@ public class CyberDemonEntity extends MonsterEntity implements IChargeableMob, I
 		}
 
 		public boolean shouldExecute() {
-			return CyberDemonEntity.this.getInvulTime() > 0;
+			return RevenantEntity.this.getInvulTime() > 0;
 		}
 	}
 }

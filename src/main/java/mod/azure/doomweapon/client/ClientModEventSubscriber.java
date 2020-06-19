@@ -4,7 +4,7 @@ import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.client.render.ArchvileRender;
 import mod.azure.doomweapon.client.render.BaronRender;
 import mod.azure.doomweapon.client.render.CacodemonRender;
-import mod.azure.doomweapon.client.render.CyberDemonRender;
+import mod.azure.doomweapon.client.render.RevenantRender;
 import mod.azure.doomweapon.client.render.ImpRender;
 import mod.azure.doomweapon.client.render.LostSoulRender;
 import mod.azure.doomweapon.client.render.MancubusRender;
@@ -38,7 +38,7 @@ public class ClientModEventSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.MANCUBUS.get(), MancubusRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SPIDERDEMON.get(), SpiderdemonRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ZOMBIEMAN.get(), ZombiemanRender::new);
-		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CYBERDEMON.get(), CyberDemonRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.REVENANT.get(), RevenantRender::new);
 	}
 
 }

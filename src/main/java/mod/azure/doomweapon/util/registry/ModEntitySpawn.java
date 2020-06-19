@@ -3,7 +3,7 @@ package mod.azure.doomweapon.util.registry;
 import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
-import mod.azure.doomweapon.entity.CyberDemonEntity;
+import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ImpEntity;
 import mod.azure.doomweapon.entity.LostSoulEntity;
 import mod.azure.doomweapon.entity.MancubusEntity;
@@ -27,7 +27,7 @@ public class ModEntitySpawn {
 		registerEntityWorldSpawn(ModEntityTypes.ARCHVILE.get(), 2, 1, 2, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.BARON.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.MANCUBUS.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON.get(), 2, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.REVENANT.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.SPIDERDEMON.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.ZOMBIEMAN.get(), 2, 2, 7, Biomes.NETHER);
 	}
@@ -48,9 +48,9 @@ public class ModEntitySpawn {
 		EntitySpawnPlacementRegistry.register(ModEntityTypes.BARON.get(),
 				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				BaronEntity::spawning);
-		EntitySpawnPlacementRegistry.register(ModEntityTypes.CYBERDEMON.get(),
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.REVENANT.get(),
 				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
-				CyberDemonEntity::spawning);
+				RevenantEntity::spawning);
 		EntitySpawnPlacementRegistry.register(ModEntityTypes.IMP.get(),
 				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				ImpEntity::spawning);
