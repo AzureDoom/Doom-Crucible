@@ -11,9 +11,9 @@ import net.minecraft.util.ResourceLocation;
 
 public class RevenantRender extends MobRenderer<RevenantEntity, RevenantModel<RevenantEntity>> {
 	private static final ResourceLocation INVULNERABLE_WITHER_TEXTURES = new ResourceLocation(DoomMod.MODID,
-			"textures/entity/cyberdemon_invulnerable.png");
+			"textures/entity/revenant_invulnerable.png");
 	private static final ResourceLocation WITHER_TEXTURES = new ResourceLocation(DoomMod.MODID,
-			"textures/entity/cyberdemon.png");
+			"textures/entity/revenant.png");
 
 	public RevenantRender(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new RevenantModel<>(0.0F), 1.0F);

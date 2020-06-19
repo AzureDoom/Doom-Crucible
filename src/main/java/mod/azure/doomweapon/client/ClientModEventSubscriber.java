@@ -4,11 +4,17 @@ import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.client.render.ArchvileRender;
 import mod.azure.doomweapon.client.render.BaronRender;
 import mod.azure.doomweapon.client.render.CacodemonRender;
-import mod.azure.doomweapon.client.render.RevenantRender;
+import mod.azure.doomweapon.client.render.ChaingunnerRender;
+import mod.azure.doomweapon.client.render.HellknightRender;
+import mod.azure.doomweapon.client.render.Imp2016Render;
 import mod.azure.doomweapon.client.render.ImpRender;
 import mod.azure.doomweapon.client.render.LostSoulRender;
 import mod.azure.doomweapon.client.render.MancubusRender;
+import mod.azure.doomweapon.client.render.MarauderRender;
+import mod.azure.doomweapon.client.render.PainRender;
 import mod.azure.doomweapon.client.render.PinkyRender;
+import mod.azure.doomweapon.client.render.RevenantRender;
+import mod.azure.doomweapon.client.render.ShotgunguyRender;
 import mod.azure.doomweapon.client.render.SpiderdemonRender;
 import mod.azure.doomweapon.client.render.ZombiemanRender;
 import mod.azure.doomweapon.client.render.projectiles.ArgentBoltRender;
@@ -39,6 +45,12 @@ public class ClientModEventSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SPIDERDEMON.get(), SpiderdemonRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ZOMBIEMAN.get(), ZombiemanRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.REVENANT.get(), RevenantRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.IMP2016.get(), Imp2016Render::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CHAINGUNNER.get(), ChaingunnerRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SHOTGUNGUY.get(), ShotgunguyRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.MARAUDER.get(), MarauderRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PAIN.get(), PainRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.HELLKNIGHT.get(), HellknightRender::new);
 	}
 
 }

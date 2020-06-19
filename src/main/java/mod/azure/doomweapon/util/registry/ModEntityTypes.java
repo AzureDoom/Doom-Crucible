@@ -4,11 +4,17 @@ import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
-import mod.azure.doomweapon.entity.RevenantEntity;
+import mod.azure.doomweapon.entity.ChaingunnerEntity;
+import mod.azure.doomweapon.entity.HellknightEntity;
+import mod.azure.doomweapon.entity.Imp2016Entity;
 import mod.azure.doomweapon.entity.ImpEntity;
 import mod.azure.doomweapon.entity.LostSoulEntity;
 import mod.azure.doomweapon.entity.MancubusEntity;
+import mod.azure.doomweapon.entity.MarauderEntity;
+import mod.azure.doomweapon.entity.PainEntity;
 import mod.azure.doomweapon.entity.PinkyEntity;
+import mod.azure.doomweapon.entity.RevenantEntity;
+import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
 import mod.azure.doomweapon.entity.ZombiemanEntity;
 import mod.azure.doomweapon.entity.projectiles.ArgentBoltEntity;
@@ -83,7 +89,34 @@ public class ModEntityTypes {
 
 	public static final RegistryObject<EntityType<RevenantEntity>> REVENANT = ENTITY_TYPES.register("revenant",
 			() -> EntityType.Builder.<RevenantEntity>create(RevenantEntity::new, EntityClassification.MONSTER)
-					.size(0.9F, 3.5F).immuneToFire()
-					.build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
+					.size(0.9F, 3.5F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
+
+	public static final RegistryObject<EntityType<Imp2016Entity>> IMP2016 = ENTITY_TYPES.register("imp2016",
+			() -> EntityType.Builder.<Imp2016Entity>create(Imp2016Entity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "imp2016").toString()));
+
+	public static final RegistryObject<EntityType<ChaingunnerEntity>> CHAINGUNNER = ENTITY_TYPES.register("chaingunner",
+			() -> EntityType.Builder.<ChaingunnerEntity>create(ChaingunnerEntity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "chaingunner").toString()));
+
+	public static final RegistryObject<EntityType<MarauderEntity>> MARAUDER = ENTITY_TYPES.register("marauder",
+			() -> EntityType.Builder.<MarauderEntity>create(MarauderEntity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "marauder").toString()));
+
+	public static final RegistryObject<EntityType<ShotgunguyEntity>> SHOTGUNGUY = ENTITY_TYPES.register("shotgunguy",
+			() -> EntityType.Builder.<ShotgunguyEntity>create(ShotgunguyEntity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "shotgunguy").toString()));
+
+	public static final RegistryObject<EntityType<PainEntity>> PAIN = ENTITY_TYPES.register("painelemental",
+			() -> EntityType.Builder.<PainEntity>create(PainEntity::new, EntityClassification.MONSTER).size(2.0F, 2.0F)
+					.immuneToFire().build(new ResourceLocation(DoomMod.MODID, "painelemental").toString()));
+
+	public static final RegistryObject<EntityType<HellknightEntity>> HELLKNIGHT = ENTITY_TYPES.register("hellknight",
+			() -> EntityType.Builder.<HellknightEntity>create(HellknightEntity::new, EntityClassification.MONSTER)
+					.size(1.4F, 2.7F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "hellknight").toString()));
 
 }
