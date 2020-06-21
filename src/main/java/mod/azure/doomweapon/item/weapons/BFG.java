@@ -38,7 +38,6 @@ public class BFG extends BowItem {
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.PUNCH, 2);
 		stack.addEnchantment(Enchantments.POWER, 3);
-		stack.addEnchantment(Enchantments.MULTISHOT, 1);
 		if (group == DoomMod.DoomItemGroup) {
 			items.add(stack);
 		}
@@ -49,7 +48,6 @@ public class BFG extends BowItem {
 		stack.hasTag();
 		stack.addEnchantment(Enchantments.PUNCH, 2);
 		stack.addEnchantment(Enchantments.POWER, 3);
-		stack.addEnchantment(Enchantments.MULTISHOT, 1);
 	}
 
 	@Override
@@ -59,7 +57,7 @@ public class BFG extends BowItem {
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
-		if (entityLiving instanceof PlayerEntity && hasAmmo(entityLiving, stack)) {
+		if (entityLiving instanceof PlayerEntity) {
 			PlayerEntity playerentity = (PlayerEntity) entityLiving;
 			boolean flag = playerentity.abilities.isCreativeMode
 					|| EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
@@ -77,7 +75,7 @@ public class BFG extends BowItem {
 				}
 
 				float f = getArrowVelocity(i);
-				if (!((double) f < 0.1D)) {
+				if (!((double) f < 0.1D) && hasAmmo(entityLiving, stack)) {
 					boolean flag1 = playerentity.abilities.isCreativeMode || (itemstack.getItem() instanceof EnergyCell
 							&& ((EnergyCell) itemstack.getItem()).isInfinite(itemstack, stack, playerentity));
 					if (!worldIn.isRemote) {
