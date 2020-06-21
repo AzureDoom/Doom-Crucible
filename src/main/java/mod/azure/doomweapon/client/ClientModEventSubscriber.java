@@ -5,6 +5,7 @@ import mod.azure.doomweapon.client.render.ArchvileRender;
 import mod.azure.doomweapon.client.render.BaronRender;
 import mod.azure.doomweapon.client.render.CacodemonRender;
 import mod.azure.doomweapon.client.render.ChaingunnerRender;
+import mod.azure.doomweapon.client.render.CyberdemonRender;
 import mod.azure.doomweapon.client.render.HellknightRender;
 import mod.azure.doomweapon.client.render.Imp2016Render;
 import mod.azure.doomweapon.client.render.ImpRender;
@@ -18,6 +19,8 @@ import mod.azure.doomweapon.client.render.ShotgunguyRender;
 import mod.azure.doomweapon.client.render.SpiderdemonRender;
 import mod.azure.doomweapon.client.render.ZombiemanRender;
 import mod.azure.doomweapon.client.render.projectiles.ArgentBoltRender;
+import mod.azure.doomweapon.client.render.projectiles.BulletsRender;
+import mod.azure.doomweapon.client.render.projectiles.ChaingunBulletRender;
 import mod.azure.doomweapon.client.render.projectiles.EnergyCellRender;
 import mod.azure.doomweapon.client.render.projectiles.ShotgunShellRender;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
@@ -35,6 +38,8 @@ public class ClientModEventSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SHOTGUN_SHELL.get(), ShotgunShellRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ARGENT_BOLT.get(), ArgentBoltRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ENERGY_CELL.get(), EnergyCellRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.BULLETS.get(), BulletsRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CHAINGUN_BULLET.get(), ChaingunBulletRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.IMP.get(), ImpRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PINKY.get(), PinkyRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.LOST_SOUL.get(), LostSoulRender::new);
@@ -51,6 +56,7 @@ public class ClientModEventSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.MARAUDER.get(), MarauderRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PAIN.get(), PainRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.HELLKNIGHT.get(), HellknightRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CYBERDEMON.get(), CyberdemonRender::new);
 	}
 
 }
