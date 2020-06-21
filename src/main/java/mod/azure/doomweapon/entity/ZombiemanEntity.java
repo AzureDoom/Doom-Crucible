@@ -87,18 +87,15 @@ public class ZombiemanEntity extends MonsterEntity implements IRangedAttackMob {
 
 	@Override
 	protected void registerGoals() {
-		this.goalSelector.addGoal(8, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-		this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
-		this.applyEntityAI();
-	}
-
-	@Override
-	protected void applyEntityAI() {
-		this.goalSelector.addGoal(2, new ZombieAttackGoal(this, 1.0D, false));
+		this.goalSelector.addGoal(6, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+		this.goalSelector.addGoal(6, new LookRandomlyGoal(this));
+		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillagerEntity.class, false));
-		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PinkyEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, ImpEntity.class, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Imp2016Entity.class, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, ShotgunguyEntity.class, true));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, ChaingunnerEntity.class, true));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, IronGolemEntity.class, true));
 	}
 
