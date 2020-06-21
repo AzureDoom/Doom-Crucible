@@ -208,6 +208,13 @@ public class ShotgunguyEntity extends MonsterEntity implements IRangedAttackMob 
 		return false;
 	}
 
+	@Override
+	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropSpecialItems(source, looting, recentlyHitIn);
+		ItemEntity itementity = this.entityDropItem(DoomItems.SHOTGUN_SHELLS.get());
+		if (itementity != null) {
+			itementity.setNoDespawn();
+		}
 	}
 
 	@Override

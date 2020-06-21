@@ -205,8 +205,12 @@ public class ZombiemanEntity extends MonsterEntity implements IRangedAttackMob {
 	}
 
 	@Override
-	protected boolean shouldBurnInDay() {
-		return false;
+	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropSpecialItems(source, looting, recentlyHitIn);
+		ItemEntity itementity = this.entityDropItem(DoomItems.BULLETS.get());
+		if (itementity != null) {
+			itementity.setNoDespawn();
+		}
 	}
 
 	@Override

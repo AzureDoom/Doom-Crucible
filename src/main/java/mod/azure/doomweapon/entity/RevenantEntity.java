@@ -24,6 +24,7 @@ import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.AbstractIllagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
@@ -149,6 +150,14 @@ public class RevenantEntity extends ZombieEntity implements IRangedAttackMob {
 
 	protected boolean shouldBurnInDay() {
 		return false;
+	}
+
+	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropSpecialItems(source, looting, recentlyHitIn);
+		ItemEntity itementity = this.entityDropItem(DoomItems.ARGENT_ENERGY.get());
+		if (itementity != null) {
+			itementity.setNoDespawn();
+		}
 	}
 
 	@Override

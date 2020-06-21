@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.block.BlockState;
@@ -19,6 +20,7 @@ import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -138,6 +140,14 @@ public class PinkyEntity extends ZombieEntity {
 	@Override
 	protected boolean shouldBurnInDay() {
 		return false;
+	}
+
+	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropSpecialItems(source, looting, recentlyHitIn);
+		ItemEntity itementity = this.entityDropItem(DoomItems.ARGENT_ENERGY.get());
+		if (itementity != null) {
+			itementity.setNoDespawn();
+		}
 	}
 
 	@Override

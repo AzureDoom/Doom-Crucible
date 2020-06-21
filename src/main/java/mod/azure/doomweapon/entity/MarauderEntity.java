@@ -124,6 +124,14 @@ public class MarauderEntity extends ZombieEntity {
 		return false;
 	}
 
+	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
+		super.dropSpecialItems(source, looting, recentlyHitIn);
+		ItemEntity itementity = this.entityDropItem(DoomItems.AXE_CLOSED.get());
+		if (itementity != null) {
+			itementity.setNoDespawn();
+		}
+	}
+
 	@Override
 	protected SoundEvent getAmbientSound() {
 		return ModSoundEvents.BARON_AMBIENT.get();
