@@ -5,6 +5,7 @@ import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
 import mod.azure.doomweapon.entity.ChaingunnerEntity;
+import mod.azure.doomweapon.entity.CyberdemonEntity;
 import mod.azure.doomweapon.entity.HellknightEntity;
 import mod.azure.doomweapon.entity.Imp2016Entity;
 import mod.azure.doomweapon.entity.ImpEntity;
@@ -101,7 +102,8 @@ public class ModEntityTypes {
 
 	public static final RegistryObject<EntityType<RevenantEntity>> REVENANT = ENTITY_TYPES.register("revenant",
 			() -> EntityType.Builder.<RevenantEntity>create(RevenantEntity::new, EntityClassification.MONSTER)
-					.size(0.6f, 1.95F).immuneToFire().build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "revenant").toString()));
 
 	public static final RegistryObject<EntityType<Imp2016Entity>> IMP2016 = ENTITY_TYPES.register("imp2016",
 			() -> EntityType.Builder.<Imp2016Entity>create(Imp2016Entity::new, EntityClassification.MONSTER)
@@ -130,5 +132,10 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.<HellknightEntity>create(HellknightEntity::new, EntityClassification.MONSTER)
 					.size(1.4F, 2.7F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "hellknight").toString()));
+
+	public static final RegistryObject<EntityType<CyberdemonEntity>> CYBERDEMON = ENTITY_TYPES.register("cyberdemon",
+			() -> EntityType.Builder.<CyberdemonEntity>create(CyberdemonEntity::new, EntityClassification.MONSTER)
+					.size(1.6f, 4.75F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "cyberdemon").toString()));
 
 }

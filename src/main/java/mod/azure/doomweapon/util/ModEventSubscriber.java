@@ -36,7 +36,7 @@ public class ModEventSubscriber {
 	public static void registerEntities(final RegistryEvent.Register<EntityType<?>> event) {
 		event.getRegistry().registerAll(ModEntityTypes.IMP.get(), ModEntityTypes.ARCHVILE.get(),
 				ModEntityTypes.BARON.get(), ModEntityTypes.CACODEMON.get(), ModEntityTypes.LOST_SOUL.get(),
-				ModEntityTypes.MANCUBUS.get(), ModEntityTypes.PINKY.get(), // ModEntityTypes.CYBERDEMON.get(),
+				ModEntityTypes.MANCUBUS.get(), ModEntityTypes.PINKY.get(), ModEntityTypes.CYBERDEMON.get(),
 				ModEntityTypes.IMP2016.get(), ModEntityTypes.CHAINGUNNER.get(), ModEntityTypes.SHOTGUNGUY.get(),
 				ModEntityTypes.MARAUDER.get(), ModEntityTypes.REVENANT.get(), ModEntityTypes.SPIDERDEMON.get(),
 				ModEntityTypes.HELLKNIGHT.get(), ModEntityTypes.ZOMBIEMAN.get());

@@ -4,6 +4,7 @@ import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
 import mod.azure.doomweapon.entity.ChaingunnerEntity;
+import mod.azure.doomweapon.entity.CyberdemonEntity;
 import mod.azure.doomweapon.entity.HellknightEntity;
 import mod.azure.doomweapon.entity.Imp2016Entity;
 import mod.azure.doomweapon.entity.ImpEntity;
@@ -42,6 +43,7 @@ public class ModEntitySpawn {
 		registerEntityWorldSpawn(ModEntityTypes.MARAUDER.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.PAIN.get(), 1, 1, 2, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.HELLKNIGHT.get(), 2, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON.get(), 2, 1, 1, Biomes.NETHER);
 	}
 
 	public static void EntitySpawnPlacementRegistry() {
@@ -93,6 +95,9 @@ public class ModEntitySpawn {
 		EntitySpawnPlacementRegistry.register(ModEntityTypes.HELLKNIGHT.get(),
 				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				HellknightEntity::spawning);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.CYBERDEMON.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				CyberdemonEntity::spawning);
 	}
 
 	public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup,
