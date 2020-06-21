@@ -5,6 +5,7 @@ import mod.azure.doomweapon.client.models.ShotgunguyModel;
 import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.HeldItemLayer;
 import net.minecraft.util.ResourceLocation;
 
 public class ShotgunguyRender extends MobRenderer<ShotgunguyEntity, ShotgunguyModel<ShotgunguyEntity>> {
@@ -14,6 +15,7 @@ public class ShotgunguyRender extends MobRenderer<ShotgunguyEntity, ShotgunguyMo
 
 	public ShotgunguyRender(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new ShotgunguyModel<ShotgunguyEntity>(0.5f, false), 0.5f);
+		this.addLayer(new HeldItemLayer<>(this));
 	}
 
 	@Override

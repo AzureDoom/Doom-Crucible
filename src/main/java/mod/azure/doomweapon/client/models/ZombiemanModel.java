@@ -5,14 +5,13 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import mod.azure.doomweapon.item.weapons.Shotgun;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import net.minecraft.util.HandSide;
 import net.minecraft.util.math.MathHelper;
 
-public class ZombiemanModel<T extends MobEntity & IRangedAttackMob> extends BipedModel<T> {
+public class ZombiemanModel<T extends MobEntity> extends BipedModel<T> {
 	public ZombiemanModel() {
 		this(0.0F, false);
 	}

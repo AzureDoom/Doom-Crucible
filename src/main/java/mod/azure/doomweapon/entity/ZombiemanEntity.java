@@ -6,27 +6,32 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
-import mod.azure.doomweapon.item.weapons.Shotgun;
+import mod.azure.doomweapon.entity.ai.goal.RangedBulletAttackGoal;
+import mod.azure.doomweapon.entity.projectiles.BulletEntity;
+import mod.azure.doomweapon.item.ammo.ClipAmmo;
+import mod.azure.doomweapon.item.weapons.PistolItem;
 import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.goal.HurtByTargetGoal;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
-import net.minecraft.entity.monster.AbstractIllagerEntity;
-import net.minecraft.entity.monster.ZombieEntity;
+import net.minecraft.entity.monster.MonsterEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileHelper;
@@ -43,14 +48,27 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
-public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
+public class ZombiemanEntity extends MonsterEntity implements IRangedAttackMob {
+
+	private final RangedBulletAttackGoal<ZombiemanEntity> aiArrowAttack = new RangedBulletAttackGoal<>(this, 1.0D, 20,
+			15.0F);
+	private final MeleeAttackGoal aiAttackOnCollide = new MeleeAttackGoal(this, 1.2D, false) {
+		public void resetTask() {
+			super.resetTask();
+			ZombiemanEntity.this.setAggroed(false);
+		}
+
+		public void startExecuting() {
+			super.startExecuting();
+			ZombiemanEntity.this.setAggroed(true);
+		}
+	};
 
 	public ZombiemanEntity(EntityType<ZombiemanEntity> entityType, World worldIn) {
 		super(entityType, worldIn);
+		this.setCombatTask();
 	}
 
 	public ZombiemanEntity(World worldIn) {
@@ -93,29 +111,89 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 		this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
 
+	@Override
+	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+		super.setEquipmentBasedOnDifficulty(difficulty);
+		this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.PISTOL.get()));
+	}
+
+	public void setCombatTask() {
+		if (this.world != null && !this.world.isRemote) {
+			this.goalSelector.removeGoal(this.aiAttackOnCollide);
+			this.goalSelector.removeGoal(this.aiArrowAttack);
+			ItemStack itemstack = this.getHeldItem(ProjectileHelper.getHandWith(this, DoomItems.PISTOL.get()));
+			if (itemstack.getItem() instanceof PistolItem) {
+				int i = 20;
+				if (this.world.getDifficulty() != Difficulty.HARD) {
+					i = 40;
+				}
+
+				this.aiArrowAttack.setAttackCooldown(i);
+				this.goalSelector.addGoal(4, this.aiArrowAttack);
+			} else {
+				this.goalSelector.addGoal(4, this.aiAttackOnCollide);
+			}
+
+		}
+	}
+
+	@Override
+	public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
+		ItemStack itemstack = this.findAmmo(this.getHeldItem(ProjectileHelper.getHandWith(this, DoomItems.SG.get())));
+		BulletEntity abstractarrowentity = this.fireArrowa(itemstack, distanceFactor);
+		if (this.getHeldItemMainhand().getItem() instanceof PistolItem)
+			abstractarrowentity = ((PistolItem) this.getHeldItemMainhand().getItem()).customeArrow(abstractarrowentity);
+		double d0 = target.getPosX() - this.getPosX();
+		double d1 = target.getPosYHeight(0.3333333333333333D) - abstractarrowentity.getPosY();
+		double d2 = target.getPosZ() - this.getPosZ();
+		double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
+		abstractarrowentity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F,
+				(float) (14 - this.world.getDifficulty().getId() * 4));
+		this.playSound(ModSoundEvents.PISTOL_HIT.get(), 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.world.addEntity(abstractarrowentity);
+	}
+
+	protected BulletEntity fireArrowa(ItemStack arrowStack, float distanceFactor) {
+		return ZombiemanEntity.fireArrow(this, arrowStack, distanceFactor);
+	}
+
+	public static BulletEntity fireArrow(LivingEntity shooter, ItemStack arrowStack, float distanceFactor) {
+		ClipAmmo arrowitem = (ClipAmmo) (arrowStack.getItem() instanceof ClipAmmo ? arrowStack.getItem()
+				: DoomItems.BULLETS.get());
+		BulletEntity abstractarrowentity = arrowitem.createArrow(shooter.world, arrowStack, shooter);
+		abstractarrowentity.setEnchantmentEffectsFromEntity(shooter, distanceFactor);
+
+		return abstractarrowentity;
+	}
+
+	@Override
+	public void readAdditional(CompoundNBT compound) {
+		super.readAdditional(compound);
+		this.setCombatTask();
+	}
+
+	@Override
+	public void setItemStackToSlot(EquipmentSlotType slotIn, ItemStack stack) {
+		super.setItemStackToSlot(slotIn, stack);
+		if (!this.world.isRemote) {
+			this.setCombatTask();
+		}
+	}
+
+	@Override
+	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+		return 1.74F;
+	}
+
 	@Nullable
 	@Override
 	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason,
 			@Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
 		spawnDataIn = super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-		float f = difficultyIn.getClampedAdditionalDifficulty();
-		this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-		if (spawnDataIn == null) {
-			spawnDataIn = new ZombiemanEntity.GroupData(worldIn.getRandom()
-					.nextFloat() < net.minecraftforge.common.ForgeConfig.SERVER.zombieBabyChance.get());
-		}
-
-		if (spawnDataIn instanceof ZombieEntity.GroupData) {
-			ZombieEntity.GroupData zombieentity$groupdata = (ZombieEntity.GroupData) spawnDataIn;
-			if (zombieentity$groupdata.isChild) {
-				this.setChild(true);
-			}
-
-			this.setBreakDoorsAItask(this.canBreakDoors() && this.rand.nextFloat() < f * 0.1F);
-			this.setEquipmentBasedOnDifficulty(difficultyIn);
-			this.setEnchantmentBasedOnDifficulty(difficultyIn);
-		}
-
+		this.setEquipmentBasedOnDifficulty(difficultyIn);
+		this.setEnchantmentBasedOnDifficulty(difficultyIn);
+		this.setCombatTask();
+		this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * difficultyIn.getClampedAdditionalDifficulty());
 		if (this.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
 			LocalDate localdate = LocalDate.now();
 			int i = localdate.get(ChronoField.DAY_OF_MONTH);
@@ -126,40 +204,7 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 				this.inventoryArmorDropChances[EquipmentSlotType.HEAD.getIndex()] = 0.0F;
 			}
 		}
-
-		this.applyAttributeBonuses(f);
 		return spawnDataIn;
-	}
-
-	public class GroupData implements ILivingEntityData {
-		public final boolean isChild;
-
-		private GroupData(boolean isChildIn) {
-			this.isChild = isChildIn;
-		}
-	}
-
-	@Override
-	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-		super.setEquipmentBasedOnDifficulty(difficulty);
-		if (this.rand.nextFloat() < (this.world.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
-			int i = this.rand.nextInt(3);
-			if (i == 0) {
-				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.SG.get()));
-			} else {
-				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.SG.get()));
-			}
-		}
-	}
-
-	@Override
-	public boolean isChild() {
-		return false;
-	}
-
-	@Override
-	protected boolean shouldDrown() {
-		return false;
 	}
 
 	@Override
@@ -182,7 +227,6 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 		return ModSoundEvents.ZOMBIEMAN_DEATH.get();
 	}
 
-	@Override
 	protected SoundEvent getStepSound() {
 		return SoundEvents.ENTITY_ZOMBIE_STEP;
 	}
@@ -195,31 +239,6 @@ public class ZombiemanEntity extends ZombieEntity implements IRangedAttackMob {
 	@Override
 	public CreatureAttribute getCreatureAttribute() {
 		return CreatureAttribute.UNDEAD;
-	}
-
-	@OnlyIn(Dist.CLIENT)
-	public AbstractIllagerEntity.ArmPose getArmPose() {
-		return AbstractIllagerEntity.ArmPose.CROSSED;
-	}
-
-	@Override
-	public void attackEntityWithRangedAttack(LivingEntity target, float distanceFactor) {
-		ItemStack itemstack = this.findAmmo(this.getHeldItem(ProjectileHelper.getHandWith(this, DoomItems.SG.get())));
-		ShotgunShellEntity abstractarrowentity = this.fireArrow(itemstack, distanceFactor);
-		if (this.getHeldItemMainhand().getItem() instanceof Shotgun)
-			abstractarrowentity = ((Shotgun) this.getHeldItemMainhand().getItem()).customeArrow(abstractarrowentity);
-		double d0 = target.getPosX() - this.getPosX();
-		double d1 = target.getPosYHeight(0.3333333333333333D) - abstractarrowentity.getPosY();
-		double d2 = target.getPosZ() - this.getPosZ();
-		double d3 = (double) MathHelper.sqrt(d0 * d0 + d2 * d2);
-		abstractarrowentity.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F,
-				(float) (14 - this.world.getDifficulty().getId() * 4));
-		this.playSound(ModSoundEvents.SHOOT1.get(), 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
-		this.world.addEntity(abstractarrowentity);
-	}
-
-	protected ShotgunShellEntity fireArrow(ItemStack arrowStack, float distanceFactor) {
-		return (ShotgunShellEntity) ProjectileHelper.fireArrow(this, arrowStack, distanceFactor);
 	}
 
 	@Override

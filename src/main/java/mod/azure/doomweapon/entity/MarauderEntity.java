@@ -20,6 +20,7 @@ import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
 import net.minecraft.entity.ai.goal.ZombieAttackGoal;
+import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.merchant.villager.AbstractVillagerEntity;
 import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.passive.IronGolemEntity;
@@ -80,30 +81,21 @@ public class MarauderEntity extends ZombieEntity {
 		this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(3.0D);
 		this.getAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(2.0D);
 	}
+	
+	@Override
+	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
+		super.setEquipmentBasedOnDifficulty(difficulty);
+		this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.AXE_OPEN.get()));
+	}
 
 	@Nullable
 	@Override
 	public ILivingEntityData onInitialSpawn(IWorld worldIn, DifficultyInstance difficultyIn, SpawnReason reason,
 			@Nullable ILivingEntityData spawnDataIn, @Nullable CompoundNBT dataTag) {
 		spawnDataIn = super.onInitialSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
-		float f = difficultyIn.getClampedAdditionalDifficulty();
-		this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * f);
-		if (spawnDataIn == null) {
-			spawnDataIn = new MarauderEntity.GroupData(worldIn.getRandom()
-					.nextFloat() < net.minecraftforge.common.ForgeConfig.SERVER.zombieBabyChance.get());
-		}
-
-		if (spawnDataIn instanceof ZombieEntity.GroupData) {
-			ZombieEntity.GroupData zombieentity$groupdata = (ZombieEntity.GroupData) spawnDataIn;
-			if (zombieentity$groupdata.isChild) {
-				this.setChild(true);
-			}
-
-			this.setBreakDoorsAItask(this.canBreakDoors() && this.rand.nextFloat() < f * 0.1F);
-			this.setEquipmentBasedOnDifficulty(difficultyIn);
-			this.setEnchantmentBasedOnDifficulty(difficultyIn);
-		}
-
+		this.setEquipmentBasedOnDifficulty(difficultyIn);
+		this.setEnchantmentBasedOnDifficulty(difficultyIn);
+		this.setCanPickUpLoot(this.rand.nextFloat() < 0.55F * difficultyIn.getClampedAdditionalDifficulty());
 		if (this.getItemStackFromSlot(EquipmentSlotType.HEAD).isEmpty()) {
 			LocalDate localdate = LocalDate.now();
 			int i = localdate.get(ChronoField.DAY_OF_MONTH);
@@ -114,30 +106,7 @@ public class MarauderEntity extends ZombieEntity {
 				this.inventoryArmorDropChances[EquipmentSlotType.HEAD.getIndex()] = 0.0F;
 			}
 		}
-
-		this.applyAttributeBonuses(f);
 		return spawnDataIn;
-	}
-
-	public class GroupData implements ILivingEntityData {
-		public final boolean isChild;
-
-		private GroupData(boolean isChildIn) {
-			this.isChild = isChildIn;
-		}
-	}
-
-	@Override
-	protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty) {
-		super.setEquipmentBasedOnDifficulty(difficulty);
-		if (this.rand.nextFloat() < (this.world.getDifficulty() == Difficulty.HARD ? 0.05F : 0.01F)) {
-			int i = this.rand.nextInt(3);
-			if (i == 0) {
-				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.AXE_OPEN.get()));
-			} else {
-				this.setItemStackToSlot(EquipmentSlotType.MAINHAND, new ItemStack(DoomItems.ARGENT_AXE.get()));
-			}
-		}
 	}
 
 	@Override
