@@ -25,6 +25,10 @@ public class EnergyCellEntity extends AbstractArrowEntity {
 		this.referenceItem = referenceItemIn;
 	}
 
+	protected void func_225516_i_() {
+		this.remove();
+	}
+
 	@Override
 	public ItemStack getArrowStack() {
 		return new ItemStack(this.referenceItem);
