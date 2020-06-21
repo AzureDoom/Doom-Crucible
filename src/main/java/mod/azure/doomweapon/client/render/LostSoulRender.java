@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 public class LostSoulRender extends MobRenderer<LostSoulEntity, LostSoulModel<LostSoulEntity>> {
 
 	protected static final ResourceLocation TEXTURE = new ResourceLocation(DoomMod.MODID,
-			"textures/entity/lost_soul.png");
+			"textures/entity/lost_soul_backup.png");
 
 	public LostSoulRender(EntityRendererManager renderManagerIn) {
 		super(renderManagerIn, new LostSoulModel<LostSoulEntity>(), 0.5f);
@@ -30,6 +30,6 @@ public class LostSoulRender extends MobRenderer<LostSoulEntity, LostSoulModel<Lo
 		float f = 1.0F;
 		float f1 = 4.5F;
 		float f2 = 4.5F;
-		matrixStackIn.scale(1.0F, 1.0F, 1.0F);
+		matrixStackIn.scale(1.5F, 1.5F, 1.5F);
 	}
 }
