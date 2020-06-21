@@ -3,6 +3,7 @@ package mod.azure.doomweapon.entity;
 import java.util.EnumSet;
 import java.util.Random;
 
+import mod.azure.doomweapon.entity.ai.goal.LostSoulAttackGoal;
 import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
@@ -46,13 +47,11 @@ public class LostSoulEntity extends GhastEntity {
 
 	@Override
 	protected void registerGoals() {
+		this.goalSelector.addGoal(2, new LostSoulAttackGoal(this, 1.0D, false));
 		this.goalSelector.addGoal(5, new LostSoulEntity.RandomFlyGoal(this));
 		this.goalSelector.addGoal(7, new LostSoulEntity.LookAroundGoal(this));
 		this.goalSelector.addGoal(7, new LostSoulEntity.FireballAttackGoal(this));
-		this.targetSelector.addGoal(1,
-				new NearestAttackableTargetGoal<>(this, PlayerEntity.class, 10, true, false, (p_213812_1_) -> {
-					return Math.abs(p_213812_1_.getPosY() - this.getPosY()) <= 4.0D;
-				}));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
 	}
 
 	public static boolean spawning(EntityType<LostSoulEntity> p_223368_0_, IWorld p_223368_1_, SpawnReason reason,
