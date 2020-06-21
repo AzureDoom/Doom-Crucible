@@ -149,21 +149,21 @@ public class HellknightEntity extends ZombieEntity {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return ModSoundEvents.MANCUBUS_AMBIENT.get();
+		return ModSoundEvents.HELLKNIGHT_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ModSoundEvents.MANCUBUS_HURT.get();
+		return ModSoundEvents.HELLKNIGHT_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return ModSoundEvents.MANCUBUS_DEATH.get();
+		return ModSoundEvents.HELLKNIGHT_DEATH.get();
 	}
 
 	protected SoundEvent getStepSound() {
-		return ModSoundEvents.MANCUBUS_STEP.get();
+		return SoundEvents.ENTITY_ZOMBIE_STEP;
 	}
 
 	@Override

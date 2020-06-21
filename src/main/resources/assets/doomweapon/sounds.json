@@ -5,6 +5,24 @@
 	"doom.e1m1": {
 		"category": "music", "sounds": [{"name": "doomweapon:e1m1", "stream": true}]
 	},
+	"doom.hellknight_death": {
+		"category": "music", "sounds": [{"name": "doomweapon:hellknight_death", "stream": true}]
+	},
+	"doom.hellknight_hurt": {
+		"category": "music", "sounds": [{"name": "doomweapon:hellknight_hurt", "stream": true}]
+	},
+	"doom.hellknight_say": {
+		"category": "music", "sounds": [{"name": "doomweapon:hellknight_say", "stream": true}]
+	},
+	"doom.pain_death": {
+		"category": "music", "sounds": [{"name": "doomweapon:pain_death", "stream": true}]
+	},
+	"doom.pain_hurt": {
+		"category": "music", "sounds": [{"name": "doomweapon:pain_hurt", "stream": true}]
+	},
+	"doom.pain_say": {
+		"category": "music", "sounds": [{"name": "doomweapon:pain_say", "stream": true}]
+	},
 	"doom.arch_vile_death": {
 		"category": "music", "sounds": [{"name": "doomweapon:arch_vile_death", "stream": true}]
 	},

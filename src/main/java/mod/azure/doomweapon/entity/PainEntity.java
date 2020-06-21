@@ -190,17 +190,17 @@ public class PainEntity extends GhastEntity {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return ModSoundEvents.CACODEMON_AMBIENT.get();
+		return ModSoundEvents.PAIN_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ModSoundEvents.CACODEMON_HURT.get();
+		return ModSoundEvents.PAIN_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return ModSoundEvents.CACODEMON_DEATH.get();
+		return ModSoundEvents.PAIN_DEATH.get();
 	}
 
 	@Override

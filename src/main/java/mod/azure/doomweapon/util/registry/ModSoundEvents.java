@@ -162,4 +162,18 @@ public class ModSoundEvents {
 	public static final RegistryObject<SoundEvent> REVENANT_HURT = MOD_SOUNDS.register("doom.revenant_hit",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.revenant_hit")));
 
+	public static final RegistryObject<SoundEvent> HELLKNIGHT_AMBIENT = MOD_SOUNDS.register("doom.hellknight_say",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.hellknight_say")));
+	public static final RegistryObject<SoundEvent> HELLKNIGHT_DEATH = MOD_SOUNDS.register("doom.hellknight_death",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.hellknight_death")));
+	public static final RegistryObject<SoundEvent> HELLKNIGHT_HURT = MOD_SOUNDS.register("doom.hellknight_hurt",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.hellknight_hurt")));
+
+	public static final RegistryObject<SoundEvent> PAIN_AMBIENT = MOD_SOUNDS.register("doom.pain_say",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.pain_say")));
+	public static final RegistryObject<SoundEvent> PAIN_DEATH = MOD_SOUNDS.register("doom.pain_death",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.pain_death")));
+	public static final RegistryObject<SoundEvent> PAIN_HURT = MOD_SOUNDS.register("doom.pain_hurt",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.pain_hurt")));
+
 }
