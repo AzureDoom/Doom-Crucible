@@ -25,6 +25,15 @@ public class ModSoundEvents {
 	public static final RegistryObject<SoundEvent> SHOOT3 = MOD_SOUNDS.register("doom.shoot3",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.shoot3")));
 
+	public static final RegistryObject<SoundEvent> CHAINGUN_SHOOT = MOD_SOUNDS.register("doom.chaingun_fire",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.chaingun_fire")));
+
+	public static final RegistryObject<SoundEvent> PISTOL_HIT = MOD_SOUNDS.register("doom.pistol_fire",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.pistol_fire")));
+
+	public static final RegistryObject<SoundEvent> SHOTGUN_SHOOT = MOD_SOUNDS.register("doom.shotgun_fire",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.shotgun_fire")));
+
 	public static final RegistryObject<SoundEvent> LOADING_START = MOD_SOUNDS.register("doom.loading_start",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.loading_start")));
 	public static final RegistryObject<SoundEvent> LOADING_MIDDLE1 = MOD_SOUNDS.register("doom.loading_middle1",

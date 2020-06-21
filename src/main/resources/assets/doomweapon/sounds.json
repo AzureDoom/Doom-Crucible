@@ -5,6 +5,15 @@
 	"doom.e1m1": {
 		"category": "music", "sounds": [{"name": "doomweapon:e1m1", "stream": true}]
 	},
+	"doom.chaingun_fire": {
+		"category": "music", "sounds": [{"name": "doomweapon:chaingun_fire", "stream": true}]
+	},
+	"doom.shotgun_fire": {
+		"category": "music", "sounds": [{"name": "doomweapon:shotgun_fire", "stream": true}]
+	},
+	"doom.pistol_fire": {
+		"category": "music", "sounds": [{"name": "doomweapon:pistol_fire", "stream": true}]
+	},
 	"doom.hellknight_death": {
 		"category": "music", "sounds": [{"name": "doomweapon:hellknight_death", "stream": true}]
 	},

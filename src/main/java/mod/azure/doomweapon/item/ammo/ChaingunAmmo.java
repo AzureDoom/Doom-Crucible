@@ -2,7 +2,7 @@ package mod.azure.doomweapon.item.ammo;
 
 import java.util.List;
 
-import mod.azure.doomweapon.entity.projectiles.BulletEntity;
+import mod.azure.doomweapon.entity.projectiles.ChaingunBulletEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ArrowItem;
@@ -15,12 +15,12 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.RegistryObject;
 
-public class ClipAmmo extends ArrowItem {
+public class ChaingunAmmo extends ArrowItem {
 
 	public final float damage;
 	private RegistryObject<Item> ref;
 
-	public ClipAmmo(Properties properties, float damageIn) {
+	public ChaingunAmmo(Properties properties, float damageIn) {
 		super(properties);
 		this.damage = damageIn;
 	}
@@ -28,7 +28,7 @@ public class ClipAmmo extends ArrowItem {
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-		tooltip.add(new StringTextComponent("\u00A7o" + "Used for the Pistol."));
+		tooltip.add(new StringTextComponent("\u00A7o" + "Used for the Chaingun."));
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 
@@ -36,17 +36,17 @@ public class ClipAmmo extends ArrowItem {
 	public boolean isInfinite(ItemStack stack, ItemStack bow, net.minecraft.entity.player.PlayerEntity player) {
 		int enchant = net.minecraft.enchantment.EnchantmentHelper
 				.getEnchantmentLevel(net.minecraft.enchantment.Enchantments.INFINITY, bow);
-		return enchant <= 0 ? false : this instanceof ClipAmmo;
+		return enchant <= 0 ? false : this instanceof ChaingunAmmo;
 	}
 
-	public ClipAmmo setItemReference(RegistryObject<Item> refIn) {
+	public ChaingunAmmo setItemReference(RegistryObject<Item> refIn) {
 		this.ref = refIn;
 		return this;
 	}
 
 	@Override
-	public BulletEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
-		BulletEntity arrowentity = new BulletEntity(shooter, worldIn, ref.get());
+	public ChaingunBulletEntity createArrow(World worldIn, ItemStack stack, LivingEntity shooter) {
+		ChaingunBulletEntity arrowentity = new ChaingunBulletEntity(shooter, worldIn, ref.get());
 		arrowentity.setDamage(this.damage);
 		return arrowentity;
 	}

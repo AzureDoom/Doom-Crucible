@@ -18,6 +18,8 @@ import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
 import mod.azure.doomweapon.entity.ZombiemanEntity;
 import mod.azure.doomweapon.entity.projectiles.ArgentBoltEntity;
+import mod.azure.doomweapon.entity.projectiles.BulletEntity;
+import mod.azure.doomweapon.entity.projectiles.ChaingunBulletEntity;
 import mod.azure.doomweapon.entity.projectiles.EnergyCellEntity;
 import mod.azure.doomweapon.entity.projectiles.ShotgunShellEntity;
 import net.minecraft.entity.EntityClassification;
@@ -46,6 +48,16 @@ public class ModEntityTypes {
 	public static final RegistryObject<EntityType<EnergyCellEntity>> ENERGY_CELL = ENTITY_TYPES.register("energy_cell",
 			() -> EntityType.Builder.<EnergyCellEntity>create(EnergyCellEntity::new, EntityClassification.MISC)
 					.size(0.5F, 0.5F).build(new ResourceLocation(DoomMod.MODID, "energy_cell").toString()));
+
+	public static final RegistryObject<EntityType<BulletEntity>> BULLETS = ENTITY_TYPES.register("bullets",
+			() -> EntityType.Builder.<BulletEntity>create(BulletEntity::new, EntityClassification.MISC).size(0.5F, 0.5F)
+					.build(new ResourceLocation(DoomMod.MODID, "bullets").toString()));
+
+	public static final RegistryObject<EntityType<ChaingunBulletEntity>> CHAINGUN_BULLET = ENTITY_TYPES
+			.register("chaingunbullets",
+					() -> EntityType.Builder
+							.<ChaingunBulletEntity>create(ChaingunBulletEntity::new, EntityClassification.MISC)
+							.size(0.5F, 0.5F).build(new ResourceLocation(DoomMod.MODID, "chaingunbullets").toString()));
 
 	public static final RegistryObject<EntityType<ImpEntity>> IMP = ENTITY_TYPES.register("imp",
 			() -> EntityType.Builder.<ImpEntity>create(ImpEntity::new, EntityClassification.MONSTER).size(0.6f, 1.95F)

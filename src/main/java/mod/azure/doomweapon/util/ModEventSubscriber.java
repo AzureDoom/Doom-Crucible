@@ -2,6 +2,8 @@ package mod.azure.doomweapon.util;
 
 import mod.azure.doomweapon.DoomMod;
 import mod.azure.doomweapon.item.ammo.ArgentBolt;
+import mod.azure.doomweapon.item.ammo.ChaingunAmmo;
+import mod.azure.doomweapon.item.ammo.ClipAmmo;
 import mod.azure.doomweapon.item.ammo.EnergyCell;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
 import mod.azure.doomweapon.util.registry.DoomItems;
@@ -26,6 +28,8 @@ public class ModEventSubscriber {
 		((ArgentBolt) (DoomItems.ARGENT_BOLT.get())).setItemReference(DoomItems.ARGENT_BOLT);
 		((ShellAmmo) (DoomItems.SHOTGUN_SHELLS.get())).setItemReference(DoomItems.SHOTGUN_SHELLS);
 		((EnergyCell) (DoomItems.ENERGY_CELLS.get())).setItemReference(DoomItems.ENERGY_CELLS);
+		((ChaingunAmmo) (DoomItems.CHAINGUN_BULLETS.get())).setItemReference(DoomItems.CHAINGUN_BULLETS);
+		((ClipAmmo) (DoomItems.BULLETS.get())).setItemReference(DoomItems.BULLETS);
 	}
 
 	@SubscribeEvent

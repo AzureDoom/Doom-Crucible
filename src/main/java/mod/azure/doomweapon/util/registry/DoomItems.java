@@ -5,6 +5,8 @@ import mod.azure.doomweapon.item.ArgentEnergyItem;
 import mod.azure.doomweapon.item.E1M1MusicDisc;
 import mod.azure.doomweapon.item.UnopenedItem;
 import mod.azure.doomweapon.item.ammo.ArgentBolt;
+import mod.azure.doomweapon.item.ammo.ChaingunAmmo;
+import mod.azure.doomweapon.item.ammo.ClipAmmo;
 import mod.azure.doomweapon.item.ammo.EnergyCell;
 import mod.azure.doomweapon.item.ammo.ShellAmmo;
 import mod.azure.doomweapon.item.armor.AstroDoomArmor;
@@ -55,6 +57,8 @@ import mod.azure.doomweapon.item.weapons.ArgentSword;
 import mod.azure.doomweapon.item.weapons.AxeMarauderItem;
 import mod.azure.doomweapon.item.weapons.BFG;
 import mod.azure.doomweapon.item.weapons.Ballista;
+import mod.azure.doomweapon.item.weapons.Chaingun;
+import mod.azure.doomweapon.item.weapons.PistolItem;
 import mod.azure.doomweapon.item.weapons.Shotgun;
 import mod.azure.doomweapon.item.weapons.SuperShotgun;
 import mod.azure.doomweapon.item.weapons.SwordCrucibleItem;
@@ -79,6 +83,10 @@ public class DoomItems {
 			() -> new ArgentBolt(new Item.Properties().group(DoomMod.DoomItemGroup), 2.7F));
 	public static final RegistryObject<Item> ENERGY_CELLS = ITEMS.register("energy_cells",
 			() -> new EnergyCell(new Item.Properties().group(DoomMod.DoomItemGroup), 10.0F));
+	public static final RegistryObject<Item> CHAINGUN_BULLETS = ITEMS.register("chaingunbullets",
+			() -> new ChaingunAmmo(new Item.Properties().group(DoomMod.DoomItemGroup), 10.0F));
+	public static final RegistryObject<Item> BULLETS = ITEMS.register("bullets",
+			() -> new ClipAmmo(new Item.Properties().group(DoomMod.DoomItemGroup), 1.2F));
 	// MISC
 	public static final RegistryObject<Item> ARGENT_ENERGY = ITEMS.register("argent_energy",
 			() -> new ArgentEnergyItem());
@@ -143,6 +151,8 @@ public class DoomItems {
 	public static final RegistryObject<Item> SG = ITEMS.register("shotgun", () -> new Shotgun());
 	public static final RegistryObject<Item> BFG = ITEMS.register("bfg9000", () -> new BFG());
 	public static final RegistryObject<Item> BALLISTA = ITEMS.register("ballista", () -> new Ballista());
+	public static final RegistryObject<Item> CHAINGUN = ITEMS.register("chaingun", () -> new Chaingun());
+	public static final RegistryObject<Item> PISTOL = ITEMS.register("pistol", () -> new PistolItem());
 	// ARMOR
 	public static final RegistryObject<Item> DOOM_HELMET = ITEMS.register("doom_helmet",
 			() -> new DoomArmor(DoomArmorMaterial.DOOM_ARMOR, EquipmentSlotType.HEAD));
