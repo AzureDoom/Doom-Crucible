@@ -27,21 +27,21 @@ import net.minecraft.world.gen.Heightmap;
 public class ModEntitySpawn {
 
 	public static void registerEntityWorldSpawns() {
-		registerEntityWorldSpawn(ModEntityTypes.IMP.get(), 2, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.PINKY.get(), 2, 2, 4, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.LOST_SOUL.get(), 1, 1, 3, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.CACODEMON.get(), 1, 1, 2, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.ARCHVILE.get(), 2, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.IMP.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.PINKY.get(), 12, 2, 4, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.LOST_SOUL.get(), 8, 1, 3, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.CACODEMON.get(), 8, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.ARCHVILE.get(), 4, 1, 2, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.BARON.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.MANCUBUS.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.REVENANT.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.SPIDERDEMON.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.ZOMBIEMAN.get(), 2, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.IMP2016.get(), 2, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.CHAINGUNNER.get(), 2, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.SHOTGUNGUY.get(), 2, 2, 7, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.MARAUDER.get(), 2, 1, 1, Biomes.NETHER);
-		registerEntityWorldSpawn(ModEntityTypes.PAIN.get(), 1, 1, 2, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.ZOMBIEMAN.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.IMP2016.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.CHAINGUNNER.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.SHOTGUNGUY.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.MARAUDER.get(), 1, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.PAIN.get(), 8, 1, 2, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.HELLKNIGHT.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON.get(), 2, 1, 1, Biomes.NETHER);
 	}
