@@ -5,8 +5,10 @@ import mod.azure.doomweapon.client.render.ArchvileRender;
 import mod.azure.doomweapon.client.render.BaronRender;
 import mod.azure.doomweapon.client.render.CacodemonRender;
 import mod.azure.doomweapon.client.render.ChaingunnerRender;
+import mod.azure.doomweapon.client.render.Cyberdemon2016Render;
 import mod.azure.doomweapon.client.render.CyberdemonRender;
 import mod.azure.doomweapon.client.render.HellknightRender;
+import mod.azure.doomweapon.client.render.IconofsinRender;
 import mod.azure.doomweapon.client.render.Imp2016Render;
 import mod.azure.doomweapon.client.render.ImpRender;
 import mod.azure.doomweapon.client.render.LostSoulRender;
@@ -17,6 +19,7 @@ import mod.azure.doomweapon.client.render.PinkyRender;
 import mod.azure.doomweapon.client.render.RevenantRender;
 import mod.azure.doomweapon.client.render.ShotgunguyRender;
 import mod.azure.doomweapon.client.render.SpiderdemonRender;
+import mod.azure.doomweapon.client.render.UnwillingRender;
 import mod.azure.doomweapon.client.render.ZombiemanRender;
 import mod.azure.doomweapon.client.render.projectiles.ArgentBoltRender;
 import mod.azure.doomweapon.client.render.projectiles.BulletsRender;
@@ -57,6 +60,9 @@ public class ClientModEventSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.PAIN.get(), PainRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.HELLKNIGHT.get(), HellknightRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CYBERDEMON.get(), CyberdemonRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.UNWILLING.get(), UnwillingRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CYBERDEMON2016.get(), Cyberdemon2016Render::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ICONOFSIN.get(), IconofsinRender::new);
 	}
 
 }

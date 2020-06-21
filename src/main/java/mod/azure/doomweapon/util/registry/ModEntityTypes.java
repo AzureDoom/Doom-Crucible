@@ -5,8 +5,10 @@ import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
 import mod.azure.doomweapon.entity.ChaingunnerEntity;
+import mod.azure.doomweapon.entity.Cyberdemon2016Entity;
 import mod.azure.doomweapon.entity.CyberdemonEntity;
 import mod.azure.doomweapon.entity.HellknightEntity;
+import mod.azure.doomweapon.entity.IconofsinEntity;
 import mod.azure.doomweapon.entity.Imp2016Entity;
 import mod.azure.doomweapon.entity.ImpEntity;
 import mod.azure.doomweapon.entity.LostSoulEntity;
@@ -17,6 +19,7 @@ import mod.azure.doomweapon.entity.PinkyEntity;
 import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
+import mod.azure.doomweapon.entity.UnwillingEntity;
 import mod.azure.doomweapon.entity.ZombiemanEntity;
 import mod.azure.doomweapon.entity.projectiles.ArgentBoltEntity;
 import mod.azure.doomweapon.entity.projectiles.BulletEntity;
@@ -137,5 +140,20 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.<CyberdemonEntity>create(CyberdemonEntity::new, EntityClassification.MONSTER)
 					.size(1.6f, 4.75F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "cyberdemon").toString()));
+	
+	public static final RegistryObject<EntityType<Cyberdemon2016Entity>> CYBERDEMON2016 = ENTITY_TYPES.register("cyberdemon2016",
+			() -> EntityType.Builder.<Cyberdemon2016Entity>create(Cyberdemon2016Entity::new, EntityClassification.MONSTER)
+					.size(1.6f, 4.75F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "cyberdemon2016").toString()));
+	
+	public static final RegistryObject<EntityType<UnwillingEntity>> UNWILLING = ENTITY_TYPES.register("unwilling",
+			() -> EntityType.Builder.<UnwillingEntity>create(UnwillingEntity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "unwilling").toString()));
+	
+	public static final RegistryObject<EntityType<IconofsinEntity>> ICONOFSIN = ENTITY_TYPES.register("iconofsin",
+			() -> EntityType.Builder.<IconofsinEntity>create(IconofsinEntity::new, EntityClassification.MONSTER)
+					.size(2.4f, 10.0F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "iconofsin").toString()));
 
 }

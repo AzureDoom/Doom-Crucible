@@ -4,6 +4,7 @@ import mod.azure.doomweapon.entity.ArchvileEntity;
 import mod.azure.doomweapon.entity.BaronEntity;
 import mod.azure.doomweapon.entity.CacodemonEntity;
 import mod.azure.doomweapon.entity.ChaingunnerEntity;
+import mod.azure.doomweapon.entity.Cyberdemon2016Entity;
 import mod.azure.doomweapon.entity.CyberdemonEntity;
 import mod.azure.doomweapon.entity.HellknightEntity;
 import mod.azure.doomweapon.entity.Imp2016Entity;
@@ -16,6 +17,7 @@ import mod.azure.doomweapon.entity.PinkyEntity;
 import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
+import mod.azure.doomweapon.entity.UnwillingEntity;
 import mod.azure.doomweapon.entity.ZombiemanEntity;
 import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
@@ -44,6 +46,8 @@ public class ModEntitySpawn {
 		registerEntityWorldSpawn(ModEntityTypes.PAIN.get(), 8, 1, 2, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.HELLKNIGHT.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON.get(), 2, 1, 1, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.UNWILLING.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON2016.get(), 2, 1, 1, Biomes.NETHER);
 	}
 
 	public static void EntitySpawnPlacementRegistry() {
@@ -98,6 +102,12 @@ public class ModEntitySpawn {
 		EntitySpawnPlacementRegistry.register(ModEntityTypes.CYBERDEMON.get(),
 				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				CyberdemonEntity::spawning);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.CYBERDEMON2016.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				Cyberdemon2016Entity::spawning);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.UNWILLING.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				UnwillingEntity::spawning);
 	}
 
 	public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup,
