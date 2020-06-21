@@ -33,6 +33,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.IPacket;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
@@ -157,21 +158,21 @@ public class IconofsinEntity extends ZombieEntity {
 
 	@Override
 	protected SoundEvent getAmbientSound() {
-		return ModSoundEvents.CYBERDEMON_AMBIENT.get();
+		return ModSoundEvents.ICON_AMBIENT.get();
 	}
 
 	@Override
 	protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-		return ModSoundEvents.CYBERDEMON_HURT.get();
+		return ModSoundEvents.ICON_HURT.get();
 	}
 
 	@Override
 	protected SoundEvent getDeathSound() {
-		return ModSoundEvents.CYBERDEMON_DEATH.get();
+		return ModSoundEvents.ICON_DEATH.get();
 	}
 
 	protected SoundEvent getStepSound() {
-		return ModSoundEvents.CYBERDEMON_STEP.get();
+		return SoundEvents.ENTITY_SKELETON_STEP;
 	}
 
 	@Override
@@ -183,7 +184,7 @@ public class IconofsinEntity extends ZombieEntity {
 	public CreatureAttribute getCreatureAttribute() {
 		return CreatureAttribute.UNDEAD;
 	}
-	
+
 	@Override
 	public boolean isNonBoss() {
 		return false;

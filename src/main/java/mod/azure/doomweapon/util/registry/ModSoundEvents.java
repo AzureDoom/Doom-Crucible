@@ -185,4 +185,11 @@ public class ModSoundEvents {
 	public static final RegistryObject<SoundEvent> PAIN_HURT = MOD_SOUNDS.register("doom.pain_hurt",
 			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.pain_hurt")));
 
+	public static final RegistryObject<SoundEvent> ICON_AMBIENT = MOD_SOUNDS.register("doom.icon_ambient",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.icon_ambient")));
+	public static final RegistryObject<SoundEvent> ICON_DEATH = MOD_SOUNDS.register("doom.icon_death",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.icon_death")));
+	public static final RegistryObject<SoundEvent> ICON_HURT = MOD_SOUNDS.register("doom.icon_hurt",
+			() -> new SoundEvent(new ResourceLocation("doomweapon", "doom.icon_hurt")));
+
 }

@@ -8,6 +8,15 @@
 	"doom.chaingun_fire": {
 		"category": "music", "sounds": [{"name": "doomweapon:chaingun_fire", "stream": true}]
 	},
+	"doom.icon_death": {
+		"category": "music", "sounds": [{"name": "doomweapon:icon_death", "stream": true}]
+	},
+	"doom.icon_hurt": {
+		"category": "music", "sounds": [{"name": "doomweapon:icon_hurt", "stream": true}]
+	},
+	"doom.icon_ambient": {
+		"category": "music", "sounds": [{"name": "doomweapon:icon_ambient", "stream": true}]
+	},
 	"doom.shotgun_fire": {
 		"category": "music", "sounds": [{"name": "doomweapon:shotgun_fire", "stream": true}]
 	},
