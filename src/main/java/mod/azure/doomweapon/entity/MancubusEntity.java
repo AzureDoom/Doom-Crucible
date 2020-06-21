@@ -12,8 +12,10 @@ import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ILivingEntityData;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.LookAtGoal;
@@ -142,6 +144,10 @@ public class MancubusEntity extends ZombieEntity {
 
 	protected boolean shouldBurnInDay() {
 		return false;
+	}
+
+	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+		return 4.70F;
 	}
 
 	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {

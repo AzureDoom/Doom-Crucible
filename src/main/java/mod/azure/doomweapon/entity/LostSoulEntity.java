@@ -8,8 +8,10 @@ import mod.azure.doomweapon.util.registry.DoomItems;
 import mod.azure.doomweapon.util.registry.ModEntityTypes;
 import mod.azure.doomweapon.util.registry.ModSoundEvents;
 import net.minecraft.entity.CreatureAttribute;
+import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Pose;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.controller.MovementController;
 import net.minecraft.entity.ai.goal.Goal;
@@ -68,6 +70,11 @@ public class LostSoulEntity extends GhastEntity {
 	@Override
 	protected boolean isDespawnPeaceful() {
 		return true;
+	}
+
+	@Override
+	protected float getStandingEyeHeight(Pose poseIn, EntitySize sizeIn) {
+		return 0.5F;
 	}
 
 	protected void dropSpecialItems(DamageSource source, int looting, boolean recentlyHitIn) {
