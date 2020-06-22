@@ -21,7 +21,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
@@ -29,19 +28,6 @@ public class Chaingun extends BowItem {
 
 	public Chaingun() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
-		this.addPropertyOverride(new ResourceLocation("pull"), (p_210310_0_, p_210310_1_, p_210310_2_) -> {
-			if (p_210310_2_ == null) {
-				return 0.0F;
-			} else {
-				return !(p_210310_2_.getActiveItemStack().getItem() instanceof Chaingun) ? 0.0F
-						: (float) (p_210310_0_.getUseDuration() - p_210310_2_.getItemInUseCount()) / 20.0F;
-			}
-		});
-		this.addPropertyOverride(new ResourceLocation("pulling"), (p_210309_0_, p_210309_1_, p_210309_2_) -> {
-			return p_210309_2_ != null && p_210309_2_.isHandActive() && p_210309_2_.getActiveItemStack() == p_210309_0_
-					? 1.0F
-					: 0.0F;
-		});
 	}
 
 	@Override
