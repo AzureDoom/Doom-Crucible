@@ -18,9 +18,9 @@ apply plugin: "com.wynprice.cursemaven"
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
-version = "2.0.0"
+version = "2.0.0a"
 group = "mod.azure.doomweapon"
-archivesBaseName = "Doom-Items-Mod-1.15.2"
+archivesBaseName = "AzureDooms-Doom-Mod-1.15.2"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
