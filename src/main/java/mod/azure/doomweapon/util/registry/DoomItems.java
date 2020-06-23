@@ -34,6 +34,7 @@ import mod.azure.doomweapon.item.eggs.CacodemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ChaingunnerSpawnEgg;
 import mod.azure.doomweapon.item.eggs.CyberdemonSpawnEgg;
 import mod.azure.doomweapon.item.eggs.HellknightSpawnEgg;
+import mod.azure.doomweapon.item.eggs.IconofsinSpawnEgg;
 import mod.azure.doomweapon.item.eggs.Imp2016SpawnEgg;
 import mod.azure.doomweapon.item.eggs.ImpSpawnEgg;
 import mod.azure.doomweapon.item.eggs.LostSoulSpawnEgg;
@@ -136,6 +137,8 @@ public class DoomItems {
 			() -> new ShotgunguySpawnEgg(16500000, 11998228));
 	public static final RegistryObject<Item> CYBERDEMON_SPAWN_EGG = ITEMS.register("cyberdemon_spawn_egg",
 			() -> new CyberdemonSpawnEgg(16500000, 11998228));
+	public static final RegistryObject<Item> ICON_SPAWN_EGG = ITEMS.register("icon_of_sin_spawn_egg",
+			() -> new IconofsinSpawnEgg(0x2800db, 0x4f7ff7));
 	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());
