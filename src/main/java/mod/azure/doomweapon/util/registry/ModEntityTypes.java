@@ -16,6 +16,7 @@ import mod.azure.doomweapon.entity.MancubusEntity;
 import mod.azure.doomweapon.entity.MarauderEntity;
 import mod.azure.doomweapon.entity.PainEntity;
 import mod.azure.doomweapon.entity.PinkyEntity;
+import mod.azure.doomweapon.entity.PossessedScientistEntity;
 import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
@@ -151,6 +152,13 @@ public class ModEntityTypes {
 					.size(0.6f, 1.95F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "unwilling").toString()));
 	
+	public static final RegistryObject<EntityType<PossessedScientistEntity>> POSSESSEDSCIENTIST = ENTITY_TYPES.register(
+			"possessed_scientist",
+			() -> EntityType.Builder
+					.<PossessedScientistEntity>create(PossessedScientistEntity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "possessed_scientist").toString()));
+
 	public static final RegistryObject<EntityType<IconofsinEntity>> ICONOFSIN = ENTITY_TYPES.register("iconofsin",
 			() -> EntityType.Builder.<IconofsinEntity>create(IconofsinEntity::new, EntityClassification.MONSTER)
 					.size(2.4f, 10.0F).immuneToFire()

@@ -41,6 +41,7 @@ public class ModEventSubscriber {
 				ModEntityTypes.CHAINGUNNER.get(), ModEntityTypes.SHOTGUNGUY.get(), ModEntityTypes.MARAUDER.get(),
 				ModEntityTypes.REVENANT.get(), ModEntityTypes.SPIDERDEMON.get(), ModEntityTypes.HELLKNIGHT.get(),
 				ModEntityTypes.ICONOFSIN.get(), ModEntityTypes.ZOMBIEMAN.get());
+				ModEntityTypes.POSSESSEDSCIENTIST.get(), ModEntityTypes.ZOMBIEMAN.get());
 		ModEntitySpawn.registerEntityWorldSpawns();
 		ModEntitySpawn.EntitySpawnPlacementRegistry();
 	}
