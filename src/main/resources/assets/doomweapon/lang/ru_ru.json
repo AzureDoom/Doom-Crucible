@@ -6,7 +6,7 @@
    "item.doomweapon.chaingunbullets":"Пули Для Пулемета",
    "item.doomweapon.energy_cells":"Энергитические Ячейки",
    "item.doomweapon.inmortalsphere":"Сфера Бессмертия",
-   "item.doomweapon.invisiblesphere":"Сфера Невидимости"
+   "item.doomweapon.invisiblesphere":"Сфера Невидимости",
    "item.doomweapon.megasphere":"Мега Сфера",
    "item.doomweapon.powersphere":"Сфера Силы",
    "item.doomweapon.soulcube":"Душекуб",
@@ -143,7 +143,7 @@
    "item.doomweapon.baron_spawn_egg":"Яйцо Призыва Барона Ада",
    "item.doomweapon.cacodemon_spawn_egg":"Яйцо Призыва Какодемона",
    "item.doomweapon.mancubus_spawn_egg":"Яйцо Призыва Манкубуса",
-   "item.doomweapon.lost_soul_spawn_egg":"Яйцо Призыва Потерянной Души"
+   "item.doomweapon.lost_soul_spawn_egg":"Яйцо Призыва Потерянной Души",
    "item.doomweapon.spiderdemon_spawn_egg":"Яйцо Призыва Пауко-Демона",
    "item.doomweapon.zombieman_spawn_egg":"Яйцо Призыва Зомбичела",
    "item.doomweapon.chaingunner_spawn_egg":"Яйцо Призыва Пулеметчика",
