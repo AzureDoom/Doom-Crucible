@@ -142,12 +142,14 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.<CyberdemonEntity>create(CyberdemonEntity::new, EntityClassification.MONSTER)
 					.size(1.6f, 4.75F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "cyberdemon").toString()));
-	
-	public static final RegistryObject<EntityType<Cyberdemon2016Entity>> CYBERDEMON2016 = ENTITY_TYPES.register("cyberdemon2016",
-			() -> EntityType.Builder.<Cyberdemon2016Entity>create(Cyberdemon2016Entity::new, EntityClassification.MONSTER)
+
+	public static final RegistryObject<EntityType<Cyberdemon2016Entity>> CYBERDEMON2016 = ENTITY_TYPES.register(
+			"cyberdemon2016",
+			() -> EntityType.Builder
+					.<Cyberdemon2016Entity>create(Cyberdemon2016Entity::new, EntityClassification.MONSTER)
 					.size(1.6f, 4.75F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "cyberdemon2016").toString()));
-	
+
 	public static final RegistryObject<EntityType<UnwillingEntity>> UNWILLING = ENTITY_TYPES.register("unwilling",
 			() -> EntityType.Builder.<UnwillingEntity>create(UnwillingEntity::new, EntityClassification.MONSTER)
 					.size(0.6f, 1.95F).immuneToFire()
