@@ -17,6 +17,7 @@ import mod.azure.doomweapon.entity.MarauderEntity;
 import mod.azure.doomweapon.entity.PainEntity;
 import mod.azure.doomweapon.entity.PinkyEntity;
 import mod.azure.doomweapon.entity.PossessedScientistEntity;
+import mod.azure.doomweapon.entity.PossessedSoldierEntity;
 import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
@@ -151,7 +152,14 @@ public class ModEntityTypes {
 			() -> EntityType.Builder.<UnwillingEntity>create(UnwillingEntity::new, EntityClassification.MONSTER)
 					.size(0.6f, 1.95F).immuneToFire()
 					.build(new ResourceLocation(DoomMod.MODID, "unwilling").toString()));
-	
+
+	public static final RegistryObject<EntityType<PossessedSoldierEntity>> POSSESSEDSOLDIER = ENTITY_TYPES.register(
+			"possessed_soldier",
+			() -> EntityType.Builder
+					.<PossessedSoldierEntity>create(PossessedSoldierEntity::new, EntityClassification.MONSTER)
+					.size(0.6f, 1.95F).immuneToFire()
+					.build(new ResourceLocation(DoomMod.MODID, "possessed_soldier").toString()));
+
 	public static final RegistryObject<EntityType<PossessedScientistEntity>> POSSESSEDSCIENTIST = ENTITY_TYPES.register(
 			"possessed_scientist",
 			() -> EntityType.Builder

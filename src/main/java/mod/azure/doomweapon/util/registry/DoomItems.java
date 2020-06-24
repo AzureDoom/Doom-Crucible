@@ -43,6 +43,7 @@ import mod.azure.doomweapon.item.eggs.MarauderSpawnEgg;
 import mod.azure.doomweapon.item.eggs.PainSpawnEgg;
 import mod.azure.doomweapon.item.eggs.PinkySpawnEgg;
 import mod.azure.doomweapon.item.eggs.PossessedScientistSpawnEgg;
+import mod.azure.doomweapon.item.eggs.PossessedSoldierSpawnEgg;
 import mod.azure.doomweapon.item.eggs.RevenantSpawnEgg;
 import mod.azure.doomweapon.item.eggs.ShotgunguySpawnEgg;
 import mod.azure.doomweapon.item.eggs.SpiderdemonSpawnEgg;
@@ -145,6 +146,8 @@ public class DoomItems {
 			() -> new UnwillingSpawnEgg(0x2800db, 0x4f7ff7));
 	public static final RegistryObject<Item> POSSESSED_SCIENTIST_SPAWN_EGG = ITEMS.register("possessed_scientist_spawn_egg",
 			() -> new PossessedScientistSpawnEgg(0x2800db, 0x4f7ff7));
+	public static final RegistryObject<Item> POSSESSED_SOLDIER_SPAWN_EGG = ITEMS.register("possessed_soldier_spawn_egg",
+			() -> new PossessedSoldierSpawnEgg(0x2800db, 0x4f7ff7));
 	// WEAPONS AND TOOLS
 	public static final RegistryObject<Item> ICON = ITEMS.register("doomcrucible_open", () -> new SwordCrucibleItem());
 	public static final RegistryObject<Item> ARGENT_AXE = ITEMS.register("argent_axe", () -> new ArgentAxe());

@@ -17,6 +17,7 @@ import mod.azure.doomweapon.client.render.MarauderRender;
 import mod.azure.doomweapon.client.render.PainRender;
 import mod.azure.doomweapon.client.render.PinkyRender;
 import mod.azure.doomweapon.client.render.PossessedScientistRender;
+import mod.azure.doomweapon.client.render.PossessedSoldierRender;
 import mod.azure.doomweapon.client.render.RevenantRender;
 import mod.azure.doomweapon.client.render.ShotgunguyRender;
 import mod.azure.doomweapon.client.render.SpiderdemonRender;
@@ -66,6 +67,8 @@ public class ClientModEventSubscriber {
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.ICONOFSIN.get(), IconofsinRender::new);
 		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.POSSESSEDSCIENTIST.get(),
 				PossessedScientistRender::new);
+		RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.POSSESSEDSOLDIER.get(),
+				PossessedSoldierRender::new);
 	}
 
 }

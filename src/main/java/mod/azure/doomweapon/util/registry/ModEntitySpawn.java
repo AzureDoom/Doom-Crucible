@@ -15,6 +15,7 @@ import mod.azure.doomweapon.entity.MarauderEntity;
 import mod.azure.doomweapon.entity.PainEntity;
 import mod.azure.doomweapon.entity.PinkyEntity;
 import mod.azure.doomweapon.entity.PossessedScientistEntity;
+import mod.azure.doomweapon.entity.PossessedSoldierEntity;
 import mod.azure.doomweapon.entity.RevenantEntity;
 import mod.azure.doomweapon.entity.ShotgunguyEntity;
 import mod.azure.doomweapon.entity.SpiderdemonEntity;
@@ -49,6 +50,7 @@ public class ModEntitySpawn {
 		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON.get(), 2, 1, 1, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.UNWILLING.get(), 12, 2, 7, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.POSSESSEDSCIENTIST.get(), 12, 2, 7, Biomes.NETHER);
+		registerEntityWorldSpawn(ModEntityTypes.POSSESSEDSOLDIER.get(), 12, 2, 7, Biomes.NETHER);
 		registerEntityWorldSpawn(ModEntityTypes.CYBERDEMON2016.get(), 2, 1, 1, Biomes.NETHER);
 	}
 
@@ -113,6 +115,9 @@ public class ModEntitySpawn {
 		EntitySpawnPlacementRegistry.register(ModEntityTypes.POSSESSEDSCIENTIST.get(),
 				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
 				PossessedScientistEntity::spawning);
+		EntitySpawnPlacementRegistry.register(ModEntityTypes.POSSESSEDSOLDIER.get(),
+				EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES,
+				PossessedSoldierEntity::spawning);
 	}
 
 	public static void registerEntityWorldSpawn(EntityType<?> entity, int weight, int minGroup, int maxGroup,
