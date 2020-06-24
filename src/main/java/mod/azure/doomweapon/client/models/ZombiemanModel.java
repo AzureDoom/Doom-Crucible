@@ -1,55 +1,92 @@
 package mod.azure.doomweapon.client.models;
 
-import com.mojang.blaze3d.matrix.MatrixStack;
+import java.util.List;
+import java.util.Random;
 
-import mod.azure.doomweapon.item.weapons.Shotgun;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+
+import mod.azure.doomweapon.entity.ZombiemanEntity;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.model.BipedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Hand;
 import net.minecraft.util.HandSide;
-import net.minecraft.util.math.MathHelper;
 
-public class ZombiemanModel<T extends MobEntity> extends BipedModel<T> {
-	public ZombiemanModel() {
-		this(0.0F, false);
-	}
+public class ZombiemanModel<T extends ZombiemanEntity> extends BipedModel<T> {
+	private List<ModelRenderer> modelRenderers = Lists.newArrayList();
+	public final ModelRenderer bipedLeftArmwear;
+	public final ModelRenderer bipedRightArmwear;
+	public final ModelRenderer bipedLeftLegwear;
+	public final ModelRenderer bipedRightLegwear;
+	public final ModelRenderer bipedBodyWear;
+	private final ModelRenderer bipedCape;
+	private final ModelRenderer bipedDeadmau5Head;
+	private final boolean smallArms;
 
-	public ZombiemanModel(float modelSize, boolean p_i46303_2_) {
-		super(modelSize);
-		if (!p_i46303_2_) {
+	public ZombiemanModel(float modelSize, boolean smallArmsIn) {
+		super(RenderType::getEntityTranslucent, modelSize, 0.0F, 64, 64);
+		this.smallArms = smallArmsIn;
+		this.bipedDeadmau5Head = new ModelRenderer(this, 24, 0);
+		this.bipedDeadmau5Head.addBox(-3.0F, -6.0F, -1.0F, 6.0F, 6.0F, 1.0F, modelSize);
+		this.bipedCape = new ModelRenderer(this, 0, 0);
+		this.bipedCape.setTextureSize(64, 32);
+		this.bipedCape.addBox(-5.0F, 0.0F, -1.0F, 10.0F, 16.0F, 1.0F, modelSize);
+		if (smallArmsIn) {
+			this.bipedLeftArm = new ModelRenderer(this, 32, 48);
+			this.bipedLeftArm.addBox(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, modelSize);
+			this.bipedLeftArm.setRotationPoint(5.0F, 2.5F, 0.0F);
 			this.bipedRightArm = new ModelRenderer(this, 40, 16);
-			this.bipedRightArm.addBox(-1.0F, -2.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
-			this.bipedRightArm.setRotationPoint(-5.0F, 2.0F, 0.0F);
-			this.bipedLeftArm = new ModelRenderer(this, 40, 16);
-			this.bipedLeftArm.mirror = true;
-			this.bipedLeftArm.addBox(-1.0F, -2.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
+			this.bipedRightArm.addBox(-2.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, modelSize);
+			this.bipedRightArm.setRotationPoint(-5.0F, 2.5F, 0.0F);
+			this.bipedLeftArmwear = new ModelRenderer(this, 48, 48);
+			this.bipedLeftArmwear.addBox(-1.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, modelSize + 0.25F);
+			this.bipedLeftArmwear.setRotationPoint(5.0F, 2.5F, 0.0F);
+			this.bipedRightArmwear = new ModelRenderer(this, 40, 32);
+			this.bipedRightArmwear.addBox(-2.0F, -2.0F, -2.0F, 3.0F, 12.0F, 4.0F, modelSize + 0.25F);
+			this.bipedRightArmwear.setRotationPoint(-5.0F, 2.5F, 10.0F);
+		} else {
+			this.bipedLeftArm = new ModelRenderer(this, 32, 48);
+			this.bipedLeftArm.addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, modelSize);
 			this.bipedLeftArm.setRotationPoint(5.0F, 2.0F, 0.0F);
-			this.bipedRightLeg = new ModelRenderer(this, 0, 16);
-			this.bipedRightLeg.addBox(-1.0F, 0.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
-			this.bipedRightLeg.setRotationPoint(-2.0F, 12.0F, 0.0F);
-			this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
-			this.bipedLeftLeg.mirror = true;
-			this.bipedLeftLeg.addBox(-1.0F, 0.0F, -1.0F, 2.0F, 12.0F, 2.0F, modelSize);
-			this.bipedLeftLeg.setRotationPoint(2.0F, 12.0F, 0.0F);
+			this.bipedLeftArmwear = new ModelRenderer(this, 48, 48);
+			this.bipedLeftArmwear.addBox(-1.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, modelSize + 0.25F);
+			this.bipedLeftArmwear.setRotationPoint(5.0F, 2.0F, 0.0F);
+			this.bipedRightArmwear = new ModelRenderer(this, 40, 32);
+			this.bipedRightArmwear.addBox(-3.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, modelSize + 0.25F);
+			this.bipedRightArmwear.setRotationPoint(-5.0F, 2.0F, 10.0F);
 		}
 
+		this.bipedLeftLeg = new ModelRenderer(this, 16, 48);
+		this.bipedLeftLeg.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, modelSize);
+		this.bipedLeftLeg.setRotationPoint(1.9F, 12.0F, 0.0F);
+		this.bipedLeftLegwear = new ModelRenderer(this, 0, 48);
+		this.bipedLeftLegwear.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, modelSize + 0.25F);
+		this.bipedLeftLegwear.setRotationPoint(1.9F, 12.0F, 0.0F);
+		this.bipedRightLegwear = new ModelRenderer(this, 0, 32);
+		this.bipedRightLegwear.addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, modelSize + 0.25F);
+		this.bipedRightLegwear.setRotationPoint(-1.9F, 12.0F, 0.0F);
+		this.bipedBodyWear = new ModelRenderer(this, 16, 32);
+		this.bipedBodyWear.addBox(-4.0F, 0.0F, -2.0F, 8.0F, 12.0F, 4.0F, modelSize + 0.25F);
+		this.bipedBodyWear.setRotationPoint(0.0F, 0.0F, 0.0F);
 	}
 
-	public void setLivingAnimations(T entityIn, float limbSwing, float limbSwingAmount, float partialTick) {
-		this.rightArmPose = BipedModel.ArmPose.EMPTY;
-		this.leftArmPose = BipedModel.ArmPose.EMPTY;
-		ItemStack itemstack = entityIn.getHeldItem(Hand.MAIN_HAND);
-		if (itemstack.getItem() instanceof Shotgun && entityIn.isAggressive()) {
-			if (entityIn.getPrimaryHand() == HandSide.RIGHT) {
-				this.rightArmPose = BipedModel.ArmPose.BOW_AND_ARROW;
-			} else {
-				this.leftArmPose = BipedModel.ArmPose.BOW_AND_ARROW;
-			}
-		}
+	protected Iterable<ModelRenderer> getBodyParts() {
+		return Iterables.concat(super.getBodyParts(), ImmutableList.of(this.bipedLeftLegwear, this.bipedRightLegwear,
+				this.bipedLeftArmwear, this.bipedRightArmwear, this.bipedBodyWear));
+	}
 
-		super.setLivingAnimations(entityIn, limbSwing, limbSwingAmount, partialTick);
+	public void renderEars(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn) {
+		this.bipedDeadmau5Head.copyModelAngles(this.bipedHead);
+		this.bipedDeadmau5Head.rotationPointX = 0.0F;
+		this.bipedDeadmau5Head.rotationPointY = 0.0F;
+		this.bipedDeadmau5Head.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
+	}
+
+	public void renderCape(MatrixStack matrixStackIn, IVertexBuilder bufferIn, int packedLightIn, int packedOverlayIn) {
+		this.bipedCape.render(matrixStackIn, bufferIn, packedLightIn, packedOverlayIn);
 	}
 
 	/**
@@ -58,32 +95,56 @@ public class ZombiemanModel<T extends MobEntity> extends BipedModel<T> {
 	public void setRotationAngles(T entityIn, float limbSwing, float limbSwingAmount, float ageInTicks,
 			float netHeadYaw, float headPitch) {
 		super.setRotationAngles(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-		ItemStack itemstack = entityIn.getHeldItemMainhand();
-		if (entityIn.isAggressive() && (itemstack.isEmpty() || !(itemstack.getItem() instanceof Shotgun))) {
-			float f = MathHelper.sin(this.swingProgress * (float) Math.PI);
-			float f1 = MathHelper
-					.sin((1.0F - (1.0F - this.swingProgress) * (1.0F - this.swingProgress)) * (float) Math.PI);
-			this.bipedRightArm.rotateAngleZ = 0.0F;
-			this.bipedLeftArm.rotateAngleZ = 0.0F;
-			this.bipedRightArm.rotateAngleY = -(0.1F - f * 0.6F);
-			this.bipedLeftArm.rotateAngleY = 0.1F - f * 0.6F;
-			this.bipedRightArm.rotateAngleX = (-(float) Math.PI / 2F);
-			this.bipedLeftArm.rotateAngleX = (-(float) Math.PI / 2F);
-			this.bipedRightArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-			this.bipedLeftArm.rotateAngleX -= f * 1.2F - f1 * 0.4F;
-			this.bipedRightArm.rotateAngleZ += MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-			this.bipedLeftArm.rotateAngleZ -= MathHelper.cos(ageInTicks * 0.09F) * 0.05F + 0.05F;
-			this.bipedRightArm.rotateAngleX += MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
-			this.bipedLeftArm.rotateAngleX -= MathHelper.sin(ageInTicks * 0.067F) * 0.05F;
+		this.bipedLeftLegwear.copyModelAngles(this.bipedLeftLeg);
+		this.bipedRightLegwear.copyModelAngles(this.bipedRightLeg);
+		this.bipedLeftArmwear.copyModelAngles(this.bipedLeftArm);
+		this.bipedRightArmwear.copyModelAngles(this.bipedRightArm);
+		this.bipedBodyWear.copyModelAngles(this.bipedBody);
+		if (entityIn.isCrouching()) {
+			this.bipedCape.rotationPointY = 2.0F;
+		} else {
+			this.bipedCape.rotationPointY = 0.0F;
 		}
 
 	}
 
+	public void setVisible(boolean visible) {
+		super.setVisible(visible);
+		this.bipedLeftArmwear.showModel = visible;
+		this.bipedRightArmwear.showModel = visible;
+		this.bipedLeftLegwear.showModel = visible;
+		this.bipedRightLegwear.showModel = visible;
+		this.bipedBodyWear.showModel = visible;
+		this.bipedCape.showModel = visible;
+		this.bipedDeadmau5Head.showModel = visible;
+	}
+
 	public void translateHand(HandSide sideIn, MatrixStack matrixStackIn) {
-		float f = sideIn == HandSide.RIGHT ? 1.0F : -1.0F;
 		ModelRenderer modelrenderer = this.getArmForSide(sideIn);
-		modelrenderer.rotationPointX += f;
-		modelrenderer.translateRotate(matrixStackIn);
-		modelrenderer.rotationPointX -= f;
+		if (this.smallArms) {
+			float f = 0.5F * (float) (sideIn == HandSide.RIGHT ? 1 : -1);
+			modelrenderer.rotationPointX += f;
+			modelrenderer.translateRotate(matrixStackIn);
+			modelrenderer.rotationPointX -= f;
+		} else {
+			modelrenderer.translateRotate(matrixStackIn);
+		}
+
+	}
+
+	public ModelRenderer getRandomModelRenderer(Random randomIn) {
+		return this.modelRenderers.get(randomIn.nextInt(this.modelRenderers.size()));
+	}
+
+	public void accept(ModelRenderer p_accept_1_) {
+		if (this.modelRenderers == null) {
+			this.modelRenderers = Lists.newArrayList();
+		}
+
+		this.modelRenderers.add(p_accept_1_);
+	}
+
+	public boolean isAggressive(T entityIn) {
+		return entityIn.isAggressive();
 	}
 }
