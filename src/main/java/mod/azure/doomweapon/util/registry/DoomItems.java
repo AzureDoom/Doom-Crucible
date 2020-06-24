@@ -78,8 +78,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class DoomItems {
 
-	@SuppressWarnings("deprecation")
-	public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, DoomMod.MODID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,DoomMod.MODID);
 
 	// AMMO
 	public static final RegistryObject<Item> SHOTGUN_SHELLS = ITEMS.register("shotgun_shells",

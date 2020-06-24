@@ -9,8 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModSoundEvents {
 
-	@SuppressWarnings("deprecation")
-	public static final DeferredRegister<SoundEvent> MOD_SOUNDS = new DeferredRegister<>(ForgeRegistries.SOUND_EVENTS,
+	public static final DeferredRegister<SoundEvent> MOD_SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS,
 			DoomMod.MODID);
 
 	public static final RegistryObject<SoundEvent> BFG_FIRING = MOD_SOUNDS.register("doom.bfg_firing",
