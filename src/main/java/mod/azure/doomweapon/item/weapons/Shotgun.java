@@ -12,10 +12,10 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShootableItem;
 import net.minecraft.item.UseAction;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
@@ -25,7 +25,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class Shotgun extends BowItem {
+public class Shotgun extends ShootableItem {
 
 	public Shotgun() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
@@ -33,7 +33,7 @@ public class Shotgun extends BowItem {
 			if (p_210310_2_ == null) {
 				return 0.0F;
 			} else {
-				return !(p_210310_2_.getActiveItemStack().getItem() instanceof BowItem) ? 0.0F
+				return !(p_210310_2_.getActiveItemStack().getItem() instanceof Shotgun) ? 0.0F
 						: (float) (p_210310_0_.getUseDuration() - p_210310_2_.getItemInUseCount()) / 20.0F;
 			}
 		});

@@ -12,10 +12,10 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.AbstractArrowEntity;
-import net.minecraft.item.BowItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShootableItem;
 import net.minecraft.item.UseAction;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
@@ -24,7 +24,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class Chaingun extends BowItem {
+public class Chaingun extends ShootableItem {
 
 	public Chaingun() {
 		super(new Item.Properties().group(DoomMod.DoomItemGroup).maxStackSize(1));
@@ -58,12 +58,6 @@ public class Chaingun extends BowItem {
 			boolean flag = playerentity.abilities.isCreativeMode
 					|| EnchantmentHelper.getEnchantmentLevel(Enchantments.INFINITY, stack) > 0;
 			ItemStack itemstack = playerentity.findAmmo(stack);
-
-			int i = this.getUseDuration(stack) - timeLeft;
-			i = net.minecraftforge.event.ForgeEventFactory.onArrowLoose(stack, worldIn, playerentity, i,
-					!itemstack.isEmpty() || flag);
-			if (i < 0)
-				return;
 
 			if (!itemstack.isEmpty() || flag) {
 				if (itemstack.isEmpty()) {
@@ -131,13 +125,13 @@ public class Chaingun extends BowItem {
 	}
 
 	@Override
-	public int getUseDuration(ItemStack stack) {
-		return 72000;
-	}
-
-	@Override
 	public UseAction getUseAction(ItemStack stack) {
 		return UseAction.NONE;
+	}
+	
+	@Override
+	public int getUseDuration(ItemStack stack) {
+		return 72000;
 	}
 
 	@Override
