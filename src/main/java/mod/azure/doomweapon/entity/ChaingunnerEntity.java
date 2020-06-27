@@ -220,6 +220,7 @@ public class ChaingunnerEntity extends MonsterEntity implements IRangedAttackMob
 		if (itementity != null) {
 			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

@@ -82,6 +82,7 @@ public class ArchvileEntity extends MonsterEntity {
 		if (itementity != null) {
 			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

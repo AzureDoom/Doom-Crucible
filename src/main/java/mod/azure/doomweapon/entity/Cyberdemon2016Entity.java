@@ -152,6 +152,7 @@ public class Cyberdemon2016Entity extends ZombieEntity {
 		if (itementity != null) {
 			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

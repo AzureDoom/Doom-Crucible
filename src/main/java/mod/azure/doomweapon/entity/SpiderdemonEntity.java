@@ -145,7 +145,9 @@ public class SpiderdemonEntity extends ZombieEntity {
 		super.dropSpecialItems(source, looting, recentlyHitIn);
 		ItemEntity itementity = this.entityDropItem(DoomItems.BALLISTA.get());
 		if (itementity != null) {
+			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

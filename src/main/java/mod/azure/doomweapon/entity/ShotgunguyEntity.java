@@ -216,7 +216,9 @@ public class ShotgunguyEntity extends MonsterEntity implements IRangedAttackMob 
 		super.dropSpecialItems(source, looting, recentlyHitIn);
 		ItemEntity itementity = this.entityDropItem(DoomItems.SHOTGUN_SHELLS.get());
 		if (itementity != null) {
+			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

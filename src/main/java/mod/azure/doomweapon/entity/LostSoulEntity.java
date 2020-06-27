@@ -83,6 +83,7 @@ public class LostSoulEntity extends GhastEntity {
 		if (itementity != null) {
 			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

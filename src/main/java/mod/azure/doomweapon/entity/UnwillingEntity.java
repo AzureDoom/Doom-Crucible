@@ -159,6 +159,7 @@ public class UnwillingEntity extends ZombieEntity {
 		if (itementity != null) {
 			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 

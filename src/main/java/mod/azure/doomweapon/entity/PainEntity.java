@@ -203,6 +203,7 @@ public class PainEntity extends GhastEntity {
 		if (itementity != null) {
 			itementity.isImmuneToFire();
 			itementity.setNoDespawn();
+			itementity.setGlowing(true);
 		}
 	}
 
